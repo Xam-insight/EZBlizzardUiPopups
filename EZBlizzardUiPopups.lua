@@ -4,7 +4,7 @@ if (not EZBlizzardUiPopupsTooltip) then
 	EZBlizzardUiPopupsTooltip:Hide()
 end
 
-function EZBlizzardUiPopups_PlaySound(soundID)
+function EZBlizzUiPop_PlaySound(soundID)
 	if soundID then
 		PlaySound(soundID, "master")
 	end
@@ -12,7 +12,7 @@ end
 
 -- Tip by Gello - Hyjal
 -- takes an npcID and returns the name of the npc
-function EZBlizzardUiPopups_GetNameFromNpcID(npcID)
+function EZBlizzUiPop_GetNameFromNpcID(npcID)
 	local name = ""
 	
 	EZBlizzardUiPopupsTooltip:SetOwner(UIParent, "ANCHOR_NONE");
@@ -30,7 +30,7 @@ end
 -----------
 
 --local function alertOnClick(self, ...)
-function EZBlizzardUiPopups_AlertFrame_OnClick(self, ...)
+function EZBlizzUiPop_AlertFrame_OnClick(self, ...)
 	if (self.delay == -1) then
 		self:SetScript("OnLeave", AlertFrame_ResumeOutAnimation)
 		self.delay = 0
@@ -45,14 +45,14 @@ function EZBlizzardUiPopups_AlertFrame_OnClick(self, ...)
 	end
 end
 
-local function EZBlizzardUiPopups_AlertFrame_SetUp(frame, achievementID, alreadyEarned, name, delay, toptext, onClick, icon)
+local function EZBlizzUiPop_AlertFrame_SetUp(frame, achievementID, alreadyEarned, name, delay, toptext, onClick, icon)
 	-- An alert flagged as alreadyEarned has more space for the text to display since there's no shield+points icon.
 	local ret = AchievementAlertFrame_SetUp(frame, achievementID, alreadyEarned)
 	frame.Name:SetText(name)
 	frame.Unlocked:SetText(toptext or (toptext == false and THIS_TITLE) or ACHIEVEMENT_UNLOCKED)
 	frame.onClick = onClick
 	frame.delay = delay
-	frame:SetScript("OnClick", EZBlizzardUiPopups_AlertFrame_OnClick)
+	frame:SetScript("OnClick", EZBlizzUiPop_AlertFrame_OnClick)
 	if (delay) then
 		if (delay <= 0) then
 			C_Timer.After(0, function()  AlertFrame_StopOutAnimation(frame);  end)
@@ -80,7 +80,7 @@ local function EZBlizzardUiPopups_AlertFrame_SetUp(frame, achievementID, already
 	end
 end
 
-function EZBlizzardUiPopups_ToastFakeAchievement(addon, name, baseID, playSound, delay, toptext, onClick, icon, newEarn)
+function EZBlizzUiPop_ToastFakeAchievementNew(addon, name, baseID, playSound, delay, toptext, onClick, icon, newEarn)
   if AchievementFrame_LoadUI then
 	  if (IsKioskModeEnabled and IsKioskModeEnabled()) then
 		return;
@@ -90,13 +90,13 @@ function EZBlizzardUiPopups_ToastFakeAchievement(addon, name, baseID, playSound,
 	  end
 
 	  if (not addon.AlertSystem) then
-		addon.AlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("AchievementAlertFrameTemplate", EZBlizzardUiPopups_AlertFrame_SetUp, 4, math.huge)
+		addon.AlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("AchievementAlertFrameTemplate", EZBlizzUiPop_AlertFrame_SetUp, 4, math.huge)
 	  end
 
 	  if (not baseID) then  baseID = 5208;  end -- 5208 is "Twin Peaking", chosen because of its thumbs-up texture.
 	  addon.AlertSystem:AddAlert(baseID, not newEarn, name, delay, toptext, onClick, icon)
 
-	  if (playSound) then EZBlizzardUiPopups_PlaySound(12891);  end -- UI_Alert_AchievementGained
+	  if (playSound) then EZBlizzUiPop_PlaySound(12891);  end -- UI_Alert_AchievementGained
   end
 end
 
@@ -105,38 +105,42 @@ end
 
 local modelAnimationLoop = 2
 
-local npcModels = {
-	["BAINE"]                 = { ["CreatureId"] = 36648,  ["CameraId"] = 141, ["animation"] = 60 }, -- or animation 65 ?
-	["SYLVANAS"]              = { ["CreatureId"] = 10181,  ["CameraId"] = 84,  ["animation"] = 60 },
-	["ANDUIN"]                = { ["CreatureId"] = 107574, ["CameraId"] = 82,  ["animation"] = 60 },
-	["ALLIANCE_GUILD_HERALD"] = { ["CreatureId"] = 49587,  ["CameraId"] = 82,  ["animation"] = 60 },
-	["VARIAN"]                = { ["CreatureId"] = 29611,  ["CameraId"] = 82,  ["animation"] = 60 },
-	["HEMET"]                 = { ["CreatureId"] = 94409,  ["CameraId"] = 90,  ["animation"] = 60 },
-	["RAVERHOLDT"]            = { ["CreatureId"] = 101513, ["CameraId"] = 82,  ["animation"] = 60 },
-	["UTHER"]                 = { ["CreatureId"] = 17233,  ["CameraId"] = 82,  ["animation"] = 60 },
-	["VELEN"]                 = { ["CreatureId"] = 17468,  ["CameraId"] = 106, ["animation"] = 60 },
-	["NOBUNDO"]               = { ["CreatureId"] = 110695, ["CameraId"] = 268, ["animation"] = 60 },
-	["KHADGAR"]               = { ["CreatureId"] = 90417,  ["CameraId"] = 82,  ["animation"] = 60 },
-	["CHOGALL"]               = { ["CreatureId"] = 81822,  ["CameraId"] = 815, ["animation"] = 60 },
-	["CHEN"]                  = { ["CreatureId"] = 56133,  ["CameraId"] = 144, ["animation"] = 60 },
-	["MALFURION"]             = { ["CreatureId"] = 102432, ["CameraId"] = 575, ["animation"] = 60 },
-	["ILLIDAN"]               = { ["CreatureId"] = 22917,  ["CameraId"] = 296, ["animation"] = 60 },
-	["LICH_KING"]             = { ["CreatureId"] = 36597,  ["CameraId"] = 88,  ["animation"] = 60 },
-	["HORDE_GUILD_HERALD"]    = { ["CreatureId"] = 49590,  ["CameraId"] = 141, ["animation"] = 60 },
-	["THRALL"]                = { ["CreatureId"] = 91731,  ["CameraId"] = 815, ["animation"] = 60 },
-	["GALLYWIX"]              = { ["CreatureId"] = 101605, ["CameraId"] = 114, ["animation"] = 51 }
-}
-EZBlizzardUiPopups_npcModels = npcModels
+if not EZBlizzUiPop_npcModels then
+	EZBlizzUiPop_npcModels = {}
+end
 
-function EZBlizzardUiPopups_npcDialog(npc, text)
+EZBlizzUiPop_npcModels["BAINE"]                 = { ["CreatureId"] = 36648,  ["CameraId"] = 141, ["animation"] = 60 } -- or animation 65 ?
+EZBlizzUiPop_npcModels["SYLVANAS"]              = { ["CreatureId"] = 10181,  ["CameraId"] = 84,  ["animation"] = 60 }
+EZBlizzUiPop_npcModels["ANDUIN"]                = { ["CreatureId"] = 107574, ["CameraId"] = 82,  ["animation"] = 60 }
+EZBlizzUiPop_npcModels["ALLIANCE_GUILD_HERALD"] = { ["CreatureId"] = 49587,  ["CameraId"] = 82,  ["animation"] = 60 }
+EZBlizzUiPop_npcModels["VARIAN"]                = { ["CreatureId"] = 29611,  ["CameraId"] = 82,  ["animation"] = 60 }
+EZBlizzUiPop_npcModels["HEMET"]                 = { ["CreatureId"] = 94409,  ["CameraId"] = 90,  ["animation"] = 60 }
+EZBlizzUiPop_npcModels["RAVERHOLDT"]            = { ["CreatureId"] = 101513, ["CameraId"] = 82,  ["animation"] = 60 }
+EZBlizzUiPop_npcModels["UTHER"]                 = { ["CreatureId"] = 17233,  ["CameraId"] = 82,  ["animation"] = 60 }
+EZBlizzUiPop_npcModels["VELEN"]                 = { ["CreatureId"] = 17468,  ["CameraId"] = 106, ["animation"] = 60 }
+EZBlizzUiPop_npcModels["NOBUNDO"]               = { ["CreatureId"] = 110695, ["CameraId"] = 268, ["animation"] = 60 }
+EZBlizzUiPop_npcModels["KHADGAR"]               = { ["CreatureId"] = 90417,  ["CameraId"] = 82,  ["animation"] = 60 }
+EZBlizzUiPop_npcModels["CHOGALL"]               = { ["CreatureId"] = 81822,  ["CameraId"] = 815, ["animation"] = 60 }
+EZBlizzUiPop_npcModels["CHEN"]                  = { ["CreatureId"] = 56133,  ["CameraId"] = 144, ["animation"] = 60 }
+EZBlizzUiPop_npcModels["MALFURION"]             = { ["CreatureId"] = 102432, ["CameraId"] = 575, ["animation"] = 60 }
+EZBlizzUiPop_npcModels["ILLIDAN"]               = { ["CreatureId"] = 22917,  ["CameraId"] = 296, ["animation"] = 65 }
+EZBlizzUiPop_npcModels["LICH_KING"]             = { ["CreatureId"] = 36597,  ["CameraId"] = 88,  ["animation"] = 60 }
+EZBlizzUiPop_npcModels["HORDE_GUILD_HERALD"]    = { ["CreatureId"] = 49590,  ["CameraId"] = 141, ["animation"] = 60 }
+EZBlizzUiPop_npcModels["THRALL"]                = { ["CreatureId"] = 91731,  ["CameraId"] = 815, ["animation"] = 60 }
+EZBlizzUiPop_npcModels["GALLYWIX"]              = { ["CreatureId"] = 101605, ["CameraId"] = 114, ["animation"] = 51 }
+EZBlizzUiPop_npcModels["SHANDRIS"]              = { ["CreatureId"] = 161804, ["CameraId"] = 109, ["animation"] = 60 }
+EZBlizzUiPop_npcModels["SHAW"]                  = { ["CreatureId"] = 141358, ["CameraId"] = 82,  ["animation"] = 60 }
+EZBlizzUiPop_npcModels["GAMON"]                 = { ["CreatureId"] = 158588, ["CameraId"] = 126, ["animation"] = 60 }
+
+function EZBlizzUiPop_npcDialog(npc, text, overlayFrameTemplate)
 	local frame = nil
 	if TalkingHead_LoadUI then
-		frame = EZBlizzardUiPopups_npcDialogShow(npc, text)
+		frame = EZBlizzUiPop_npcDialogShow(npc, text, overlayFrameTemplate)
 	end
 	return frame
 end
 
-function EZBlizzardUiPopups_npcDialogShow(npc, text)
+function EZBlizzUiPop_npcDialogShow(npc, text, overlayFrameTemplate)
 	local frame = nil
 	if text then
 		if ( not TalkingHeadFrame ) then
@@ -144,19 +148,38 @@ function EZBlizzardUiPopups_npcDialogShow(npc, text)
 		end
 
 		frame = TalkingHeadFrame
-		
+		if overlayFrameTemplate then
+			if not EZBlizzUiPop_OverlayFrame then
+				local overlayFrame = CreateFrame("Frame", "EZBlizzUiPop_OverlayFrame", TalkingHeadFrame, overlayFrameTemplate)
+				overlayFrame:SetParent(frame)
+				overlayFrame:SetAllPoints(frame)
+				overlayFrame:RegisterEvent("TALKINGHEAD_REQUESTED")
+				overlayFrame:SetScript("OnEvent", function()
+					EZBlizzUiPop_OverlayFrame:Hide()
+				end)
+
+				hooksecurefunc("TalkingHeadFrame_FadeinFrames", function()
+					EZBlizzUiPop_OverlayFrame.Fadein:Play()
+				end)
+				hooksecurefunc("TalkingHeadFrame_FadeoutFrames", function()
+					EZBlizzUiPop_OverlayFrame.Close:Play()
+				end)
+			else
+				EZBlizzUiPop_OverlayFrame:Show()
+			end
+		end
+
 		local model = frame.MainFrame.Model
 		model:ClearModel()
-		model:SetCreature(npcModels[npc]["CreatureId"])
-		--model:SetDisplayInfo(npcModels[npc]["CreatureId"])
-		EZBlizzardUiPopups_TalkingHeadFrame_Play(npcModels[npc]["CameraId"], EZBlizzardUiPopups_GetNameFromNpcID(npcModels[npc]["CreatureId"]), text, npcModels[npc]["animation"])
-
+		model:SetCreature(EZBlizzUiPop_npcModels[npc]["CreatureId"])
+		--model:SetDisplayInfo(EZBlizzUiPop_npcModels[npc]["CreatureId"])
+		EZBlizzUiPop_TalkingHeadFrame_Play(EZBlizzUiPop_npcModels[npc]["CameraId"], EZBlizzUiPop_GetNameFromNpcID(EZBlizzUiPop_npcModels[npc]["CreatureId"]), text, EZBlizzUiPop_npcModels[npc]["animation"])
 	end
 	return frame
 end
 
 local modelAnimationLoopIterration = 0
-function EZBlizzardUiPopups_TalkingHeadFrame_Play(cameraId, name, text, animation)
+function EZBlizzUiPop_TalkingHeadFrame_Play(cameraId, name, text, animation)
 	local frame = TalkingHeadFrame
 	local model = frame.MainFrame.Model
 	
@@ -180,17 +203,19 @@ function EZBlizzardUiPopups_TalkingHeadFrame_Play(cameraId, name, text, animatio
 			end
 		end)
 	end)
-	C_Timer.After(10, function() TalkingHeadFrame_Close() end)
+	C_Timer.After(10, function()
+		TalkingHeadFrame_Close()
+	end)
 end
 
 --[[
-local camId = 114
-local creatureId = 101605
+local camId = 84
+local creatureId = 10181
 local imageSize = 80
-local animation = 144
+local animation = 40
 
-for i = 0, 15 do
-	for j = 0, 8 do
+for i = 0, 22 do
+	for j = 0, 12 do
 		local totopModel = CreateFrame("PlayerModel", "", UIParent)
 		totopModel:SetPoint("TOPLEFT", i*imageSize, -j*imageSize - 30)
 		totopModel:SetWidth(imageSize)
@@ -228,10 +253,13 @@ end
 
 -- Loading models
 local model = CreateFrame('PlayerModel', nil, UIParent)
-for index,value in pairs(npcModels) do
-	model:SetCreature(npcModels[index]["CreatureId"])
-	--model:SetDisplayInfo(npcModels[index]["CreatureId"])
-	model:ClearModel()
+for index,value in pairs(EZBlizzUiPop_npcModels) do
+	if not EZBlizzUiPop_npcModels[index]["loaded"] then
+		model:SetCreature(EZBlizzUiPop_npcModels[index]["CreatureId"])
+		--model:SetDisplayInfo(EZBlizzUiPop_npcModels[index]["CreatureId"])
+		model:ClearModel()
+		EZBlizzUiPop_npcModels[index]["loaded"] = true
+	end
 end
 model:Hide()
 --]]
