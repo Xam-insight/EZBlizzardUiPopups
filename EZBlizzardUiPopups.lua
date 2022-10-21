@@ -134,18 +134,18 @@ EZBlizzUiPop_npcModels["GAMON"]                 = { ["CreatureId"] = 158588, ["C
 
 function EZBlizzUiPop_npcDialog(npc, text, overlayFrameTemplate)
 	local frame = nil
-	if TalkingHead_LoadUI then
+	--if TalkingHead_LoadUI then
 		frame = EZBlizzUiPop_npcDialogShow(npc, text, overlayFrameTemplate)
-	end
+	--end
 	return frame
 end
 
 function EZBlizzUiPop_npcDialogShow(npc, text, overlayFrameTemplate)
 	local frame = nil
 	if text then
-		if ( not TalkingHeadFrame ) then
-			TalkingHead_LoadUI()
-		end
+		--if ( not TalkingHeadFrame ) then
+		--	TalkingHead_LoadUI()
+		--end
 
 		frame = TalkingHeadFrame
 		if overlayFrameTemplate then
@@ -158,10 +158,10 @@ function EZBlizzUiPop_npcDialogShow(npc, text, overlayFrameTemplate)
 					EZBlizzUiPop_OverlayFrame:Hide()
 				end)
 
-				hooksecurefunc("TalkingHeadFrame_FadeinFrames", function()
+				hooksecurefunc("TalkingHeadFrame:FadeinFrames", function()
 					EZBlizzUiPop_OverlayFrame.Fadein:Play()
 				end)
-				hooksecurefunc("TalkingHeadFrame_FadeoutFrames", function()
+				hooksecurefunc("TalkingHeadFrame:FadeoutFrames", function()
 					EZBlizzUiPop_OverlayFrame.Close:Play()
 				end)
 			else
@@ -188,8 +188,8 @@ function EZBlizzUiPop_TalkingHeadFrame_Play(cameraId, name, text, animation)
 	model.uiCameraID = cameraId
 	Model_ApplyUICamera(model, model.uiCameraID)
 
-	TalkingHeadFrame_Reset(frame, textFormatted, name)
-	TalkingHeadFrame_FadeinFrames()
+	TalkingHeadFrame:Reset(textFormatted, name)
+	TalkingHeadFrame:FadeinFrames()
 	C_Timer.After(0.1, function()
 		model:SetAnimation(animation)
 		model:SetScript("OnAnimFinished", function()
@@ -204,7 +204,7 @@ function EZBlizzUiPop_TalkingHeadFrame_Play(cameraId, name, text, animation)
 		end)
 	end)
 	C_Timer.After(10, function()
-		TalkingHeadFrame_Close()
+		TalkingHeadFrame:Close()
 	end)
 end
 
