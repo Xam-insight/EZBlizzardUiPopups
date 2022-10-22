@@ -158,10 +158,10 @@ function EZBlizzUiPop_npcDialogShow(npc, text, overlayFrameTemplate)
 					EZBlizzUiPop_OverlayFrame:Hide()
 				end)
 
-				hooksecurefunc("TalkingHeadFrame:FadeinFrames", function()
+				hooksecurefunc(TalkingHeadFrame, "FadeinFrames", function()
 					EZBlizzUiPop_OverlayFrame.Fadein:Play()
 				end)
-				hooksecurefunc("TalkingHeadFrame:FadeoutFrames", function()
+				hooksecurefunc(TalkingHeadFrame, "FadeoutFrames", function()
 					EZBlizzUiPop_OverlayFrame.Close:Play()
 				end)
 			else
