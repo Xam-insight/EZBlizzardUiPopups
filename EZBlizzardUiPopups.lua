@@ -15,7 +15,7 @@ end
 function EZBlizzUiPop_GetNameFromNpcID(npcID)
 	local name = ""
 	
-	EZBlizzardUiPopupsTooltip:SetOwner(UIParent, "ANCHOR_NONE");
+	EZBlizzardUiPopupsTooltip:SetOwner(UIParent, "ANCHOR_NONE")
 	EZBlizzardUiPopupsTooltip:SetHyperlink(format("unit:Creature-0-0-0-0-%d-0000000000", npcID))
 	
 	local line = _G[("EZBlizzardUiPopupsTooltipTextLeft%d"):format(1)]
@@ -83,20 +83,20 @@ end
 function EZBlizzUiPop_ToastFakeAchievementNew(addon, name, baseID, playSound, delay, toptext, onClick, icon, newEarn)
   if AchievementFrame_LoadUI then
 	  if (IsKioskModeEnabled and IsKioskModeEnabled()) then
-		return;
+		return
 	  end
 	  if ( not AchievementFrame ) then
-		AchievementFrame_LoadUI();
+		AchievementFrame_LoadUI()
 	  end
 
 	  if (not addon.AlertSystem) then
 		addon.AlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("AchievementAlertFrameTemplate", EZBlizzUiPop_AlertFrame_SetUp, 4, math.huge)
 	  end
 
-	  if (not baseID) then  baseID = 5208;  end -- 5208 is "Twin Peaking", chosen because of its thumbs-up texture.
+	  if (not baseID) then  baseID = 5208 end -- 5208 is "Twin Peaking", chosen because of its thumbs-up texture.
 	  addon.AlertSystem:AddAlert(baseID, not newEarn, name, delay, toptext, onClick, icon)
 
-	  if (playSound) then EZBlizzUiPop_PlaySound(12891);  end -- UI_Alert_AchievementGained
+	  if (playSound) then EZBlizzUiPop_PlaySound(12891) end -- UI_Alert_AchievementGained
   end
 end
 
