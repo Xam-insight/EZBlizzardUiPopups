@@ -148,32 +148,34 @@ function EZBlizzUiPop_npcDialogShow(npc, text, overlayFrameTemplate)
 		--end
 
 		frame = TalkingHeadFrame
-		if overlayFrameTemplate then
-			if not EZBlizzUiPop_OverlayFrame then
-				local overlayFrame = CreateFrame("Frame", "EZBlizzUiPop_OverlayFrame", TalkingHeadFrame, overlayFrameTemplate)
-				overlayFrame:SetParent(frame)
-				overlayFrame:SetAllPoints(frame)
-				overlayFrame:RegisterEvent("TALKINGHEAD_REQUESTED")
-				overlayFrame:SetScript("OnEvent", function()
-					EZBlizzUiPop_OverlayFrame:Hide()
-				end)
+		if frame then
+			if overlayFrameTemplate then
+				if not EZBlizzUiPop_OverlayFrame then
+					local overlayFrame = CreateFrame("Frame", "EZBlizzUiPop_OverlayFrame", frame, overlayFrameTemplate)
+					overlayFrame:SetParent(frame)
+					overlayFrame:SetAllPoints(frame)
+					overlayFrame:RegisterEvent("TALKINGHEAD_REQUESTED")
+					overlayFrame:SetScript("OnEvent", function()
+						EZBlizzUiPop_OverlayFrame:Hide()
+					end)
 
-				hooksecurefunc(TalkingHeadFrame, "FadeinFrames", function()
-					EZBlizzUiPop_OverlayFrame.Fadein:Play()
-				end)
-				hooksecurefunc(TalkingHeadFrame, "FadeoutFrames", function()
-					EZBlizzUiPop_OverlayFrame.Close:Play()
-				end)
-			else
-				EZBlizzUiPop_OverlayFrame:Show()
+					hooksecurefunc(frame, "FadeinFrames", function()
+						EZBlizzUiPop_OverlayFrame.Fadein:Play()
+					end)
+					hooksecurefunc(frame, "FadeoutFrames", function()
+						EZBlizzUiPop_OverlayFrame.Close:Play()
+					end)
+				else
+					EZBlizzUiPop_OverlayFrame:Show()
+				end
 			end
-		end
 
-		local model = frame.MainFrame.Model
-		model:ClearModel()
-		model:SetCreature(EZBlizzUiPop_npcModels[npc]["CreatureId"])
-		--model:SetDisplayInfo(EZBlizzUiPop_npcModels[npc]["CreatureId"])
-		EZBlizzUiPop_TalkingHeadFrame_Play(EZBlizzUiPop_npcModels[npc]["CameraId"], EZBlizzUiPop_GetNameFromNpcID(EZBlizzUiPop_npcModels[npc]["CreatureId"]), text, EZBlizzUiPop_npcModels[npc]["animation"])
+			local model = frame.MainFrame.Model
+			model:ClearModel()
+			model:SetCreature(EZBlizzUiPop_npcModels[npc]["CreatureId"])
+			--model:SetDisplayInfo(EZBlizzUiPop_npcModels[npc]["CreatureId"])
+			EZBlizzUiPop_TalkingHeadFrame_Play(EZBlizzUiPop_npcModels[npc]["CameraId"], EZBlizzUiPop_GetNameFromNpcID(EZBlizzUiPop_npcModels[npc]["CreatureId"]), text, EZBlizzUiPop_npcModels[npc]["animation"])
+		end
 	end
 	return frame
 end
