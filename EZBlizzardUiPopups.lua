@@ -131,12 +131,27 @@ EZBlizzUiPop_npcModels["GALLYWIX"]              = { ["CreatureId"] = 101605, ["C
 EZBlizzUiPop_npcModels["SHANDRIS"]              = { ["CreatureId"] = 161804, ["CameraId"] = 109, ["animation"] = 60 }
 EZBlizzUiPop_npcModels["SHAW"]                  = { ["CreatureId"] = 141358, ["CameraId"] = 82,  ["animation"] = 60 }
 EZBlizzUiPop_npcModels["GAMON"]                 = { ["CreatureId"] = 158588, ["CameraId"] = 126, ["animation"] = 60 }
+EZBlizzUiPop_npcModels["REXXAR"]                = { ["CreatureId"] = 145422, ["CameraId"] = 142, ["animation"] = 60 }
+EZBlizzUiPop_npcModels["VALEERA"]               = { ["CreatureId"] = 150476, ["CameraId"] = 84,  ["animation"] = 60 }
+EZBlizzUiPop_npcModels["JAINA"]                 = { ["CreatureId"] = 145580, ["CameraId"] = 84,  ["animation"] = 60 }
+EZBlizzUiPop_npcModels["HAMUUL"]                = { ["CreatureId"] = 107163, ["CameraId"] = 126, ["animation"] = 60 }
+EZBlizzUiPop_npcModels["SAURFANG"]              = { ["CreatureId"] = 144490, ["CameraId"] = 109, ["animation"] = 60 }
+EZBlizzUiPop_npcModels["KANRETHAD"]             = { ["CreatureId"] = 118449, ["CameraId"] = 82,  ["animation"] = 60 }
+EZBlizzUiPop_npcModels["GARROSH"]               = { ["CreatureId"] = 143425, ["CameraId"] = 86,  ["animation"] = 60 }
+EZBlizzUiPop_npcModels["LIADRIN"]               = { ["CreatureId"] = 176789, ["CameraId"] = 84,  ["animation"] = 60 }
+EZBlizzUiPop_npcModels["FAOL"]                  = { ["CreatureId"] = 186182, ["CameraId"] = 130, ["animation"] = 60 }
+EZBlizzUiPop_npcModels["KAELTHAS"]              = { ["CreatureId"] = 179475, ["CameraId"] = 119, ["animation"] = 60 }
+EZBlizzUiPop_npcModels["BOLVAR"]                = { ["CreatureId"] = 164079, ["CameraId"] = 82,  ["animation"] = 60 }
+EZBlizzUiPop_npcModels["TURALYON"]              = { ["CreatureId"] = 189600, ["CameraId"] = 82,  ["animation"] = 60 }
+EZBlizzUiPop_npcModels["ALLERIA"]               = { ["CreatureId"] = 175138, ["CameraId"] = 84,  ["animation"] = 60 }
+EZBlizzUiPop_npcModels["AZURATHEL"]             = { ["CreatureId"] = 181056, ["CameraId"] = 146, ["animation"] = 60 }
+EZBlizzUiPop_npcModels["CINDRETHRESH"]          = { ["CreatureId"] = 181055, ["CameraId"] = 146, ["animation"] = 60 }
 
 function EZBlizzUiPop_npcDialog(npc, text, overlayFrameTemplate)
 	local frame = nil
-	--if TalkingHead_LoadUI then
+	if EZBlizzUiPop_npcModels[npc] then
 		frame = EZBlizzUiPop_npcDialogShow(npc, text, overlayFrameTemplate)
-	--end
+	end
 	return frame
 end
 
@@ -210,34 +225,52 @@ function EZBlizzUiPop_TalkingHeadFrame_Play(cameraId, name, text, animation)
 	end)
 end
 
---[[
-local camId = 84
-local creatureId = 10181
-local imageSize = 80
-local animation = 40
+---[[ Loading models
+local model = CreateFrame('PlayerModel', nil, UIParent)
+model:SetPoint("BOTTOMLEFT")
+model:SetWidth(5)
+model:SetHeight(5)
+for index,value in pairs(EZBlizzUiPop_npcModels) do
+	if not EZBlizzUiPop_npcModels[index]["loaded"] then
+		model:SetCreature(EZBlizzUiPop_npcModels[index]["CreatureId"])
+		--model:SetDisplayInfo(EZBlizzUiPop_npcModels[index]["CreatureId"])
+		model:ClearModel()
+		EZBlizzUiPop_npcModels[index]["loaded"] = true
+	end
+end
+model:Hide()
+--]]
 
-for i = 0, 22 do
-	for j = 0, 12 do
+--[[
+local camId = 80
+local creatureId = 181055
+local imageSize = 80
+local animation = 60
+
+for i = 0, 10 do
+	for j = 0, 5 do
 		local totopModel = CreateFrame("PlayerModel", "", UIParent)
-		totopModel:SetPoint("TOPLEFT", i*imageSize, -j*imageSize - 30)
+		totopModel:SetPoint("TOPLEFT", i*imageSize, -j*imageSize)
 		totopModel:SetWidth(imageSize)
 		totopModel:SetHeight(imageSize)
 		totopModel:SetCreature(creatureId)
 		--totopModel:SetDisplayInfo(creatureId)
+		totopModel:RefreshCamera()
 		Model_ApplyUICamera(totopModel, camId)
 		local fontstring = totopModel:CreateFontString("", "ARTWORK", "GameTooltipText")
 		fontstring:SetTextColor(1, 1, 1, 1.0)
-		fontstring:SetText(animation)
+		fontstring:SetText(camId)
 		fontstring:SetPoint("BOTTOM", 0, 0)
 		totopModel:SetAnimation(animation)
 		totopModel:SetAttribute("animation", animation)
 		totopModel:SetScript("OnAnimFinished", function()
 			totopModel:SetAnimation(totopModel:GetAttribute("animation"))
 		end)
-		--camId = camId + 1
-		animation = animation + 1
+		camId = camId + 1
+		--animation = animation + 1
 	end
 end
+
 --]]
 
 --[[
@@ -253,15 +286,3 @@ end
 
 --]]
 
--- Loading models
-local model = CreateFrame('PlayerModel', nil, UIParent)
-for index,value in pairs(EZBlizzUiPop_npcModels) do
-	if not EZBlizzUiPop_npcModels[index]["loaded"] then
-		model:SetCreature(EZBlizzUiPop_npcModels[index]["CreatureId"])
-		--model:SetDisplayInfo(EZBlizzUiPop_npcModels[index]["CreatureId"])
-		model:ClearModel()
-		EZBlizzUiPop_npcModels[index]["loaded"] = true
-	end
-end
-model:Hide()
---]]

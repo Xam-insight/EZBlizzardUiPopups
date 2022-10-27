@@ -1,5 +1,10 @@
 ## Interface: 100000
 ## Title: EZBlizzardUiPopups
-## Version: 1.0.2
+## Version: 1.0.3
 ## Notes: Library
 ## Author: Xam-insight
+
+..\EZBlizzardUiPopups\Libs\Ace3\LibStub\LibStub.lua
+..\EZBlizzardUiPopups\Libs\Ace3\AceLocale-3.0\AceLocale-3.0.xml
+
+..\EZBlizzardUiPopups\EZBlizzardUiPopups.xml
