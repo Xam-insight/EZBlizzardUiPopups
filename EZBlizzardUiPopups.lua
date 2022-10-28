@@ -2,6 +2,8 @@ if (not EZBlizzardUiPopupsTooltip) then
 	CreateFrame("GameTooltip", "EZBlizzardUiPopupsTooltip", UIParent, "GameTooltipTemplate")
 	EZBlizzardUiPopupsTooltip:SetFrameStrata("TOOLTIP")
 	EZBlizzardUiPopupsTooltip:Hide()
+else
+	return
 end
 
 function EZBlizzUiPop_PlaySound(soundID)
