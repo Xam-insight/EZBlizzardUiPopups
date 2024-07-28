@@ -1,4 +1,6 @@
-﻿- v1.0.5
+- v1.0.6
+	- Cataclysm Classic compatibility.
+- v1.0.5
 	- TOC and fixes for 11.0.0.
 - v1.0.4
 	- Library import revert to default handling.
