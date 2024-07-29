@@ -1,3 +1,5 @@
+- v1.0.7
+	- Guild achievement use.
 - v1.0.6
 	- Cataclysm Classic compatibility.
 - v1.0.5

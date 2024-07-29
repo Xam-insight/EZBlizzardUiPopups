@@ -57,21 +57,8 @@ function EZBlizzUiPop_AlertFrame_OnClick(self, ...)
 	end
 end
 
-local EZBlizzUiPop_GetAchievementInfo = {}
-local function EZBlizzUiPop_SetAchievementInfo(idNumber, name, points, icon, isGuildAch, toptext, alreadyEarned, onClick)
-	EZBlizzUiPop_GetAchievementInfo = {}
-	EZBlizzUiPop_GetAchievementInfo.achievementID = idNumber
-	EZBlizzUiPop_GetAchievementInfo.name          = name
-	EZBlizzUiPop_GetAchievementInfo.points        = points
-	EZBlizzUiPop_GetAchievementInfo.icon          = icon
-	EZBlizzUiPop_GetAchievementInfo.isGuildAch    = isGuildAch
-	EZBlizzUiPop_GetAchievementInfo.toptext       = toptext
-	EZBlizzUiPop_GetAchievementInfo.alreadyEarned = alreadyEarned
-	EZBlizzUiPop_GetAchievementInfo.onClick       = onClick
-end
-
-local function EZBlizzUiPop_AlertFrame_SetUp(frame)
-	frame.onClick = EZBlizzUiPop_GetAchievementInfo.onClick
+local function EZBlizzUiPop_AlertFrame_SetUp(frame, AchievementInfo)
+	frame.onClick = AchievementInfo.onClick
 	frame:SetScript("OnClick", EZBlizzUiPop_AlertFrame_OnClick)
 	
 	local displayName = frame.Name;
@@ -81,10 +68,10 @@ local function EZBlizzUiPop_AlertFrame_SetUp(frame)
 
 	unlocked:SetPoint("TOP", 7, -23);
 
-	displayName:SetText(EZBlizzUiPop_GetAchievementInfo.name or "");
+	displayName:SetText(AchievementInfo.name or "");
 
-	AchievementShield_SetPoints(EZBlizzUiPop_GetAchievementInfo.points or 0, shieldPoints, GameFontNormal, GameFontNormalSmall);
-	if ( EZBlizzUiPop_GetAchievementInfo.isGuildAch ) then
+	AchievementShield_SetPoints(AchievementInfo.points or 0, shieldPoints, GameFontNormal, GameFontNormalSmall);
+	if ( AchievementInfo.isGuildAch ) then
 		local guildName = frame.GuildName;
 		local guildBorder = frame.GuildBorder;
 		local guildBanner = frame.GuildBanner;
@@ -126,7 +113,7 @@ local function EZBlizzUiPop_AlertFrame_SetUp(frame)
 			frame.shine:SetTexCoord(0.75195313, 0.91601563, 0.19531250, 0.35937500);
 		end
 		shieldPoints:SetVertexColor(0, 1, 0);
-		unlocked:SetText(EZBlizzUiPop_GetAchievementInfo.toptext or GUILD_ACHIEVEMENT_UNLOCKED);
+		unlocked:SetText(AchievementInfo.toptext or GUILD_ACHIEVEMENT_UNLOCKED);
 		guildName:Show();
 		guildBanner:Show();
 		guildBorder:Show();
@@ -170,17 +157,14 @@ local function EZBlizzUiPop_AlertFrame_SetUp(frame)
 		end
 		shieldPoints:SetVertexColor(1, 1, 1);
 		unlocked:SetPoint("TOP", 7, -23);
-		unlocked:SetText(EZBlizzUiPop_GetAchievementInfo.toptext or ACHIEVEMENT_UNLOCKED);
+		unlocked:SetText(AchievementInfo.toptext or ACHIEVEMENT_UNLOCKED);
 		frame.GuildName:Hide();
 		frame.GuildBorder:Hide();
 		frame.GuildBanner:Hide();
 		frame.shine:SetPoint("BOTTOMLEFT", 0, 8);
 
-		shieldPoints:SetShown(not EZBlizzUiPop_GetAchievementInfo.alreadyEarned);
-		shieldIcon:SetShown(not EZBlizzUiPop_GetAchievementInfo.alreadyEarned);
-
 		-- Center all text horizontally if the achievement has been earned and there's no points display
-		if (EZBlizzUiPop_GetAchievementInfo.alreadyEarned) then
+		if (AchievementInfo.alreadyEarned) then
 			if EZBlizzUiPop_WoWRetail then
 				unlocked:SetPoint("TOP", 27, -23);
 			else -- not Retail
@@ -189,6 +173,9 @@ local function EZBlizzUiPop_AlertFrame_SetUp(frame)
 			end
 		end
 	end
+
+	shieldPoints:SetShown(not AchievementInfo.alreadyEarned);
+	shieldIcon:SetShown(not AchievementInfo.alreadyEarned);
 
 	if ( points == 0 ) then
 		if EZBlizzUiPop_WoWRetail then
@@ -204,19 +191,13 @@ local function EZBlizzUiPop_AlertFrame_SetUp(frame)
 		end
 	end
 
-	frame.Icon.Texture:SetTexture(EZBlizzUiPop_GetAchievementInfo.icon or 236376);
+	frame.Icon.Texture:SetTexture(AchievementInfo.icon or 236376);
 
-	frame.id = EZBlizzUiPop_GetAchievementInfo.achievementID or "EZBlizzUiPop"
+	frame.id = AchievementInfo.achievementID or "EZBlizzUiPop"
 	return true;
 end
 
-function EZBlizzUiPop_ToastFakeAchievementNew(addon, name, baseID, playSound, delay, toptext, onClick, icon, newEarn)
-	EZBlizzUiPop_GetAchievementInfo = {}
-	EZBlizzUiPop_SetAchievementInfo(idNumber, name, points, icon, isGuildAch, toptext, not newEarn, onClick)
-	EZBlizzUiPop_ToastFakeAchievement(addon, playSound, delay)
-end
-
-function EZBlizzUiPop_ToastFakeAchievement(addon, playSound, delay)
+local function ToastFakeAchievement(addon, playSound, delay, AchievementInfo)
   if AchievementFrame_LoadUI then
 	  if (IsKioskModeEnabled and IsKioskModeEnabled()) then
 		return
@@ -228,10 +209,27 @@ function EZBlizzUiPop_ToastFakeAchievement(addon, playSound, delay)
 	  if (not addon.AlertSystem) then
 		addon.AlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("AchievementAlertFrameTemplate", EZBlizzUiPop_AlertFrame_SetUp, delay, math.huge)
 	  end
-	  addon.AlertSystem:AddAlert()
+	  addon.AlertSystem:AddAlert(AchievementInfo)
 
 	  if (playSound) then EZBlizzUiPop_PlaySound(12891) end -- UI_Alert_AchievementGained
   end
+end
+
+function EZBlizzUiPop_ToastFakeAchievement(addon, playSound, delay, idNumber, name, points, icon, isGuildAch, toptext, alreadyEarned, onClick)
+	local AchievementInfo = {}
+	AchievementInfo.achievementID = idNumber
+	AchievementInfo.name          = name
+	AchievementInfo.points        = points
+	AchievementInfo.icon          = icon
+	AchievementInfo.isGuildAch    = isGuildAch
+	AchievementInfo.toptext       = toptext
+	AchievementInfo.alreadyEarned = alreadyEarned
+	AchievementInfo.onClick       = onClick
+	ToastFakeAchievement(addon, playSound, delay, AchievementInfo)
+end
+
+function EZBlizzUiPop_ToastFakeAchievementNew(addon, name, baseID, playSound, delay, toptext, onClick, icon, newEarn)
+	EZBlizzUiPop_ToastFakeAchievement(addon, playSound, delay, idNumber, name, points, icon, isGuildAch, toptext, not newEarn, onClick)
 end
 
 -- NPC dialog pop-up
