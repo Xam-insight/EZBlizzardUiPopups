@@ -165,7 +165,7 @@ local function EZBlizzUiPop_AlertFrame_SetUp(frame, AchievementInfo)
 		frame.shine:SetPoint("BOTTOMLEFT", 0, 8);
 
 		-- Center all text horizontally if the achievement has been earned and there's no points display
-		if (AchievementInfo.alreadyEarned) then
+		if (AchievementInfo.alreadyEarned or AchievementInfo.points == 0) then
 			if EZBlizzUiPop_WoWRetail then
 				unlocked:SetPoint("TOP", 27, -23);
 			else -- not Retail
@@ -180,13 +180,20 @@ local function EZBlizzUiPop_AlertFrame_SetUp(frame, AchievementInfo)
 
 	if ( AchievementInfo.points == 0 ) then
 		if EZBlizzUiPop_WoWRetail then
-			shieldIcon:SetAtlas("UI-Achievement-Shield-NoPoints", TextureKitConstants.UseAtlasSize);
+			--shieldIcon:SetAtlas("UI-Achievement-Shield-NoPoints", TextureKitConstants.UseAtlasSize);
+			shieldPoints:Hide()
+			shieldIcon:Hide()
 		else -- not Retail
 			shieldIcon:SetTexture([[Interface\AchievementFrame\UI-Achievement-Shields-NoPoints]]);
 		end
 	else
 		if EZBlizzUiPop_WoWRetail then
-			shieldIcon:SetAtlas("ui-achievement-shield-2", TextureKitConstants.UseAtlasSize);
+			--shieldIcon:SetAtlas("ui-achievement-shield-2", TextureKitConstants.UseAtlasSize);
+			if AchievementInfo.isGuildAch then
+				shieldIcon:SetAtlas("ui-achievement-shield-2", TextureKitConstants.UseAtlasSize)
+			else
+				shieldIcon:SetAtlas("ui-achievement-shield-1", TextureKitConstants.UseAtlasSize)
+			end
 		else -- not Retail
 			shieldIcon:SetTexture([[Interface\AchievementFrame\UI-Achievement-Shields]]);
 		end
