@@ -346,18 +346,26 @@ function EZBlizzUiPop_TalkingHeadFrame_Play(cameraId, name, text, animation)
 	Model_ApplyUICamera(model, model.uiCameraID)
 	model:SetScript("OnModelLoaded", function()
 		Model_ApplyUICamera(model, model.uiCameraID)
+		if model.currentAnimation ~= animation then
+			model:SetAnimation(animation)
+			model.currentAnimation = animation
+		end
 	end)
 
 	TalkingHeadFrame:Reset(textFormatted, name)
 	TalkingHeadFrame:FadeinFrames()
 	C_Timer.After(0.1, function()
 		model:SetAnimation(animation)
+		model.currentAnimation = animation
 		model:SetScript("OnAnimFinished", function()
+			model.currentAnimation = nil
 			modelAnimationLoopIterration = modelAnimationLoopIterration + 1
 			if modelAnimationLoopIterration < modelAnimationLoop then
 				model:SetAnimation(animation)
+				model.currentAnimation = animation
 			else
 				model:SetAnimation(0)
+				model.currentAnimation = 0
 				model:SetScript("OnAnimFinished", nil)
 				modelAnimationLoopIterration = 0
 			end
