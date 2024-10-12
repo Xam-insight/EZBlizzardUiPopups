@@ -43,7 +43,7 @@ function EZBlizzUiPop_PlayRandomSound(soundFileIdBank, channel, playSound)
 		local nbSounds = #soundFileIdBank
 		if nbSounds > 0 then
 			local sound = math.random(1, nbSounds)
-			return Deadpool_PlaySoundFileId(soundFileIdBank[sound], channel, playSound)
+			return EZBlizzUiPop_PlaySoundFileId(soundFileIdBank[sound], channel, playSound)
 		end
 	end
 	return nil
