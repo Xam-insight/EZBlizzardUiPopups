@@ -409,7 +409,7 @@ function EZBlizzUiPop_TalkingHeadFrame_Play(cameraId, name, text, animation)
 	end)
 end
 
---[[ Loading models
+---[[ Loading models
 local model = CreateFrame('PlayerModel', nil, UIParent)
 model:SetPoint("BOTTOMLEFT")
 model:SetWidth(5)
