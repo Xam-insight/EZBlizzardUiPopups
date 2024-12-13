@@ -3,7 +3,7 @@ local _, _, _, tocversion = GetBuildInfo()
 local EZBlizzUiPop_WoWRetail = tocversion >= 110000
 function EZBlizzUiPop_GetMouseFocus()
 	local frame = nil
-	if EZBlizzUiPop_WoWRetail then
+	if GetMouseFoci then
 		local region = GetMouseFoci()
 		frame = region[1]
 	else
