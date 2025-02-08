@@ -319,6 +319,7 @@ EZBlizzUiPop_npcModels["AZURATHEL"]             = { ["CreatureId"] = 181056, ["C
 EZBlizzUiPop_npcModels["CINDRETHRESH"]          = { ["CreatureId"] = 181055, ["CameraId"] = 146,  ["animation"] = 60, ["soundQuotes"] = { 4661200, 4661197, 4661198, 4661203 } }
 EZBlizzUiPop_npcModels["DINAIRE"]               = { ["CreatureId"] = 206533, ["CameraId"] = 82,   ["animation"] = 60, ["soundQuotes"] = { 5725530, 5725538, 5725546, 5725413 } }
 EZBlizzUiPop_npcModels["VEREESA"]               = { ["CreatureId"] = 30115,  ["CameraId"] = 120,  ["animation"] = 60, ["soundQuotes"] = { 1388723, 1388707, 1388710, 1388737 } }
+EZBlizzUiPop_npcModels["ABIGAIL"]               = { ["CreatureId"] = 224220, ["CameraId"] = 84,   ["animation"] = 60, ["soundQuotes"] = { 6023950 } }
 
 function EZBlizzUiPop_npcDialog(npc, text, overlayFrameTemplate)
 	local frame = nil
