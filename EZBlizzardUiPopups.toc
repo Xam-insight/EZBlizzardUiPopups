@@ -1,5 +1,5 @@
-## Interface: 110005,110007
+## Interface: 110200,110205
 ## Title: EZBlizzardUiPopups
-## Version: 1.0.12
+## Version: 1.0.13
 ## Notes: Library
 ## Author: Xam-insight

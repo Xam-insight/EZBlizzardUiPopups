@@ -1,3 +1,5 @@
+- v1.0.13
+	- Xal'atath added.
 - v1.0.12
 	- Changed the way GetMouseFocus works.
 - v1.0.11
