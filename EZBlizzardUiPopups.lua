@@ -434,7 +434,8 @@ frameSaveTalkingHeadInfo:RegisterEvent("TALKINGHEAD_REQUESTED")
 frameSaveTalkingHeadInfo:SetScript("OnEvent", function(self, event)
     if event == "TALKINGHEAD_REQUESTED" then
         -- Get all values returned by Blizzard's API
-        local _, cameraID, _, _, _, _, name = C_TalkingHead.GetCurrentLineInfo()
+		
+        local displayInfo, cameraID, _, _, _, _, name, _, _, textureKit = C_TalkingHead.GetCurrentLineInfo()
         if not name then return end  -- safeguard
 
         -- Initialize storage table
@@ -447,10 +448,16 @@ frameSaveTalkingHeadInfo:SetScript("OnEvent", function(self, event)
         local nameId = name.." - "..zone
 
         -- Store info
-        SaveTalkingHeadInfo[nameId] = {}
-        SaveTalkingHeadInfo[nameId].name = name
-        SaveTalkingHeadInfo[nameId].zone = zone
-        SaveTalkingHeadInfo[nameId].cameraID = cameraID
+		SaveTalkingHeadInfo = nil -- Replace with SavedVariable from active addon
+		if not SaveTalkingHeadInfo then
+			SaveTalkingHeadInfo = {}
+		end
+		SaveTalkingHeadInfo.SaveTalkingHeadInfo[nameId] = {}
+		SaveTalkingHeadInfo.SaveTalkingHeadInfo[nameId].zone = zone
+		SaveTalkingHeadInfo.SaveTalkingHeadInfo[nameId].displayInfo = displayInfo
+		SaveTalkingHeadInfo.SaveTalkingHeadInfo[nameId].cameraID = cameraID
+		SaveTalkingHeadInfo.SaveTalkingHeadInfo[nameId].name = name
+		SaveTalkingHeadInfo.SaveTalkingHeadInfo[nameId].textureKit = textureKit
 
         print("Saved Talking Head:", name, zone, cameraID)
     end
