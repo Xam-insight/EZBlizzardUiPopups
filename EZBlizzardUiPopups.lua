@@ -464,7 +464,6 @@ frameSaveTalkingHeadInfo:SetScript("OnEvent", function(self, event)
 		SaveTalkingHeadInfo.SaveTalkingHeadInfo[key].animIntro = animIntro
 		SaveTalkingHeadInfo.SaveTalkingHeadInfo[key].animLoop = animLoop
 		
-		---[[ Data cleaning
 		local prefix = name .. " - "
 
 		for key, _ in pairs(SaveTalkingHeadInfo.SaveTalkingHeadInfo) do
@@ -473,7 +472,6 @@ frameSaveTalkingHeadInfo:SetScript("OnEvent", function(self, event)
 				print(key .. " deleted.")
 			end
 		end
-		--]]
 
         print("Saved Talking Head:", name, zone, cameraID)
     end
