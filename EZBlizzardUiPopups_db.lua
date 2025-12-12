@@ -40,6 +40,8 @@ EZBlizzUiPop_SoundFileIDBank = {
 	[250382] = { soundQuotes = { 1388723, 1388707, 1388710, 1388737 } }, -- Vereesa Windrunner
 	[224220] = { soundQuotes = { 6023950 } },
 	[235448] = { soundQuotes = { 6708204, 2530795 } },
+	[215113] = { soundQuotes = { 5722457 } }, -- Orweyna
+	[207471] = { soundQuotes = { 5722458 } }, -- Widow Arak'nai
 }
 
 EZBlizzUiPop_CreaturexCameraID = {
