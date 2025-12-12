@@ -405,7 +405,9 @@ function EZBlizzUiPop_TalkingHeadFrame_Play(creatureID, name, text, animation)
 		else
 			model:SetCamera(0)
 			model:SetPortraitZoom(.95)
-			model:SetPortraitZoom(.9)
+			C_Timer.After(0, function()
+				model:SetPortraitZoom(.9)
+			end)
 		end
 		SetupAnimations(model, DEFAULT_ANIMKIT, animation, animation, textSpeechDuration)
 		model:SetScript("OnModelLoaded", OnModelLoaded)
