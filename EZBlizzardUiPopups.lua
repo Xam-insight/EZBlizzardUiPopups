@@ -1,7 +1,9 @@
 local _, _, _, tocversion = GetBuildInfo()
 
 local DEFAULT_CAMERAID = 82
+local DEFAULT_ANIMKIT = 0
 local DEFAULT_ANIMATION = 60
+local MIN_SPEACH_DURATION = 3
 
 local EZBlizzUiPop_WoWRetail = tocversion >= 110000
 function EZBlizzUiPop_GetMouseFocus()
@@ -316,13 +318,6 @@ function EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate)
 				end
 			end
 
-			local model = frame.MainFrame.Model
-			model:ClearModel()
-			if EZBlizzUiPop_CreaturexCameraID[creatureID] and EZBlizzUiPop_CreaturexCameraID[creatureID].displayInfo then
-				model:SetDisplayInfo(EZBlizzUiPop_CreaturexCameraID[creatureID].displayInfo)
-			else
-				model:SetCreature(creatureID)
-			end
 			EZBlizzUiPop_TalkingHeadFrame_Play(
 				creatureID,
 				EZBlizzUiPop_GetNameFromNpcID(creatureID),
@@ -333,52 +328,104 @@ function EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate)
 	return frame
 end
 
+local function EstimateSpeechDuration(text)
+    local words = 0
+    for _ in string.gmatch(text, "%S+") do
+        words = words + 1
+    end
+
+    local commas = select(2, string.gsub(text, ",", ""))
+    local dots = select(2, string.gsub(text, "[%.:;]", ""))
+    local pauses = commas * 0.25 + dots * 0.6
+
+    return (words / 2.5) + pauses
+end
+
+
+local function SetupAnimations(model, animKit, animIntro, animLoop, lineDuration)
+	if ( animKit == nil ) then
+		return
+	end
+	if( animKit ~= model.animKit ) then
+		model:StopAnimKit()
+		model.animKit = nil
+	end
+
+	if ( animKit > 0 ) then
+		model.animKit = animKit
+	-- If intro is 0 (stand) we are assuming that is no-op and skipping to loop.
+	elseif (animIntro > 0) then
+		model.animIntro = animIntro
+		model.animLoop = animLoop
+	else
+		model.animLoop = animLoop
+	end
+
+	if (model.animKit) then
+		model:PlayAnimKit(model.animKit, true)
+		model:SetScript("OnAnimFinished", nil)
+		model.shouldLoop = false
+	elseif (model.animIntro) then
+		model:SetAnimation(model.animIntro, 0)
+		model.shouldLoop = true
+		model:SetScript("OnAnimFinished", model.IdleAnim)
+	else
+		model:SetAnimation(model.animLoop, 0)
+		model.shouldLoop = true
+		model:SetScript("OnAnimFinished", model.IdleAnim)
+	end
+
+	model.lineAnimDone = false
+	if (lineDuration and model.shouldLoop) then
+		if (lineDuration > 1.5) then
+			C_Timer.After(lineDuration - 1.5, function()
+					model.animLoop = 0
+				end)
+		end
+	end
+end
+
 local modelAnimationLoopIterration = 0
 function EZBlizzUiPop_TalkingHeadFrame_Play(creatureID, name, text, animation)
 	local frame = TalkingHeadFrame
 	local model = frame.MainFrame.Model
-	
+
 	local textFormatted = string.format(text)
+	local textSpeechDuration = EstimateSpeechDuration(text)
 	frame:Show()
 	
-	local cameraID = (EZBlizzUiPop_CreaturexCameraID[creatureID] and EZBlizzUiPop_CreaturexCameraID[creatureID].cameraID) or DEFAULT_CAMERAID
+	local cameraID = EZBlizzUiPop_CreaturexCameraID[creatureID] and EZBlizzUiPop_CreaturexCameraID[creatureID].cameraID
+	model.uiCameraID = cameraID  or DEFAULT_CAMERAID
 	
-	model.uiCameraID = cameraID
-	Model_ApplyUICamera(model, model.uiCameraID)
+	Model_ApplyUICamera(model, 0)
+	local OnModelLoaded = model.OnModelLoaded
 	model:SetScript("OnModelLoaded", function()
-		Model_ApplyUICamera(model, model.uiCameraID)
-		if model.currentAnimation ~= animation then
-			model:SetAnimation(animation)
-			model.currentAnimation = animation
+		if cameraID then
+			Model_ApplyUICamera(model, model.uiCameraID)
+		else
+			model:SetCamera(0)
+			model:SetPortraitZoom(.95)
+			model:SetPortraitZoom(.9)
 		end
-		model:SetScript("OnModelLoaded", nil)
+		SetupAnimations(model, DEFAULT_ANIMKIT, animation, animation, textSpeechDuration)
+		model:SetScript("OnModelLoaded", OnModelLoaded)
 	end)
+	
+	model:ClearModel()
+	if EZBlizzUiPop_CreaturexCameraID[creatureID] and EZBlizzUiPop_CreaturexCameraID[creatureID].displayInfo then
+		model:SetDisplayInfo(EZBlizzUiPop_CreaturexCameraID[creatureID].displayInfo)
+	else
+		model:SetCreature(creatureID)
+	end
 
 	TalkingHeadFrame:Reset(textFormatted, name)
 	TalkingHeadFrame:FadeinFrames()
-	C_Timer.After(0.1, function()
-		model:SetAnimation(animation)
-		model.currentAnimation = animation
-		model:SetScript("OnAnimFinished", function()
-			model.currentAnimation = nil
-			modelAnimationLoopIterration = modelAnimationLoopIterration + 1
-			if modelAnimationLoopIterration < modelAnimationLoop then
-				model:SetAnimation(animation)
-				model.currentAnimation = animation
-			else
-				model:SetAnimation(0)
-				model.currentAnimation = 0
-				model:SetScript("OnAnimFinished", nil)
-				modelAnimationLoopIterration = 0
-			end
-		end)
-	end)
-	C_Timer.After(10, function()
+	C_Timer.After(math.max(textSpeechDuration, MIN_SPEACH_DURATION), function()
 		TalkingHeadFrame:Close()
 	end)
 end
 
----[[
+--[[
 local frameSaveTalkingHeadInfo = CreateFrame("Frame")
 frameSaveTalkingHeadInfo:RegisterEvent("TALKINGHEAD_REQUESTED")
 
@@ -387,7 +434,7 @@ frameSaveTalkingHeadInfo:SetScript("OnEvent", function(self, event)
         -- Get all values returned by Blizzard's API
 		
         local displayInfo, cameraID, _, _, _, _, name = C_TalkingHead.GetCurrentLineInfo()
-		local animKit, animIntro, animLoop = C_TalkingHead.GetCurrentLineAnimationInfo();
+		local animKit, animIntro, animLoop = C_TalkingHead.GetCurrentLineAnimationInfo()
         if not displayInfo or not name then return end  -- safeguard
 
         -- Initialize storage table
