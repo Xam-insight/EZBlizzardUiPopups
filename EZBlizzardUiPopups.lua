@@ -15,16 +15,6 @@ local DEFAULT_ANIMATION = 60
 local MIN_SPEACH_DURATION = 3
 
 local EZBlizzUiPop_WoWRetail = tocversion >= 110000
-function EZBlizzUiPop_GetMouseFocus()
-	local frame = nil
-	if GetMouseFoci then
-		local region = GetMouseFoci()
-		frame = region[1]
-	else
-		frame = GetMouseFocus()
-	end
-	return frame
-end
 
 if (not EZBlizzardUiPopupsTooltip) then
 	CreateFrame("GameTooltip", "EZBlizzardUiPopupsTooltip", UIParent, "GameTooltipTemplate")
