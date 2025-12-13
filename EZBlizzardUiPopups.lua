@@ -1,3 +1,12 @@
+local MAJOR, MINOR = "EZBlizzardUiPopups", 1
+local EZBUP = LibStub:NewLibrary(MAJOR, MINOR)
+if not EZBUP then
+    -- A newer version is already loaded
+    return
+end
+
+local XITK = LibStub("XamInsightToolKit")
+
 local _, _, _, tocversion = GetBuildInfo()
 
 local DEFAULT_CAMERAID = 82
@@ -25,57 +34,12 @@ else
 	return
 end
 
-local willPlay, soundHandle
-
-function EZBlizzUiPop_PlaySound(soundID)
-	if soundID then
-		PlaySound(soundID, "master")
-	end
-end
-
-function EZBlizzUiPop_PlaySoundFileID(soundFileID, channel, playSound)
-	if playSound then
-		if soundHandle then
-			StopSound(soundHandle)
-		end
-		willPlay, soundHandle = PlaySoundFile(soundFileID, channel)
-	end
-	return soundHandle
-end
-
-function EZBlizzUiPop_PlayRandomSound(soundFileIDBank, channel, playSound)
-	if playSound and soundFileIDBank then
-		local nbSounds = #soundFileIDBank
-		if nbSounds > 0 then
-			local sound = math.random(1, nbSounds)
-			return EZBlizzUiPop_PlaySoundFileID(soundFileIDBank[sound], channel, playSound)
-		end
-	end
-	return nil
-end
-
-function EZBlizzUiPop_PlayNPCRandomSound(creatureID, channel, playSound)
+function EZBUP.PlayNPCRandomSound(creatureID, channel, playSound)
 	if playSound then
 		local soundFileIDBank = EZBlizzUiPop_SoundFileIDBank[creatureID] and EZBlizzUiPop_SoundFileIDBank[creatureID].soundQuotes
-		return EZBlizzUiPop_PlayRandomSound(soundFileIDBank, channel, playSound)
+		return XITK.PlayRandomSound(soundFileIDBank, channel, playSound)
 	end
 	return nil
-end
-
--- Tip by Gello - Hyjal
--- takes an npcID and returns the name of the npc
-function EZBlizzUiPop_GetNameFromNpcID(npcID)
-	local name = ""
-	
-	EZBlizzardUiPopupsTooltip:SetOwner(UIParent, "ANCHOR_NONE")
-	EZBlizzardUiPopupsTooltip:SetHyperlink(format("unit:Creature-0-0-0-0-%d-0000000000", npcID))
-	
-	local line = _G[("EZBlizzardUiPopupsTooltipTextLeft%d"):format(1)]
-	if line and line:GetText() then
-		name = line:GetText()
-	end
-	
-	return name
 end
 
 -- TOASTS - Thanks to Tuhljin from Overachiever !
@@ -255,7 +219,7 @@ local function ToastFakeAchievement(addon, playSound, delay, AchievementInfo)
 	  end
 	  addon.AlertSystem:AddAlert(AchievementInfo)
 
-	  if (playSound) then EZBlizzUiPop_PlaySound(12891) end -- UI_Alert_AchievementGained
+	  if (playSound) then XITK.PlaySound(12891) end -- UI_Alert_AchievementGained
   end
 end
 
@@ -277,8 +241,8 @@ end
 
 local modelAnimationLoop = 2
 
-function EZBlizzUiPop_npcDialog(creatureID, text, overlayFrameTemplate)
-	local npcName = EZBlizzUiPop_GetNameFromNpcID(creatureID)
+function EZBUP.npcDialog(creatureID, text, overlayFrameTemplate)
+	local npcName = XITK.GetNameFromNpcID(creatureID)
 	if npcName and npcName ~= "" then
 		EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate)
 	else
@@ -320,7 +284,7 @@ function EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate)
 
 			EZBlizzUiPop_TalkingHeadFrame_Play(
 				creatureID,
-				EZBlizzUiPop_GetNameFromNpcID(creatureID),
+				XITK.GetNameFromNpcID(creatureID),
 				text,
 				DEFAULT_ANIMATION)
 		end
@@ -603,4 +567,4 @@ end
 
 --]]
 
--- /run EZBlizzUiPop_npcDialog(140877, "Test")
+-- /run LibStub("EZBlizzardUiPopups").npcDialog(140877, "Test")
