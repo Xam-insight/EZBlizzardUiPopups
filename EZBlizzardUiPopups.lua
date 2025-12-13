@@ -36,7 +36,7 @@ end
 -----------
 
 --local function alertOnClick(self, ...)
-function EZBlizzUiPop_AlertFrame_OnClick(self, ...)
+local function EZBlizzUiPop_AlertFrame_OnClick(self, ...)
 		if (self.onClick) then
 		if (AlertFrame_OnClick(self, ...)) then  return;  end -- Handle right-clicking to hide the frame.
 		self.onClick(self, ...)
@@ -213,7 +213,7 @@ local function ToastFakeAchievement(addon, playSound, delay, AchievementInfo)
   end
 end
 
-function EZBlizzUiPop_ToastFakeAchievement(addon, playSound, delay, idNumber, name, points, icon, isGuildAch, toptext, alreadyEarned, onClick)
+function EZBUP.ToastFakeAchievement(addon, playSound, delay, idNumber, name, points, icon, isGuildAch, toptext, alreadyEarned, onClick)
 	local AchievementInfo = {}
 	AchievementInfo.achievementID = idNumber
 	AchievementInfo.name          = name
@@ -231,57 +231,6 @@ end
 
 local modelAnimationLoop = 2
 
-function EZBUP.npcDialog(creatureID, text, overlayFrameTemplate)
-	local npcName = XITK.GetNameFromNpcID(creatureID)
-	if npcName and npcName ~= "" then
-		EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate)
-	else
-		C_Timer.After(1, function()
-			EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate)
-		end)
-	end
-end
-
-function EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate)
-	local frame = nil
-	if creatureID and text then
-		--if ( not TalkingHeadFrame ) then
-		--	TalkingHead_LoadUI()
-		--end
-
-		frame = TalkingHeadFrame
-		if frame then
-			if overlayFrameTemplate then
-				if not EZBlizzUiPop_OverlayFrame then
-					local overlayFrame = CreateFrame("Frame", "EZBlizzUiPop_OverlayFrame", frame, overlayFrameTemplate)
-					overlayFrame:SetParent(frame)
-					overlayFrame:SetAllPoints(frame)
-					overlayFrame:RegisterEvent("TALKINGHEAD_REQUESTED")
-					overlayFrame:SetScript("OnEvent", function()
-						EZBlizzUiPop_OverlayFrame:Hide()
-					end)
-
-					hooksecurefunc(frame, "FadeinFrames", function()
-						EZBlizzUiPop_OverlayFrame.Fadein:Play()
-					end)
-					hooksecurefunc(frame, "FadeoutFrames", function()
-						EZBlizzUiPop_OverlayFrame.Close:Play()
-					end)
-				else
-					EZBlizzUiPop_OverlayFrame:Show()
-				end
-			end
-
-			EZBlizzUiPop_TalkingHeadFrame_Play(
-				creatureID,
-				XITK.GetNameFromNpcID(creatureID),
-				text,
-				DEFAULT_ANIMATION)
-		end
-	end
-	return frame
-end
-
 local function EstimateSpeechDuration(text)
     local words = 0
     for _ in string.gmatch(text, "%S+") do
@@ -294,7 +243,6 @@ local function EstimateSpeechDuration(text)
 
     return (words / 2.5) + pauses
 end
-
 
 local function SetupAnimations(model, animKit, animIntro, animLoop, lineDuration)
 	if ( animKit == nil ) then
@@ -340,7 +288,7 @@ local function SetupAnimations(model, animKit, animIntro, animLoop, lineDuration
 end
 
 local modelAnimationLoopIterration = 0
-function EZBlizzUiPop_TalkingHeadFrame_Play(creatureID, name, text, animation)
+local function EZBlizzUiPop_TalkingHeadFrame_Play(creatureID, name, text, animation)
 	local frame = TalkingHeadFrame
 	local model = frame.MainFrame.Model
 
@@ -380,6 +328,58 @@ function EZBlizzUiPop_TalkingHeadFrame_Play(creatureID, name, text, animation)
 		TalkingHeadFrame:Close()
 	end)
 end
+
+local function EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate)
+	local frame = nil
+	if creatureID and text then
+		--if ( not TalkingHeadFrame ) then
+		--	TalkingHead_LoadUI()
+		--end
+
+		frame = TalkingHeadFrame
+		if frame then
+			if overlayFrameTemplate then
+				if not EZBlizzUiPop_OverlayFrame then
+					local overlayFrame = CreateFrame("Frame", "EZBlizzUiPop_OverlayFrame", frame, overlayFrameTemplate)
+					overlayFrame:SetParent(frame)
+					overlayFrame:SetAllPoints(frame)
+					overlayFrame:RegisterEvent("TALKINGHEAD_REQUESTED")
+					overlayFrame:SetScript("OnEvent", function()
+						EZBlizzUiPop_OverlayFrame:Hide()
+					end)
+
+					hooksecurefunc(frame, "FadeinFrames", function()
+						EZBlizzUiPop_OverlayFrame.Fadein:Play()
+					end)
+					hooksecurefunc(frame, "FadeoutFrames", function()
+						EZBlizzUiPop_OverlayFrame.Close:Play()
+					end)
+				else
+					EZBlizzUiPop_OverlayFrame:Show()
+				end
+			end
+
+			EZBlizzUiPop_TalkingHeadFrame_Play(
+				creatureID,
+				XITK.GetNameFromNpcID(creatureID),
+				text,
+				DEFAULT_ANIMATION)
+		end
+	end
+	return frame
+end
+
+function EZBUP.npcDialog(creatureID, text, overlayFrameTemplate)
+	local npcName = XITK.GetNameFromNpcID(creatureID)
+	if npcName and npcName ~= "" then
+		EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate)
+	else
+		C_Timer.After(1, function()
+			EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate)
+		end)
+	end
+end
+
 
 --[[
 local frameSaveTalkingHeadInfo = CreateFrame("Frame")
