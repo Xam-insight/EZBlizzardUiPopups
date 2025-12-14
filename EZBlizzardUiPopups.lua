@@ -16,14 +16,6 @@ local MIN_SPEACH_DURATION = 3
 
 local EZBlizzUiPop_WoWRetail = tocversion >= 110000
 
-if (not EZBlizzardUiPopupsTooltip) then
-	CreateFrame("GameTooltip", "EZBlizzardUiPopupsTooltip", UIParent, "GameTooltipTemplate")
-	EZBlizzardUiPopupsTooltip:SetFrameStrata("TOOLTIP")
-	EZBlizzardUiPopupsTooltip:Hide()
-else
-	return
-end
-
 function EZBUP.PlayNPCRandomSound(creatureID, channel, playSound)
 	if playSound then
 		local soundFileIDBank = EZBlizzUiPop_SoundFileIDBank[creatureID] and EZBlizzUiPop_SoundFileIDBank[creatureID].soundQuotes
@@ -195,7 +187,7 @@ local function EZBlizzUiPop_AlertFrame_SetUp(frame, AchievementInfo)
 	return true;
 end
 
-local function ToastFakeAchievement(addon, playSound, delay, AchievementInfo)
+function ToastFakeAchievement(addon, playSound, delay, AchievementInfo)
   if AchievementFrame_LoadUI then
 	  if (IsKioskModeEnabled and IsKioskModeEnabled()) then
 		return
