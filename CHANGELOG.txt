@@ -1,3 +1,5 @@
+- v2.0.0
+	- Code optimization.
 - v1.0.13
 	- Xal'atath added.
 - v1.0.12
