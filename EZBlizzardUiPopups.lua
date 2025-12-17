@@ -6,6 +6,7 @@ if not EZBUP then
 end
 
 local XITK = LibStub("XamInsightToolKit")
+local EZBUP_DATA = LibStub("EZBlizzardUiPopups_Data")
 
 local _, _, _, tocversion = GetBuildInfo()
 
@@ -18,7 +19,7 @@ local EZBlizzUiPop_WoWRetail = tocversion >= 110000
 
 function EZBUP.PlayNPCRandomSound(creatureID, channel, playSound)
 	if playSound then
-		local soundFileIDBank = EZBlizzUiPop_SoundFileIDBank[creatureID] and EZBlizzUiPop_SoundFileIDBank[creatureID].soundQuotes
+		local soundFileIDBank = EZBUP_DATA.SoundFileIDBank[creatureID] and EZBUP_DATA.SoundFileIDBank[creatureID].soundQuotes
 		return XITK.PlayRandomSound(soundFileIDBank, channel, playSound)
 	end
 	return nil
@@ -288,7 +289,7 @@ local function EZBlizzUiPop_TalkingHeadFrame_Play(creatureID, name, text, animat
 	local textSpeechDuration = EstimateSpeechDuration(text)
 	frame:Show()
 	
-	local cameraID = EZBlizzUiPop_CreaturexCameraID[creatureID] and EZBlizzUiPop_CreaturexCameraID[creatureID].cameraID
+	local cameraID = EZBUP_DATA.CreaturexCameraID[creatureID] and EZBUP_DATA.CreaturexCameraID[creatureID].cameraID
 	model.uiCameraID = cameraID  or DEFAULT_CAMERAID
 	
 	Model_ApplyUICamera(model, 0)
@@ -308,8 +309,8 @@ local function EZBlizzUiPop_TalkingHeadFrame_Play(creatureID, name, text, animat
 	end)
 	
 	model:ClearModel()
-	if EZBlizzUiPop_CreaturexCameraID[creatureID] and EZBlizzUiPop_CreaturexCameraID[creatureID].displayInfo then
-		model:SetDisplayInfo(EZBlizzUiPop_CreaturexCameraID[creatureID].displayInfo)
+	if EZBUP_DATA.CreaturexCameraID[creatureID] and EZBUP_DATA.CreaturexCameraID[creatureID].displayInfo then
+		model:SetDisplayInfo(EZBUP_DATA.CreaturexCameraID[creatureID].displayInfo)
 	else
 		model:SetCreature(creatureID)
 	end
@@ -431,7 +432,7 @@ function testModels(cam) --/run testModels()
 	local imageSize = 120
 	local numRows, numCols = 7, 16
 	local i = 1
-	for k, v in pairs(EZBlizzUiPop_SoundFileIDBank) do
+	for k, v in pairs(EZBUP_DATA.SoundFileIDBank) do
 		local x = math.floor((i - 1) / numCols)
 		local y = ((i - 1) % numCols)
 		
@@ -441,7 +442,7 @@ function testModels(cam) --/run testModels()
 		totopModel:SetHeight(imageSize)
 		totopModel:ClearModel()
 		totopModel:SetCreature(k)
-		totopModel.uiCameraID = cam or (EZBlizzUiPop_CreaturexCameraID[k] and EZBlizzUiPop_CreaturexCameraID[k].cameraID) or DEFAULT_CAMERAID
+		totopModel.uiCameraID = cam or (EZBUP_DATA.CreaturexCameraID[k] and EZBUP_DATA.CreaturexCameraID[k].cameraID) or DEFAULT_CAMERAID
 		--C_Timer.After(0.1 * i, function()
 			Model_ApplyUICamera(totopModel, totopModel.uiCameraID)
 		--end)
@@ -471,13 +472,13 @@ end
 function testModels2() --/run testModels2()
 	local imageSize = 120
 	local numRows, numCols = 7, 16
-	for k, v in pairs(EZBlizzUiPop_SoundFileIDBank) do
+	for k, v in pairs(EZBUP_DATA.SoundFileIDBank) do
 		if v.model then
 			local totopModel = v.model
 			totopModel:ClearModel()
 			--totopModel:SetCreaturek)
 			--totopModel:RefreshCamera()
-			--totopModel.uiCameraID = (EZBlizzUiPop_CreaturexCameraID[k] and EZBlizzUiPop_CreaturexCameraID[k].cameraID) or DEFAULT_CAMERAID
+			--totopModel.uiCameraID = (EZBUP_DATA.CreaturexCameraID[k] and EZBUP_DATA.CreaturexCameraID[k].cameraID) or DEFAULT_CAMERAID
 			Model_ApplyUICamera(totopModel, totopModel.uiCameraID)
 		end
 	end

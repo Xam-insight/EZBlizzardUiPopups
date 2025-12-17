@@ -1,4 +1,11 @@
-EZBlizzUiPop_SoundFileIDBank = {
+local MAJOR, MINOR = "EZBlizzardUiPopups_Data", 1
+local EZBUP_DATA = LibStub:NewLibrary(MAJOR, MINOR)
+if not EZBUP_DATA then
+    -- A newer version is already loaded
+    return
+end
+
+EZBUP_DATA.SoundFileIDBank = {
 	[203314] = { soundQuotes = { 2416552, 2416540, 2416542, 2416543 } }, -- Baine Bloodhoof
 	[177114] = { soundQuotes = { 1801002, 1801005, 1800995, 561301 } },
 	[230055] = { soundQuotes = { 5725623, 5725624, 5725625, 5725634, 5725619, 5725620, 5725630 } },
@@ -44,7 +51,7 @@ EZBlizzUiPop_SoundFileIDBank = {
 	[207471] = { soundQuotes = { 5722458 } }, -- Widow Arak'nai
 }
 
-EZBlizzUiPop_CreaturexCameraID = {
+EZBUP_DATA.CreaturexCameraID = {
 	[1748] = { cameraID = 82, displayInfo = 5566, }, -- Highlord Bolvar Fordragon
 	[4275] = { cameraID = 82, displayInfo = 2353, }, -- Archmage Arugal
 	[11822] = { cameraID = 126, displayInfo = 11774, }, -- Moonglade Warden
