@@ -285,7 +285,6 @@ local function EZBlizzUiPop_TalkingHeadFrame_Play(creatureID, name, text, animat
 	local frame = TalkingHeadFrame
 	local model = frame.MainFrame.Model
 
-	local textFormatted = string.format(text)
 	local textSpeechDuration = EstimateSpeechDuration(text)
 	frame:Show()
 	
@@ -315,7 +314,7 @@ local function EZBlizzUiPop_TalkingHeadFrame_Play(creatureID, name, text, animat
 		model:SetCreature(creatureID)
 	end
 
-	TalkingHeadFrame:Reset(textFormatted, name)
+	TalkingHeadFrame:Reset(text, name)
 	TalkingHeadFrame:FadeinFrames()
 	C_Timer.After(math.max(textSpeechDuration, MIN_SPEACH_DURATION), function()
 		TalkingHeadFrame:Close()
