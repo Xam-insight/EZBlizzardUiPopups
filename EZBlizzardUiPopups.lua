@@ -395,7 +395,7 @@ frameSaveTalkingHeadInfo:SetScript("OnEvent", function(self, event)
         --local nameID = name.." - "..zone
 
         -- Store info
-		SaveTalkingHeadInfo = CalReminderOptionsData -- Replace with SavedVariable from active addon
+		SaveTalkingHeadInfo = nil -- Replace with SavedVariable from active addon
 		if not SaveTalkingHeadInfo then
 			SaveTalkingHeadInfo = {}
 		end
