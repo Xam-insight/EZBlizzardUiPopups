@@ -362,14 +362,16 @@ local function EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate
 end
 
 function EZBUP.npcDialog(creatureID, text, overlayFrameTemplate)
+	local frame
 	local npcName = XITK.GetNameFromNpcID(creatureID)
 	if npcName and npcName ~= "" then
-		EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate)
+		frame = EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate)
 	else
 		C_Timer.After(1, function()
-			EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate)
+			frame = EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate)
 		end)
 	end
+	return frame
 end
 
 
