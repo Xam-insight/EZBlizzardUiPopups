@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "EZBlizzardUiPopups", 1
+local MAJOR, MINOR = "EZBlizzardUiPopups", 2
 local EZBUP = LibStub:NewLibrary(MAJOR, MINOR)
 if not EZBUP then
     -- A newer version is already loaded
