@@ -1,3 +1,5 @@
+- v2.0.1
+	- LibStub usage
 - v2.0.0
 	- Code optimization.
 - v1.0.13

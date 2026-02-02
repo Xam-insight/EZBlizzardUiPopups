@@ -1,11 +1,11 @@
-local MAJOR, MINOR = "EZBlizzardUiPopups", 2
+local MAJOR, MINOR = "EZBlizzardUiPopups-2.0", 1
 local EZBUP = LibStub:NewLibrary(MAJOR, MINOR)
 if not EZBUP then
     -- A newer version is already loaded
     return
 end
 
-local XITK = LibStub("XamInsightToolKit")
+local XITK = LibStub("XamInsightToolKit-2.0")
 local EZBUP_DATA = LibStub("EZBlizzardUiPopups_Data")
 
 local _, _, _, tocversion = GetBuildInfo()
@@ -17,10 +17,10 @@ local MIN_SPEACH_DURATION = 3
 
 local EZBlizzUiPop_WoWRetail = tocversion >= 110000
 
-function EZBUP.PlayNPCRandomSound(creatureID, channel, playSound)
+function EZBUP:PlayNPCRandomSound(creatureID, channel, playSound)
 	if playSound then
 		local soundFileIDBank = EZBUP_DATA.SoundFileIDBank[creatureID] and EZBUP_DATA.SoundFileIDBank[creatureID].soundQuotes
-		return XITK.PlayRandomSound(soundFileIDBank, channel, playSound)
+		return XITK:PlayRandomSound(soundFileIDBank, channel, playSound)
 	end
 	return nil
 end
@@ -202,11 +202,11 @@ function ToastFakeAchievement(addon, playSound, delay, AchievementInfo)
 	  end
 	  addon.AlertSystem:AddAlert(AchievementInfo)
 
-	  if (playSound) then XITK.PlaySound(12891) end -- UI_Alert_AchievementGained
+	  if (playSound) then XITK:PlaySound(12891) end -- UI_Alert_AchievementGained
   end
 end
 
-function EZBUP.ToastFakeAchievement(addon, playSound, delay, idNumber, name, points, icon, isGuildAch, toptext, alreadyEarned, onClick)
+function EZBUP:ToastFakeAchievement(addon, playSound, delay, idNumber, name, points, icon, isGuildAch, toptext, alreadyEarned, onClick)
 	local AchievementInfo = {}
 	AchievementInfo.achievementID = idNumber
 	AchievementInfo.name          = name
@@ -353,7 +353,7 @@ local function EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate
 
 			EZBlizzUiPop_TalkingHeadFrame_Play(
 				creatureID,
-				XITK.GetNameFromNpcID(creatureID),
+				XITK:GetNameFromNpcID(creatureID),
 				text,
 				DEFAULT_ANIMATION)
 		end
@@ -361,9 +361,9 @@ local function EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate
 	return frame
 end
 
-function EZBUP.npcDialog(creatureID, text, overlayFrameTemplate)
+function EZBUP:npcDialog(creatureID, text, overlayFrameTemplate)
 	local frame
-	local npcName = XITK.GetNameFromNpcID(creatureID)
+	local npcName = XITK:GetNameFromNpcID(creatureID)
 	if npcName and npcName ~= "" then
 		frame = EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate)
 	else
