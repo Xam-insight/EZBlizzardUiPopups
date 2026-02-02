@@ -3,7 +3,6 @@ import sys
 import csv
 
 def extract_nested_table(lua_text, table_name):
-    # Trouve l'ouverture de ["tableName"] = {
     pattern = rf'\[?"?{re.escape(table_name)}"?\]?\s*=\s*\{{'
     start_match = re.search(pattern, lua_text)
     if not start_match:
@@ -13,8 +12,6 @@ def extract_nested_table(lua_text, table_name):
     start_index = start_match.end()
     depth = 1
     i = start_index
-
-    # Trouve la fin réelle de la table (gestion des accolades imbriquées)
     while i < len(lua_text) and depth > 0:
         if lua_text[i] == "{":
             depth += 1
@@ -23,41 +20,35 @@ def extract_nested_table(lua_text, table_name):
         i += 1
 
     table_content = lua_text[start_index:i-1]
-
     results = {}
 
-    # Capture les deux cas :
-    # 1) [12345] = {
-    # 2) ["some string"] = {
-    entry_pattern = r'(?:\[(\d+)\]|\["(.+?)"\])\s*=\s*\{(.*?)\}'
+    entry_pattern = r'(?:\[(\d+)\]|\["((?:\\.|[^"\\])*)"\])\s*=\s*\{(.*?)\}\s*,?'
     entries = re.findall(entry_pattern, table_content, re.DOTALL)
 
-    for num_key, str_key, content in entries:
-        if num_key:
-            entry_id = num_key
-        else:
-            entry_id = str_key  # clé en string
+    field_pattern = r'\["([^"]+)"\]\s*=\s*("(?:(?:\\.|[^"\\])*)"|true|false|nil|[-+]?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?)\s*,?'
 
-        fields = re.findall(r'\["(.*?)"\]\s*=\s*(.*?)(,|\n)', content)
+    for num_key, str_key, content in entries:
+        entry_id = int(num_key) if num_key else str_key.replace(r'\"', '"').replace(r"\\", "\\")
 
         obj = {}
-        for key, value, _ in fields:
+        for key, value in re.findall(field_pattern, content):
             value = value.strip()
 
             if value.startswith('"') and value.endswith('"'):
-                value = value[1:-1]
+                v = value[1:-1]
+                v = v.replace(r'\"', '"').replace(r"\\", "\\")
+                obj[key] = v
             elif value == "nil":
-                value = None
+                obj[key] = None
+            elif value == "true":
+                obj[key] = True
+            elif value == "false":
+                obj[key] = False
             else:
                 try:
-                    if "." in value:
-                        value = float(value)
-                    else:
-                        value = int(value)
+                    obj[key] = float(value) if any(c in value for c in ".eE") else int(value)
                 except:
-                    pass
-
-            obj[key] = value
+                    obj[key] = value
 
         results[entry_id] = obj
 
@@ -71,7 +62,11 @@ def table_to_csv(data, csv_filename):
     all_keys = sorted(all_keys)
 
     with open(csv_filename, "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
+        writer = csv.writer(
+            f,
+            delimiter="|",
+            quoting=csv.QUOTE_MINIMAL
+        )
         writer.writerow(["id"] + all_keys)
         for entry_id, obj in data.items():
             row = [entry_id] + [obj.get(k, "") for k in all_keys]
