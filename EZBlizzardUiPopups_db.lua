@@ -49,6 +49,8 @@ EZBUP_DATA.SoundFileIDBank = {
 	[235448] = { soundQuotes = { 6708204, 2530795 } },
 	[215113] = { soundQuotes = { 5722457 } }, -- Orweyna
 	[207471] = { soundQuotes = { 5722458 } }, -- Widow Arak'nai
+	[255283] = { soundQuotes = { 1800449, 1800441 } }, -- Magister Umbric
+	[250395] = { soundQuotes = { 1801067, 1801060 } }, -- Grand Magister Rommath
 }
 
 EZBUP_DATA.CreaturexCameraID = {
@@ -56,6 +58,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[4275] = { cameraID = 82, displayInfo = 2353, }, -- Archmage Arugal
 	[11822] = { cameraID = 126, displayInfo = 11774, }, -- Moonglade Warden
 	[16628] = { cameraID = 120, displayInfo = 16694, }, -- Auctioneer Caidori
+	[16800] = { cameraID = 1209, displayInfo = 19706, }, -- Grand Magister Rommath
 	[17026] = { cameraID = 141, displayInfo = 21575, }, -- Grom Hellscream
 	[18063] = { cameraID = 141, displayInfo = 17452, }, -- Garrosh
 	[19935] = { cameraID = 120, displayInfo = 20222, }, -- Soridormi
@@ -949,17 +952,14 @@ EZBUP_DATA.CreaturexCameraID = {
 	[104971] = { cameraID = 126, displayInfo = 68876, }, -- Injured Tian Pupil
 	[104983] = { cameraID = 90, displayInfo = 47399, }, -- Entrance  Kill Credit B
 	[105220] = { cameraID = 82, displayInfo = 85261, }, -- Tournament Announcer
-	[105250] = { cameraID = 574, 793, displayInfo = 70039, }, -- Aulier
 	[105265] = { cameraID = 795, displayInfo = 66265, }, -- Nightborne Reclaimer
 	[105266] = { cameraID = 795, displayInfo = 66257, }, -- Nightborne Infiltrator
 	[105514] = { cameraID = 126, displayInfo = 69021, }, -- Ox Style Adept
 	[105522] = { cameraID = 126, displayInfo = 69175, }, -- Ox Style Master
 	[105523] = { cameraID = 130, displayInfo = 69182, }, -- Tiger Style Master
-	[105674] = { cameraID = 574, 793, displayInfo = 70048, }, -- Varenne
 	[105689] = { cameraID = 90, displayInfo = 24574, }, -- Orik Trueheart
 	[105691] = { cameraID = 126, displayInfo = 29250, }, -- Tahu Sagewind
 	[105769] = { cameraID = 130, displayInfo = 69288, }, -- Brother Larry
-	[105836] = { cameraID = 574, 793, displayInfo = 69992, }, -- Nightborne Socialite
 	[105934] = { cameraID = 101, displayInfo = 69425, }, -- Sylendra Gladesong
 	[105935] = { cameraID = 126, displayInfo = 31605, }, -- Archdruid Hamuul Runetotem
 	[105995] = { cameraID = 126, displayInfo = 69535, }, -- Muln Earthfury
@@ -1077,7 +1077,6 @@ EZBUP_DATA.CreaturexCameraID = {
 	[111445] = { cameraID = 576, displayInfo = 73519, }, -- Suramar Loyalist
 	[111447] = { cameraID = 793, displayInfo = 66562, }, -- Duskwatch Defender
 	[111470] = { cameraID = 141, displayInfo = 69700, }, -- Gravely Wounded Soldier
-	[111490] = { cameraID = 574, 793, displayInfo = 71122, }, -- Loyalist Sycophant
 	[111544] = { cameraID = 120, displayInfo = 69672, }, -- Fevered Explorer
 	[111618] = { cameraID = 795, displayInfo = 66278, }, -- Duskwatch Enforcer
 	[111668] = { cameraID = 101, displayInfo = 67978, }, -- Emmoris, Mistress of Light
@@ -1130,11 +1129,8 @@ EZBUP_DATA.CreaturexCameraID = {
 	[112405] = { cameraID = 130, displayInfo = 72058, }, -- Vhell
 	[112406] = { cameraID = 120, displayInfo = 72059, }, -- Merciless Gladiator Saifu
 	[112431] = { cameraID = 126, displayInfo = 72069, }, -- Airhorn
-	[112463] = { cameraID = 574, 793, displayInfo = 70750, }, -- Stablemaster Vorithal
-	[112465] = { cameraID = 574, 793, displayInfo = 70750, }, -- Stablemaster Orian
 	[112466] = { cameraID = 82, displayInfo = 72080, }, -- Agent Smith
 	[112467] = { cameraID = 82, displayInfo = 72081, }, -- Agent Jones
-	[112471] = { cameraID = 574, 793, displayInfo = 70027, }, -- Lord Nimrod
 	[112473] = { cameraID = 576, displayInfo = 69995, }, -- Lady Dyana
 	[112475] = { cameraID = 793, displayInfo = 66562, }, -- Houndmaster Britomar
 	[112583] = { cameraID = 105, displayInfo = 69502, }, -- Fallen Guardian of the Dream
@@ -1275,7 +1271,6 @@ EZBUP_DATA.CreaturexCameraID = {
 	[115079] = { cameraID = 795, displayInfo = 73514, }, -- Victoire
 	[115081] = { cameraID = 576, displayInfo = 69990, }, -- Deline
 	[115092] = { cameraID = 795, displayInfo = 73854, }, -- Arcanist Valtrois
-	[115094] = { cameraID = 574, 793, displayInfo = 73853, }, -- Chief Telemancer Oculeth
 	[115096] = { cameraID = 793, displayInfo = 68890, }, -- Silgryn
 	[115262] = { cameraID = 82, displayInfo = 73731, }, -- Moroes
 	[115268] = { cameraID = 793, displayInfo = 73542, }, -- Darion Strongblade
@@ -1354,7 +1349,6 @@ EZBUP_DATA.CreaturexCameraID = {
 	[118775] = { cameraID = 126, displayInfo = 74940, }, -- Omanawkwa Steelhoof
 	[118795] = { cameraID = 795, displayInfo = 66261, }, -- Nighthuntress Syrenne
 	[118796] = { cameraID = 126, displayInfo = 65482, }, -- Rivermane Shaman
-	[118925] = { cameraID = 574, 793, displayInfo = 70036, }, -- Felconsumed Victim
 	[118938] = { cameraID = 82, displayInfo = 21256, }, -- Stranger
 	[119053] = { cameraID = 82, displayInfo = 75038, }, -- Xorothian Cultist
 	[119077] = { cameraID = 101, displayInfo = 73135, }, -- Dreamgrove Protector
@@ -1457,8 +1451,10 @@ EZBUP_DATA.CreaturexCameraID = {
 	[129211] = { cameraID = 101, displayInfo = 80441, }, -- Tyrande Whisperwind
 	[129836] = { cameraID = 130, displayInfo = 85413, }, -- Spelltwister Moephus
 	[129957] = { cameraID = 82, displayInfo = 78018, }, -- Clarence Page
+	[130128] = { cameraID = 1209, displayInfo = 19706, }, -- Grand Magister Rommath
 	[130129] = { cameraID = 82, displayInfo = 72253, }, -- Master Mathias Shaw
 	[130134] = { cameraID = 795, displayInfo = 67345, }, -- First Arcanist Thalyssra
+	[130193] = { cameraID = 1209, displayInfo = 63775, }, -- Grand Magister Rommath
 	[130201] = { cameraID = 793, displayInfo = 68890, }, -- Silgryn
 	[130419] = { cameraID = 82, displayInfo = 81470, }, -- Cyril White
 	[130521] = { cameraID = 82, displayInfo = 79064, }, -- Freehold Deckhand
@@ -1492,7 +1488,6 @@ EZBUP_DATA.CreaturexCameraID = {
 	[131317] = { cameraID = 82, displayInfo = 81469, }, -- Samuel Williams
 	[131357] = { cameraID = 84, displayInfo = 80016, }, -- Jaina Proudmoore
 	[131358] = { cameraID = 84, displayInfo = 80015, }, -- Jaina Proudmoore
-	[131443] = { cameraID = 574, 793, displayInfo = 73853, }, -- Chief Telemancer Oculeth
 	[131462] = { cameraID = 90, displayInfo = 80380, }, -- Blacktooth Guzzler
 	[131526] = { cameraID = 126, displayInfo = 31605, }, -- Archdruid Hamuul Runetotem (IGC)
 	[131566] = { cameraID = 141, displayInfo = 81911, }, -- Peon
@@ -1592,7 +1587,6 @@ EZBUP_DATA.CreaturexCameraID = {
 	[139102] = { cameraID = 142, displayInfo = 60766, }, -- Rexxar
 	[139489] = { cameraID = 82, displayInfo = 86314, }, -- Captain Hermes
 	[139527] = { cameraID = 82, displayInfo = 81610, }, -- SI:7 Operative
-	[139550] = { cameraID = 574, 793, displayInfo = 86393, }, -- Associate Telemancer Burneth
 	[139558] = { cameraID = 82, displayInfo = 82843, }, -- Ashvane Associate
 	[139559] = { cameraID = 82, displayInfo = 84072, }, -- Proudmoore Guard
 	[139561] = { cameraID = 141, displayInfo = 59949, }, -- Mukkral Blackvein
@@ -1623,7 +1617,6 @@ EZBUP_DATA.CreaturexCameraID = {
 	[140239] = { cameraID = 90, displayInfo = 31297, }, -- Logan Talonstrike
 	[140240] = { cameraID = 82, displayInfo = 1864, }, -- Cannoneer Whessan
 	[140241] = { cameraID = 1209, displayInfo = 82523, }, -- Instructor Duskwalker
-	[140488] = { cameraID = 574, 793, displayInfo = 73853, }, -- Chief Telemancer Oculeth
 	[140529] = { cameraID = 120, displayInfo = 86752, }, -- Blood Marquess
 	[140581] = { cameraID = 82, displayInfo = 81351, }, -- Vigil Hill Militia
 	[140880] = { cameraID = 82, displayInfo = 86952, }, -- Michael Skarn
@@ -1664,7 +1657,6 @@ EZBUP_DATA.CreaturexCameraID = {
 	[141259] = { cameraID = 130, displayInfo = 1680, }, -- Master Apothecary Faranell
 	[141260] = { cameraID = 141, displayInfo = 29200, }, -- Captain Goggath
 	[141262] = { cameraID = 141, displayInfo = 30544, }, -- Kilrok Gorehammer
-	[141310] = { cameraID = 574, 793, displayInfo = 86393, }, -- Associate Telemancer Rafcav
 	[141337] = { cameraID = 105, displayInfo = 33551, }, -- Bloodfang Stalkers
 	[141344] = { cameraID = 120, displayInfo = 78167, }, -- Silvermoon Sorceress
 	[141479] = { cameraID = 82, displayInfo = 80754, }, -- Burly
@@ -1815,7 +1807,6 @@ EZBUP_DATA.CreaturexCameraID = {
 	[149745] = { cameraID = 1208, displayInfo = 88826, }, -- Xal'atath
 	[149824] = { cameraID = 90, displayInfo = 26353, }, -- Brann Bronzebeard
 	[149898] = { cameraID = 90, displayInfo = 91995, }, -- Bjorn Stouthands
-	[150183] = { cameraID = 574, 793, displayInfo = 90666, }, -- Image of Chief Telemancer Oculeth
 	[150326] = { cameraID = 120, displayInfo = 85924, }, -- Lady Liadrin
 	[150334] = { cameraID = 82, displayInfo = 80052, }, -- Outrigger Hunter
 	[150650] = { cameraID = 105, displayInfo = 72537, }, -- Black Harvest Acolytes
@@ -2565,6 +2556,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[234793] = { cameraID = 120, displayInfo = 140186, }, -- Row Rat
 	[235240] = { cameraID = 141, displayInfo = 124748, }, -- Orgrim Doomhammer
 	[235405] = { cameraID = 1209, displayInfo = 128688, }, -- Magister Umbric
+	[235483] = { cameraID = 1209, displayInfo = 140873, }, -- Grand Magister Rommath
 	[235994] = { cameraID = 1577, displayInfo = 131942, }, -- Om'rajula
 	[236017] = { cameraID = 1209, displayInfo = 121985, }, -- Kirin Tor Survivor
 	[236048] = { cameraID = 82, displayInfo = 121981, }, -- Kirin Tor Survivor
@@ -2612,7 +2604,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[242281] = { cameraID = 82, displayInfo = 128261, }, -- Archmage Vargoth
 	[242299] = { cameraID = 82, displayInfo = 106239, }, -- Archmage Khadgar
 	[242398] = { cameraID = 120, displayInfo = 105169, }, -- Naleidea Rivergleam
-	[242399] = { cameraID = 574, 793, displayInfo = 107574, }, -- Telemancer Astrandis
+	[242413] = { cameraID = 1209, displayInfo = 63775, }, -- Grand Magister Rommath
 	[242417] = { cameraID = 120, displayInfo = 121121, }, -- Fleeing Citizen
 	[242582] = { cameraID = 141, displayInfo = 141316, }, -- Eitrigg
 	[242583] = { cameraID = 82, displayInfo = 141437, }, -- Danath Trollbane
@@ -2632,6 +2624,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[245399] = { cameraID = 84, displayInfo = 88316, }, -- Lady Jaina Proudmoore
 	[245519] = { cameraID = 90, displayInfo = 141212, }, -- Priest Grimmin
 	[245536] = { cameraID = 1208, displayInfo = 141322, }, -- Leona Darkstrider
+	[245587] = { cameraID = 1209, displayInfo = 129719, }, -- Grand Magister Rommath
 	[245852] = { cameraID = 1865, displayInfo = 122503, }, -- Om'en
 	[245976] = { cameraID = 1208, displayInfo = 139855, }, -- Deminos Darktrance
 	[246417] = { cameraID = 90, displayInfo = 131524, }, -- Commander Koruth Mountainfist
@@ -3076,11 +3069,6 @@ EZBUP_DATA.CreaturexCameraID = {
 	[116087] = { cameraID = 795, displayInfo = 73854, }, -- Arcanist Valtrois
 	[116734] = { cameraID = 795, displayInfo = 73854, }, -- Arcanist Valtrois
 	[130200] = { cameraID = 795, displayInfo = 73854, }, -- Arcanist Valtrois
-	[115342] = { cameraID = 574, 793, displayInfo = 73853, }, -- Chief Telemancer Oculeth
-	[115374] = { cameraID = 574, 793, displayInfo = 73853, }, -- Chief Telemancer Oculeth
-	[115505] = { cameraID = 574, 793, displayInfo = 73853, }, -- Chief Telemancer Oculeth
-	[115710] = { cameraID = 574, 793, displayInfo = 73853, }, -- Chief Telemancer Oculeth
-	[116733] = { cameraID = 574, 793, displayInfo = 73853, }, -- Chief Telemancer Oculeth
 	[115506] = { cameraID = 795, displayInfo = 67345, }, -- First Arcanist Thalyssra
 	[116441] = { cameraID = 1675, displayInfo = 38491, }, -- Archmage Kalec
 	[131326] = { cameraID = 795, displayInfo = 67345, }, -- First Arcanist Thalyssra
@@ -3209,16 +3197,6 @@ EZBUP_DATA.CreaturexCameraID = {
 	[143531] = { cameraID = 130, displayInfo = 86536, }, -- Thomas Zelling
 	[145423] = { cameraID = 130, displayInfo = 86536, }, -- Thomas Zelling
 	[145588] = { cameraID = 130, displayInfo = 86536, }, -- Thomas Zelling
-	[143530] = { cameraID = 574, 793, displayInfo = 73853, }, -- Chief Telemancer Oculeth
-	[150206] = { cameraID = 574, 793, displayInfo = 73853, }, -- Chief Telemancer Oculeth
-	[151851] = { cameraID = 574, 793, displayInfo = 73853, }, -- Chief Telemancer Oculeth
-	[153422] = { cameraID = 574, 793, displayInfo = 73853, }, -- Chief Telemancer Oculeth
-	[155241] = { cameraID = 574, 793, displayInfo = 73853, }, -- Chief Telemancer Oculeth
-	[195080] = { cameraID = 574, 793, displayInfo = 73853, }, -- Chief Telemancer Oculeth
-	[240265] = { cameraID = 574, 793, displayInfo = 73853, }, -- Chief Telemancer Oculeth
-	[245458] = { cameraID = 574, 793, displayInfo = 73853, }, -- Chief Telemancer Oculeth
-	[248842] = { cameraID = 574, 793, displayInfo = 73853, }, -- Chief Telemancer Oculeth
-	[251337] = { cameraID = 574, 793, displayInfo = 73853, }, -- Chief Telemancer Oculeth
 	[140601] = { cameraID = 120, displayInfo = 86752, }, -- Blood Marquess
 	[151085] = { cameraID = 82, displayInfo = 86639, }, -- Kul Tiran Executioner
 	[224823] = { cameraID = 82, displayInfo = 76222, }, -- Flynn Fairwind
@@ -3721,6 +3699,9 @@ EZBUP_DATA.CreaturexCameraID = {
 	[235411] = { cameraID = 1209, displayInfo = 128688, }, -- Magister Umbric
 	[235698] = { cameraID = 1209, displayInfo = 128688, }, -- Magister Umbric
 	[255283] = { cameraID = 1209, displayInfo = 128688, }, -- Magister Umbric
+	[236583] = { cameraID = 1209, displayInfo = 140873, }, -- Grand Magister Rommath
+	[241043] = { cameraID = 1209, displayInfo = 140873, }, -- Grand Magister Rommath
+	[256913] = { cameraID = 1209, displayInfo = 140873, }, -- Grand Magister Rommath
 	[236571] = { cameraID = 82, displayInfo = 141146, }, -- High Exarch Turalyon
 	[236778] = { cameraID = 82, displayInfo = 141146, }, -- High Exarch Turalyon
 	[239810] = { cameraID = 82, displayInfo = 141146, }, -- High Exarch Turalyon
@@ -3751,6 +3732,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[256002] = { cameraID = 130, displayInfo = 141282, }, -- Alonsus Faol
 	[242077] = { cameraID = 120, displayInfo = 128683, }, -- Vereesa Windrunner
 	[250288] = { cameraID = 120, displayInfo = 128683, }, -- Vereesa Windrunner
+	[250395] = { cameraID = 1209, displayInfo = 63775, }, -- Grand Magister Rommath
 	[250414] = { cameraID = 141, displayInfo = 141316, }, -- Eitrigg
 	[244920] = { cameraID = 82, displayInfo = 119046, }, -- Danath Trollbane
 	[254055] = { cameraID = 795, displayInfo = 66275, }, -- Nightborne Arcanist
