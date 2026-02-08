@@ -4011,7 +4011,6 @@ EZBUP_DATA.CreaturexCameraID = {
 	[22917] = { cameraID = 296 }, -- Illidan Stormrage
 	[30115] = { cameraID = 120 }, -- Vereesa Windrunner
 	[36597] = { cameraID = 88 }, -- The Lich King
-	[36648] = { cameraID = 141 }, -- Baine Bloodhoof
 	[101605] = { cameraID = 114 }, -- Trade Prince Gallywix
 	[118927] = { cameraID = 82 }, -- Kanrethad Ebonlocke
 	[158588] = { cameraID = 126 }, -- Gamon
