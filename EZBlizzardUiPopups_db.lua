@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "EZBlizzardUiPopups_Data", 2
+local MAJOR, MINOR = "EZBlizzardUiPopups_Data", 3
 local EZBUP_DATA = LibStub:NewLibrary(MAJOR, MINOR)
 if not EZBUP_DATA then
     -- A newer version is already loaded
@@ -49,6 +49,8 @@ EZBUP_DATA.SoundFileIDBank = {
 	[235448] = { soundQuotes = { 6708204, 2530795 } },
 	[215113] = { soundQuotes = { 5722457 } }, -- Orweyna
 	[207471] = { soundQuotes = { 5722458 } }, -- Widow Arak'nai
+	[256078] = { soundQuotes = { 7235360, 7235353, 7235356 } }, -- Lyssabel Dawnpetal
+	[233062] = { soundQuotes = { 7235436, 7235389 } }, -- Tocho Cloudhide
 	[255283] = { soundQuotes = { 1800449, 1800441 } }, -- Magister Umbric
 	[250395] = { soundQuotes = { 1801067, 1801060 } }, -- Grand Magister Rommath
 }
@@ -59,13 +61,16 @@ EZBUP_DATA.CreaturexCameraID = {
 	[11822] = { cameraID = 126, displayInfo = 11774, }, -- Moonglade Warden
 	[16628] = { cameraID = 120, displayInfo = 16694, }, -- Auctioneer Caidori
 	[16800] = { cameraID = 1209, displayInfo = 19706, }, -- Grand Magister Rommath
+	[16801] = { cameraID = 1209, displayInfo = 19707, }, -- Halduron Brightwing
 	[17026] = { cameraID = 141, displayInfo = 21575, }, -- Grom Hellscream
 	[18063] = { cameraID = 141, displayInfo = 17452, }, -- Garrosh
 	[19935] = { cameraID = 120, displayInfo = 20222, }, -- Soridormi
 	[20350] = { cameraID = 82, displayInfo = 19548, }, -- Kel'Thuzad
 	[22522] = { cameraID = 141, displayInfo = 4527, }, -- Super Thrall
 	[23159] = { cameraID = 268, displayInfo = 21345, }, -- Okuno
+	[26115] = { cameraID = 1209, displayInfo = 23554, }, -- Darkfallen Bloodbearer
 	[29611] = { cameraID = 82, displayInfo = 28127, }, -- King Varian Wrynn
+	[30116] = { cameraID = 1209, displayInfo = 26770, }, -- Archmage Aethas Sunreaver
 	[32695] = { cameraID = 82, displayInfo = 28180, }, -- Donavan Bale
 	[32697] = { cameraID = 141, displayInfo = 28181, }, -- Dak'hal the Black
 	[32702] = { cameraID = 141, displayInfo = 28201, }, -- Drog Skullbreaker
@@ -74,8 +79,10 @@ EZBUP_DATA.CreaturexCameraID = {
 	[32710] = { cameraID = 90, displayInfo = 28184, }, -- Garl Grimgrizzle
 	[32714] = { cameraID = 101, displayInfo = 28190, }, -- Moon Priestess Nici
 	[32717] = { cameraID = 130, displayInfo = 28193, }, -- Drool
+	[32721] = { cameraID = 1209, displayInfo = 28198, }, -- Felcaster Virim
 	[35384] = { cameraID = 101, displayInfo = 29798, }, -- Disciple of Elune
 	[35867] = { cameraID = 1675, displayInfo = 23459, }, -- Kalec
+	[36774] = { cameraID = 1209, displayInfo = 30310, }, -- Silver Covenant Agent
 	[38839] = { cameraID = 90, displayInfo = 7789, }, -- Dark Iron Guard
 	[40920] = { cameraID = 120, displayInfo = 32199, }, -- Elendri Goldenbrow
 	[42131] = { cameraID = 90, displayInfo = 32681, }, -- Falstad Wildhammer
@@ -91,6 +98,8 @@ EZBUP_DATA.CreaturexCameraID = {
 	[49590] = { cameraID = 141, displayInfo = 37196, }, -- Guild Herald
 	[51346] = { cameraID = 141, displayInfo = 37328, }, -- Orgrimmar Wind Rider
 	[51468] = { cameraID = 90, displayInfo = 35028, }, -- Wildhammer Guard
+	[51796] = { cameraID = 1209, displayInfo = 89418, }, -- Silvermoon City Guardian
+	[53828] = { cameraID = 1209, displayInfo = 38746, }, -- Darren's Test NPC
 	[55561] = { cameraID = 82, displayInfo = 31427, }, -- King Varian Wrynn
 	[60149] = { cameraID = 141, displayInfo = 41490, }, -- General Nazgrim
 	[60828] = { cameraID = 82, displayInfo = 41605, }, -- Admiral Taylor
@@ -118,6 +127,10 @@ EZBUP_DATA.CreaturexCameraID = {
 	[63436] = { cameraID = 126, displayInfo = 43014, }, -- Tauren 02
 	[63437] = { cameraID = 126, displayInfo = 43015, }, -- Tauren 03
 	[63438] = { cameraID = 126, displayInfo = 43016, }, -- Tauren 04
+	[63455] = { cameraID = 1209, displayInfo = 43031, }, -- BloodElf Male 00
+	[63456] = { cameraID = 1209, displayInfo = 43032, }, -- BloodElf Male 01
+	[63457] = { cameraID = 1209, displayInfo = 43033, }, -- BloodElf Male 02
+	[63458] = { cameraID = 1209, displayInfo = 43034, }, -- BloodElf Male 03
 	[63459] = { cameraID = 120, displayInfo = 43035, }, -- BloodElf Female 04
 	[63460] = { cameraID = 120, displayInfo = 43038, }, -- BloodElf Female 05
 	[63461] = { cameraID = 120, displayInfo = 43041, }, -- BloodElf Female 06
@@ -133,6 +146,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[65656] = { cameraID = 82, displayInfo = 44500, }, -- Bill Buckler
 	[66300] = { cameraID = 82, displayInfo = 44977, }, -- Skyfire Marine
 	[66412] = { cameraID = 101, displayInfo = 45078, }, -- Elena Flutterfly
+	[66442] = { cameraID = 1209, displayInfo = 45110, }, -- Zoltan
 	[66460] = { cameraID = 82, displayInfo = 45156, }, -- Skyfire Gyrocopter Pilot
 	[66478] = { cameraID = 130, displayInfo = 45186, }, -- David Kosse
 	[66515] = { cameraID = 90, displayInfo = 45211, }, -- Kortas Darkhammer
@@ -140,6 +154,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[66520] = { cameraID = 90, displayInfo = 45224, }, -- Durin Darkhammer
 	[66552] = { cameraID = 141, displayInfo = 45232, }, -- Narrok
 	[66553] = { cameraID = 268, displayInfo = 21344, }, -- Morulu The Elder
+	[66557] = { cameraID = 1209, displayInfo = 45238, }, -- Bloodknight Antari
 	[66636] = { cameraID = 130, displayInfo = 45260, }, -- Nearly Headless Jacob
 	[66638] = { cameraID = 141, displayInfo = 45261, }, -- Okrut Dragonwaste
 	[66641] = { cameraID = 82, displayInfo = 44977, }, -- Skyfire Marine
@@ -161,15 +176,20 @@ EZBUP_DATA.CreaturexCameraID = {
 	[67765] = { cameraID = 82, displayInfo = 45156, }, -- Skyfire Gyrocopter Pilot
 	[67801] = { cameraID = 90, displayInfo = 46911, }, -- High Marshal Twinbraid
 	[68019] = { cameraID = 82, displayInfo = 46573, }, -- Kanrethad Ebonlocke
+	[68052] = { cameraID = 1209, displayInfo = 46605, }, -- Sunreaver Citizen
 	[68098] = { cameraID = 268, displayInfo = 20422, }, -- Ashtongue Worker
 	[68287] = { cameraID = 141, displayInfo = 30272, }, -- Baine Bloodhoof
 	[68305] = { cameraID = 126, displayInfo = 46739, }, -- Smash Hoofstomp
 	[68474] = { cameraID = 141, displayInfo = 46813, }, -- Commander Scargash
 	[68477] = { cameraID = 141, displayInfo = 46373, }, -- Kor'kron Sentry
+	[68482] = { cameraID = 1209, displayInfo = 46601, }, -- Silvermoon Scholar
 	[68612] = { cameraID = 101, displayInfo = 47045, }, -- Skyglaive Sentinel
+	[68613] = { cameraID = 1209, displayInfo = 46605, }, -- Displaced Sunreaver
 	[68690] = { cameraID = 82, displayInfo = 28127, }, -- King Varian Wrynn
+	[68766] = { cameraID = 1209, displayInfo = 46605, }, -- Defiant Sunreaver
 	[68880] = { cameraID = 141, displayInfo = 46759, }, -- Kor'kron Slayer
 	[68925] = { cameraID = 82, displayInfo = 47044, }, -- Young Varian Wrynn
+	[68978] = { cameraID = 1209, displayInfo = 46605, }, -- Sunreaver Refugee
 	[69025] = { cameraID = 141, displayInfo = 46813, }, -- Commander Scargash
 	[69045] = { cameraID = 141, displayInfo = 17452, }, -- Garrosh
 	[70733] = { cameraID = 82, displayInfo = 48286, }, -- Tyson Sanders
@@ -198,6 +218,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[72774] = { cameraID = 82, displayInfo = 15093, }, -- Crafty the Vendor
 	[72813] = { cameraID = 815, displayInfo = 59712, }, -- Image of Cho'gall
 	[72837] = { cameraID = 141, displayInfo = 54104, }, -- Farseer Urquan
+	[72870] = { cameraID = 1209, displayInfo = 51342, }, -- Kairoz
 	[72874] = { cameraID = 82, displayInfo = 56765, }, -- Archmage Khadgar
 	[72964] = { cameraID = 141, displayInfo = 51010, }, -- Goro'dan
 	[72976] = { cameraID = 141, displayInfo = 49105, }, -- Outrider Urukag
@@ -322,6 +343,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[78555] = { cameraID = 90, displayInfo = 54258, }, -- Owynn Graddock
 	[78556] = { cameraID = 141, displayInfo = 36185, }, -- Ariok
 	[78568] = { cameraID = 90, displayInfo = 52540, }, -- Thaelin Darkanvil
+	[78577] = { cameraID = 1209, displayInfo = 16851, }, -- Mehlar Dawnblade
 	[78638] = { cameraID = 82, displayInfo = 19078, }, -- Image of Archmage Vargoth
 	[78649] = { cameraID = 90, displayInfo = 47399, }, -- General Purpose Stalker
 	[78667] = { cameraID = 141, displayInfo = 54639, }, -- Ironmarch Legionnaire
@@ -348,7 +370,9 @@ EZBUP_DATA.CreaturexCameraID = {
 	[79368] = { cameraID = 90, displayInfo = 48200, }, -- Dwarf Male
 	[79370] = { cameraID = 105, displayInfo = 37446, }, -- Worgen Female
 	[79371] = { cameraID = 126, displayInfo = 45379, }, -- Tauren Male
+	[79375] = { cameraID = 1209, displayInfo = 47519, }, -- Blood Elf Male
 	[79376] = { cameraID = 120, displayInfo = 47508, }, -- Blood Elf Female
+	[79393] = { cameraID = 1209, displayInfo = 55069, }, -- Magister Krelas
 	[79437] = { cameraID = 141, displayInfo = 52556, }, -- Laughing Skull Orc
 	[79534] = { cameraID = 141, displayInfo = 54304, }, -- Iron Grunt
 	[79557] = { cameraID = 141, displayInfo = 51767, }, -- Iron Reinforcements
@@ -376,7 +400,9 @@ EZBUP_DATA.CreaturexCameraID = {
 	[80310] = { cameraID = 141, displayInfo = 55217, }, -- Frostwall Peon
 	[80313] = { cameraID = 141, displayInfo = 55641, }, -- Peon
 	[80402] = { cameraID = 141, displayInfo = 51998, }, -- Blackrock Grunt
+	[80553] = { cameraID = 1209, displayInfo = 55069, }, -- Magister Krelas
 	[80590] = { cameraID = 141, displayInfo = 61553, }, -- Aknor Steelbringer
+	[80772] = { cameraID = 1209, displayInfo = 18941, }, -- Sawame Brightburn
 	[80783] = { cameraID = 141, displayInfo = 54575, }, -- Liberated Frostwolf Prisoner
 	[80803] = { cameraID = 141, displayInfo = 54575, }, -- Liberated Frostwolf Prisoner
 	[80856] = { cameraID = 142, displayInfo = 60766, }, -- Rexxar
@@ -391,10 +417,12 @@ EZBUP_DATA.CreaturexCameraID = {
 	[81428] = { cameraID = 82, displayInfo = 53840, }, -- Fort Wrynn Footman
 	[81429] = { cameraID = 90, displayInfo = 53107, }, -- Fort Wrynn Rifleman
 	[81437] = { cameraID = 101, displayInfo = 56185, }, -- Fort Wrynn Magus
+	[81442] = { cameraID = 1209, displayInfo = 56417, }, -- Eleran Valerias
 	[81445] = { cameraID = 141, displayInfo = 56481, }, -- Drak'thiz
 	[81446] = { cameraID = 126, displayInfo = 56482, }, -- Beran Grovetender
 	[81450] = { cameraID = 130, displayInfo = 56513, }, -- Baron Deathshot
 	[81451] = { cameraID = 120, displayInfo = 56514, }, -- Vala Kaliraan
+	[81455] = { cameraID = 1209, displayInfo = 23182, }, -- Eryn Frostweaver
 	[81460] = { cameraID = 120, displayInfo = 28189, }, -- Selen Brightblade
 	[81461] = { cameraID = 126, displayInfo = 46389, }, -- Bo Farplain
 	[81468] = { cameraID = 82, displayInfo = 53840, }, -- Fort Wrynn Footman
@@ -437,6 +465,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[82419] = { cameraID = 141, displayInfo = 57377, }, -- Darkun
 	[82481] = { cameraID = 105, displayInfo = 34450, }, -- Fiona
 	[82482] = { cameraID = 90, displayInfo = 34644, }, -- Gidwin Goldbraids
+	[82483] = { cameraID = 1209, displayInfo = 34643, }, -- Tarenar Sunstrike
 	[82490] = { cameraID = 82, displayInfo = 57037, }, -- Matthew Younglove
 	[82577] = { cameraID = 101, displayInfo = 57119, }, -- Nihil Tel'alara
 	[82630] = { cameraID = 101, displayInfo = 57155, }, -- Sylalleas Frostwind
@@ -454,6 +483,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[82747] = { cameraID = 120, displayInfo = 57238, }, -- Seleria Dawncaller
 	[82752] = { cameraID = 82, displayInfo = 57243, }, -- Joachim Demonsbane
 	[82756] = { cameraID = 82, displayInfo = 57227, }, -- Leeroy Jenkins
+	[82761] = { cameraID = 1209, displayInfo = 57250, }, -- Zance Silverfury
 	[82787] = { cameraID = 82, displayInfo = 57271, }, -- Mirran Lichbane
 	[82796] = { cameraID = 120, displayInfo = 57277, }, -- Arachni Bloodseeker
 	[82808] = { cameraID = 90, displayInfo = 57284, }, -- Dramnur Doombrow
@@ -466,6 +496,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[82965] = { cameraID = 82, displayInfo = 57424, }, -- Peter Toulios
 	[82977] = { cameraID = 105, displayInfo = 57429, }, -- Sarah Schnau
 	[82978] = { cameraID = 126, displayInfo = 57430, }, -- Karn Steelhoof
+	[82979] = { cameraID = 1209, displayInfo = 57431, }, -- Salanar Mourningsun
 	[82980] = { cameraID = 82, displayInfo = 57432, }, -- Galadran Gath
 	[83009] = { cameraID = 101, displayInfo = 57460, }, -- Ilaniel Pine
 	[83012] = { cameraID = 101, displayInfo = 59263, }, -- Celadina
@@ -499,6 +530,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[84123] = { cameraID = 126, displayInfo = 58138, }, -- Tapa Swiftpaw
 	[84127] = { cameraID = 101, displayInfo = 58141, }, -- Scarletleaf
 	[84176] = { cameraID = 141, displayInfo = 58178, }, -- Ripfist
+	[84317] = { cameraID = 1209, displayInfo = 58274, }, -- Aesin Sunstalker
 	[84437] = { cameraID = 141, displayInfo = 58337, }, -- Rongar
 	[84438] = { cameraID = 90, displayInfo = 58338, }, -- Conall Rainsinger
 	[84477] = { cameraID = 120, displayInfo = 58362, }, -- Besandran Shatterfury
@@ -515,6 +547,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[84715] = { cameraID = 105, displayInfo = 58464, }, -- Randee Wallyce
 	[84721] = { cameraID = 126, displayInfo = 58466, }, -- Humak the Verdant
 	[84747] = { cameraID = 141, displayInfo = 58477, }, -- Torag Stonefury
+	[84772] = { cameraID = 1209, displayInfo = 58488, }, -- Merhean Sunfall
 	[84786] = { cameraID = 120, displayInfo = 58498, }, -- Ruthia the Unchaste
 	[84789] = { cameraID = 82, displayInfo = 58502, }, -- Arctic Whitemace
 	[84844] = { cameraID = 141, displayInfo = 55556, }, -- Burning Flameseer
@@ -541,6 +574,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[85456] = { cameraID = 141, displayInfo = 58888, }, -- Grom'kar Blademaster
 	[85519] = { cameraID = 82, displayInfo = 58931, }, -- Christoph VonFeasel
 	[85581] = { cameraID = 130, displayInfo = 58987, }, -- Walsh Atkins
+	[85585] = { cameraID = 1209, displayInfo = 58991, }, -- Leoneras Sunrage
 	[85620] = { cameraID = 142, displayInfo = 60766, }, -- Rexxar
 	[85706] = { cameraID = 90, displayInfo = 53107, }, -- Garrison Rifleman
 	[85719] = { cameraID = 120, displayInfo = 56180, }, -- Garrison Priest
@@ -592,6 +626,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[86880] = { cameraID = 82, displayInfo = 60018, }, -- Archibald Arlison
 	[86881] = { cameraID = 82, displayInfo = 61057, }, -- "Doc" Schweitzer
 	[86893] = { cameraID = 101, displayInfo = 60032, }, -- Mysandra Swiftarc
+	[86895] = { cameraID = 1209, displayInfo = 60033, }, -- Robin Fredericksen
 	[86896] = { cameraID = 130, displayInfo = 60034, }, -- Henry Wall
 	[86897] = { cameraID = 82, displayInfo = 60035, }, -- Kristian Nairn
 	[86898] = { cameraID = 120, displayInfo = 60036, }, -- Aila Dourblade
@@ -605,6 +640,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[87440] = { cameraID = 141, displayInfo = 54327, }, -- Iron Warden
 	[87451] = { cameraID = 141, displayInfo = 56351, }, -- Fleshrender Nok'gar
 	[87457] = { cameraID = 120, displayInfo = 15522, }, -- Blood Elf Mage
+	[87458] = { cameraID = 1209, displayInfo = 16829, }, -- Champion Bachi
 	[87465] = { cameraID = 82, displayInfo = 27562, }, -- Orbaz Bloodbane
 	[87466] = { cameraID = 82, displayInfo = 3282, }, -- Brother Benjamin
 	[87468] = { cameraID = 101, displayInfo = 30813, }, -- Vassandra Stormclaw
@@ -613,11 +649,13 @@ EZBUP_DATA.CreaturexCameraID = {
 	[87475] = { cameraID = 130, displayInfo = 31253, }, -- Undead Priest
 	[87476] = { cameraID = 130, displayInfo = 31258, }, -- Undead Warlock
 	[87590] = { cameraID = 141, displayInfo = 54575, }, -- Battered Frostwolf Prisoner
+	[87596] = { cameraID = 1209, displayInfo = 27417, }, -- Orin Grimblade
 	[87598] = { cameraID = 82, displayInfo = 27530, }, -- Filmore Patricks
 	[87608] = { cameraID = 120, displayInfo = 61495, }, -- Sylvie Fallensong
 	[87614] = { cameraID = 101, displayInfo = 61310, }, -- Arebia Wintercall
 	[87623] = { cameraID = 141, displayInfo = 60400, }, -- Orog
 	[87625] = { cameraID = 82, displayInfo = 60402, }, -- Daniel Montoy
+	[87627] = { cameraID = 1209, displayInfo = 60403, }, -- Orrelleon Searingstrike
 	[87631] = { cameraID = 101, displayInfo = 60407, }, -- Kalandra Starhelm
 	[87673] = { cameraID = 120, displayInfo = 60438, }, -- Opheron
 	[87677] = { cameraID = 130, displayInfo = 61329, }, -- Enoch Fuller
@@ -629,6 +667,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[87715] = { cameraID = 82, displayInfo = 60468, }, -- Truman Weaver
 	[87721] = { cameraID = 120, displayInfo = 60473, }, -- Ariiya Sunblood
 	[87722] = { cameraID = 105, displayInfo = 60474, }, -- Claire "the Fox"
+	[87723] = { cameraID = 1209, displayInfo = 60475, }, -- Vaal'kelthos Dawngrief
 	[87726] = { cameraID = 130, displayInfo = 60478, }, -- Lawrence Sharp
 	[87734] = { cameraID = 120, displayInfo = 60484, }, -- Vivalia Sundagger
 	[87736] = { cameraID = 141, displayInfo = 60486, }, -- Omril Keenedge
@@ -644,6 +683,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[87767] = { cameraID = 141, displayInfo = 60516, }, -- Kel'rikor
 	[87770] = { cameraID = 126, displayInfo = 60518, }, -- Lonan
 	[87772] = { cameraID = 90, displayInfo = 60519, }, -- Fingall Flamehammer
+	[87773] = { cameraID = 1209, displayInfo = 60520, }, -- Kerraelon Sunhunger
 	[87776] = { cameraID = 82, displayInfo = 60522, }, -- Eli Cannon
 	[87784] = { cameraID = 141, displayInfo = 61333, }, -- Orgriz Crookmaw
 	[87785] = { cameraID = 82, displayInfo = 33754, }, -- Kris Rey
@@ -672,10 +712,12 @@ EZBUP_DATA.CreaturexCameraID = {
 	[87885] = { cameraID = 141, displayInfo = 55641, }, -- Grom'kar Peon
 	[87891] = { cameraID = 101, displayInfo = 61360, }, -- Danaeris Amberstar
 	[87892] = { cameraID = 120, displayInfo = 61367, }, -- Magistrix Chillbreeze
+	[87897] = { cameraID = 1209, displayInfo = 61369, }, -- Marius Sunshard
 	[87898] = { cameraID = 82, displayInfo = 61370, }, -- Matthew Deyling
 	[87899] = { cameraID = 90, displayInfo = 61373, }, -- Domnall Icecrag
 	[87901] = { cameraID = 90, displayInfo = 61371, }, -- Niall Frostdrift
 	[87904] = { cameraID = 82, displayInfo = 60601, }, -- Saul Lee
+	[87921] = { cameraID = 1209, displayInfo = 61378, }, -- Velandros Sunblessing
 	[87927] = { cameraID = 126, displayInfo = 61389, }, -- Toega
 	[87928] = { cameraID = 82, displayInfo = 61390, }, -- Thurman Belva
 	[87929] = { cameraID = 130, displayInfo = 61397, }, -- Charles Norris
@@ -690,7 +732,10 @@ EZBUP_DATA.CreaturexCameraID = {
 	[87945] = { cameraID = 126, displayInfo = 61507, }, -- Kaiel
 	[87950] = { cameraID = 126, displayInfo = 61505, }, -- Tawa
 	[87951] = { cameraID = 90, displayInfo = 61506, }, -- Hereward Stonecleave
+	[87954] = { cameraID = 1209, displayInfo = 61404, }, -- Tas'ril Imturematril
 	[87955] = { cameraID = 82, displayInfo = 61405, }, -- Nicholas Divide
+	[87956] = { cameraID = 1209, displayInfo = 61500, }, -- Lan'veros Furybrand
+	[87958] = { cameraID = 1209, displayInfo = 61503, }, -- Argonis Solheart
 	[87963] = { cameraID = 105, displayInfo = 61409, }, -- Linda Meier
 	[88016] = { cameraID = 141, displayInfo = 60944, }, -- Cacklebone
 	[88098] = { cameraID = 101, displayInfo = 60731, }, -- Hestiah Ravenwood
@@ -733,6 +778,10 @@ EZBUP_DATA.CreaturexCameraID = {
 	[92139] = { cameraID = 120, displayInfo = 62155, }, -- Blood Knight
 	[92145] = { cameraID = 82, displayInfo = 62790, }, -- Silver Hand Protector
 	[92148] = { cameraID = 90, displayInfo = 62798, }, -- Silver Hand Protector
+	[92170] = { cameraID = 1209, displayInfo = 22994, }, -- Lord Solanar Bloodwrath
+	[92171] = { cameraID = 1209, displayInfo = 17199, }, -- Knight-Lord Bloodvalor
+	[92172] = { cameraID = 1209, displayInfo = 16851, }, -- Mehlar Dawnblade
+	[92173] = { cameraID = 1209, displayInfo = 17257, }, -- Master Kelerun Bloodmourn
 	[92174] = { cameraID = 126, displayInfo = 62306, }, -- Sunwalker Dezco
 	[92176] = { cameraID = 126, displayInfo = 62777, }, -- Sunwalker Reha
 	[92177] = { cameraID = 126, displayInfo = 62778, }, -- Sunwalker Atohmo
@@ -747,6 +796,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[92591] = { cameraID = 130, displayInfo = 63163, }, -- Sinker
 	[92626] = { cameraID = 130, displayInfo = 63196, }, -- Deathguard Adams
 	[92987] = { cameraID = 101, displayInfo = 63393, }, -- Maiev Shadowsong
+	[93011] = { cameraID = 1209, displayInfo = 61698, }, -- Kayn Sunfury
 	[93437] = { cameraID = 82, displayInfo = 30869, }, -- Highlord Darion Mograine
 	[93471] = { cameraID = 82, displayInfo = 63575, }, -- Knight of the Ebon Blade
 	[93708] = { cameraID = 126, displayInfo = 73067, }, -- Thunder Bluff Brave
@@ -772,6 +822,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[95096] = { cameraID = 120, displayInfo = 60079, }, -- Allari the Souleater
 	[95221] = { cameraID = 82, displayInfo = 64327, }, -- Mad Henryk
 	[95242] = { cameraID = 101, displayInfo = 61734, }, -- Falara Nightsong
+	[95244] = { cameraID = 1209, displayInfo = 60090, }, -- Belath Dawnblade
 	[95246] = { cameraID = 101, displayInfo = 60550, }, -- Izal Whitemoon
 	[95446] = { cameraID = 268, displayInfo = 61903, }, -- Battlelord Gaardoun
 	[95447] = { cameraID = 268, displayInfo = 67885, }, -- Ashtongue Warrior
@@ -787,6 +838,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[96209] = { cameraID = 82, displayInfo = 66833, }, -- General Marcus Jonathan
 	[96219] = { cameraID = 90, displayInfo = 64890, }, -- Modimus Anvilmar
 	[96318] = { cameraID = 126, displayInfo = 64845, }, -- Huln Highmountain
+	[96552] = { cameraID = 1209, displayInfo = 62923, }, -- Champion Bachi
 	[96554] = { cameraID = 90, displayInfo = 62307, }, -- Valgar Highforge
 	[96555] = { cameraID = 82, displayInfo = 62304, }, -- Lord Grayson Shadowbreaker
 	[96556] = { cameraID = 120, displayInfo = 62891, }, -- Archivist Seline
@@ -797,15 +849,20 @@ EZBUP_DATA.CreaturexCameraID = {
 	[96598] = { cameraID = 82, displayInfo = 73582, }, -- Crusade Commander Entari
 	[96599] = { cameraID = 90, displayInfo = 73583, }, -- Crusader Lord Dalfors
 	[96604] = { cameraID = 82, displayInfo = 19382, }, -- Jorad Mace
+	[96606] = { cameraID = 1209, displayInfo = 16624, }, -- Arator
 	[96621] = { cameraID = 126, displayInfo = 66107, }, -- Mellok, Son of Torok
 	[96653] = { cameraID = 101, displayInfo = 60550, }, -- Izal Whitemoon
+	[96654] = { cameraID = 1209, displayInfo = 60090, }, -- Belath Dawnblade
 	[96695] = { cameraID = 82, displayInfo = 61947, }, -- Silver Hand Knight
+	[96698] = { cameraID = 1209, displayInfo = 62151, }, -- Blood Knight
 	[96699] = { cameraID = 126, displayInfo = 62768, }, -- Sunwalker Keeper
+	[96701] = { cameraID = 1209, displayInfo = 62342, }, -- Blood Mender
 	[96702] = { cameraID = 120, displayInfo = 62346, }, -- Blood Mender
 	[96703] = { cameraID = 82, displayInfo = 62326, }, -- Silver Hand Mender
 	[96706] = { cameraID = 90, displayInfo = 62334, }, -- Silver Hand Mender
 	[96708] = { cameraID = 120, displayInfo = 62155, }, -- Blood Knight
 	[96710] = { cameraID = 90, displayInfo = 62798, }, -- Silver Hand Protector
+	[96712] = { cameraID = 1209, displayInfo = 62151, }, -- Blood Guardian
 	[96713] = { cameraID = 120, displayInfo = 62155, }, -- Blood Guardian
 	[96719] = { cameraID = 126, displayInfo = 62901, }, -- Sunwalker Dawnchaser
 	[96738] = { cameraID = 82, displayInfo = 30869, }, -- Highlord Darion Mograine
@@ -817,6 +874,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[97313] = { cameraID = 101, displayInfo = 24349, }, -- Commander Lynore Windstryke
 	[97314] = { cameraID = 141, displayInfo = 64784, }, -- Nazgrel
 	[97317] = { cameraID = 141, displayInfo = 64784, }, -- Nazgrel
+	[97426] = { cameraID = 1209, displayInfo = 23920, }, -- Koltira Deathweaver
 	[97428] = { cameraID = 82, displayInfo = 33911, }, -- Thassarian
 	[97488] = { cameraID = 82, displayInfo = 65226, }, -- Donavan Bale
 	[97489] = { cameraID = 90, displayInfo = 65227, }, -- Garl Grimgrizzle
@@ -829,13 +887,16 @@ EZBUP_DATA.CreaturexCameraID = {
 	[97518] = { cameraID = 120, displayInfo = 65251, }, -- Saedelin Whitedawn
 	[97520] = { cameraID = 141, displayInfo = 65252, }, -- Drog Skullbreaker
 	[97526] = { cameraID = 130, displayInfo = 73054, }, -- Deathguard Elite
+	[97533] = { cameraID = 1209, displayInfo = 65255, }, -- Felcaster Virim
 	[97666] = { cameraID = 126, displayInfo = 65455, }, -- Warbrave Oro
 	[97692] = { cameraID = 82, displayInfo = 65354, }, -- Brother of the Light
 	[97699] = { cameraID = 82, displayInfo = 65365, }, -- Grand Priest
 	[97725] = { cameraID = 101, displayInfo = 65369, }, -- Priestess of Elune
 	[97727] = { cameraID = 101, displayInfo = 65383, }, -- Grand Priestess of Elune
 	[97728] = { cameraID = 120, displayInfo = 65385, }, -- Blood Elf Priestess
+	[97742] = { cameraID = 1209, displayInfo = 65396, }, -- Blood Elf Priest
 	[97744] = { cameraID = 120, displayInfo = 65400, }, -- Blood Elf Grand Priestess
+	[97745] = { cameraID = 1209, displayInfo = 65402, }, -- Blood Elf Grand Priest
 	[97792] = { cameraID = 126, displayInfo = 65422, }, -- Sun Priest
 	[97814] = { cameraID = 130, displayInfo = 65431, }, -- Shadow Priest
 	[97817] = { cameraID = 126, displayInfo = 65465, }, -- Highmountain Survivalist
@@ -845,6 +906,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[98102] = { cameraID = 84, displayInfo = 26365, }, -- Valeera Sanguinar
 	[98157] = { cameraID = 101, displayInfo = 67019, }, -- Lyana Darksorrow
 	[98158] = { cameraID = 101, displayInfo = 64447, }, -- Asha Ravensong
+	[98160] = { cameraID = 1209, displayInfo = 64444, }, -- Sirius Ebonwing
 	[98169] = { cameraID = 296, displayInfo = 27571, }, -- Illidan
 	[98208] = { cameraID = 793, displayInfo = 65794, }, -- Advisor Vandros
 	[98290] = { cameraID = 101, displayInfo = 63986, }, -- Cyana Nightglaive
@@ -853,27 +915,39 @@ EZBUP_DATA.CreaturexCameraID = {
 	[98788] = { cameraID = 126, displayInfo = 65983, }, -- Ancestral Warbrave
 	[98825] = { cameraID = 126, displayInfo = 63690, }, -- Spiritwalker Ebonhorn
 	[99182] = { cameraID = 82, displayInfo = 66099, }, -- Sir Galveston
+	[99210] = { cameraID = 1209, displayInfo = 66109, }, -- Bodhi Sunwayver
 	[99423] = { cameraID = 120, displayInfo = 65392, }, -- Zaria Shadowheart
+	[99601] = { cameraID = 1209, displayInfo = 62532, }, -- Illidari Enforcer
 	[99602] = { cameraID = 120, displayInfo = 62531, }, -- Illidari Enforcer
+	[99918] = { cameraID = 1209, displayInfo = 66396, }, -- Sevis Brightflame
 	[99926] = { cameraID = 126, displayInfo = 62306, }, -- Sunwalker Dezco
 	[99958] = { cameraID = 126, displayInfo = 66408, }, -- Wuho Highmountain
+	[99997] = { cameraID = 1209, displayInfo = 16624, }, -- Arator
 	[100005] = { cameraID = 126, displayInfo = 72823, }, -- Dorro Highmountain
 	[100070] = { cameraID = 82, displayInfo = 25222, }, -- Crusader Valus
 	[100071] = { cameraID = 90, displayInfo = 24574, }, -- Orik Trueheart
+	[100072] = { cameraID = 1209, displayInfo = 73590, }, -- Crusader Sunborn
 	[100073] = { cameraID = 120, displayInfo = 29131, }, -- Crusader Rhydalla
 	[100074] = { cameraID = 82, displayInfo = 26428, }, -- Crusader MacKellar
 	[100075] = { cameraID = 82, displayInfo = 25131, }, -- Crusader Jonathan
 	[100076] = { cameraID = 82, displayInfo = 37385, }, -- Talren Highbeacon
 	[100077] = { cameraID = 90, displayInfo = 34644, }, -- Gidwin Goldbraids
+	[100080] = { cameraID = 1209, displayInfo = 25066, }, -- Captain Arnath
 	[100081] = { cameraID = 82, displayInfo = 25063, }, -- Captain Brandon
 	[100082] = { cameraID = 82, displayInfo = 28836, }, -- Eadric the Pure
 	[100084] = { cameraID = 90, displayInfo = 62922, }, -- Brandur Ironhammer
 	[100085] = { cameraID = 120, displayInfo = 46766, }, -- Aenea
+	[100086] = { cameraID = 1209, displayInfo = 21264, }, -- Master Pyreanor
 	[100087] = { cameraID = 120, displayInfo = 19596, }, -- Champion Cyssa Dawnrose
+	[100088] = { cameraID = 1209, displayInfo = 17536, }, -- Champion Vranesh
+	[100089] = { cameraID = 1209, displayInfo = 73523, }, -- Sangrias Stillblade
+	[100090] = { cameraID = 1209, displayInfo = 16811, }, -- Ithelis
 	[100091] = { cameraID = 120, displayInfo = 16685, }, -- Noellene
+	[100092] = { cameraID = 1209, displayInfo = 16815, }, -- Osselan
 	[100162] = { cameraID = 101, displayInfo = 66527, }, -- Priestess of Elune
 	[100175] = { cameraID = 126, displayInfo = 66492, }, -- Huln Highmountain
 	[100196] = { cameraID = 82, displayInfo = 28836, }, -- Eadric the Pure
+	[100199] = { cameraID = 1209, displayInfo = 17536, }, -- Champion Vranesh
 	[100209] = { cameraID = 126, displayInfo = 66504, }, -- Rivermane Tauren
 	[100219] = { cameraID = 126, displayInfo = 66519, }, -- Bloodtotem Tauren
 	[100220] = { cameraID = 126, displayInfo = 66523, }, -- Tribeless Tauren
@@ -895,9 +969,11 @@ EZBUP_DATA.CreaturexCameraID = {
 	[101294] = { cameraID = 90, displayInfo = 47399, }, -- General Purpose Stalker
 	[101314] = { cameraID = 130, displayInfo = 67043, }, -- Alonsus Faol
 	[101317] = { cameraID = 101, displayInfo = 67049, }, -- Illysanna Ravencrest
+	[101397] = { cameraID = 1209, displayInfo = 67176, }, -- Cailyn Paledoom
 	[101450] = { cameraID = 82, displayInfo = 67195, }, -- Archmage Karlain
 	[101451] = { cameraID = 82, displayInfo = 67193, }, -- Archmage Ansirem Runeweaver
 	[101453] = { cameraID = 82, displayInfo = 67196, }, -- Archmage Vargoth
+	[101597] = { cameraID = 1209, displayInfo = 67232, }, -- Tirathon Saltheril
 	[101606] = { cameraID = 114, displayInfo = 75730, }, -- Trade Prince Gallywix
 	[101986] = { cameraID = 141, displayInfo = 65975, }, -- Ritssyn Flamescowl
 	[102005] = { cameraID = 120, displayInfo = 65287, }, -- Underbelly Guard
@@ -922,6 +998,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[103293] = { cameraID = 126, displayInfo = 65553, }, -- Druid of the Claw
 	[103294] = { cameraID = 126, displayInfo = 11774, }, -- Moonglade Warden
 	[103737] = { cameraID = 101, displayInfo = 68345, }, -- Sana Bloodletter
+	[103738] = { cameraID = 1209, displayInfo = 68346, }, -- Tian Netherwalker
 	[103760] = { cameraID = 101, displayInfo = 68365, }, -- Ariana Fireheart
 	[103823] = { cameraID = 101, displayInfo = 62317, }, -- Druid Champion 1
 	[103986] = { cameraID = 101, displayInfo = 15477, }, -- Windcaller Yessendra
@@ -954,14 +1031,17 @@ EZBUP_DATA.CreaturexCameraID = {
 	[105220] = { cameraID = 82, displayInfo = 85261, }, -- Tournament Announcer
 	[105265] = { cameraID = 795, displayInfo = 66265, }, -- Nightborne Reclaimer
 	[105266] = { cameraID = 795, displayInfo = 66257, }, -- Nightborne Infiltrator
+	[105509] = { cameraID = 1209, displayInfo = 69186, }, -- Tiger Style Initiate
 	[105514] = { cameraID = 126, displayInfo = 69021, }, -- Ox Style Adept
 	[105522] = { cameraID = 126, displayInfo = 69175, }, -- Ox Style Master
 	[105523] = { cameraID = 130, displayInfo = 69182, }, -- Tiger Style Master
 	[105689] = { cameraID = 90, displayInfo = 24574, }, -- Orik Trueheart
 	[105691] = { cameraID = 126, displayInfo = 29250, }, -- Tahu Sagewind
+	[105694] = { cameraID = 1209, displayInfo = 69233, }, -- Cato
 	[105769] = { cameraID = 130, displayInfo = 69288, }, -- Brother Larry
 	[105934] = { cameraID = 101, displayInfo = 69425, }, -- Sylendra Gladesong
 	[105935] = { cameraID = 126, displayInfo = 31605, }, -- Archdruid Hamuul Runetotem
+	[105945] = { cameraID = 1209, displayInfo = 69439, }, -- Sevis Brightflame
 	[105995] = { cameraID = 126, displayInfo = 69535, }, -- Muln Earthfury
 	[106144] = { cameraID = 105, displayInfo = 69502, }, -- Guardian of the Dream
 	[106279] = { cameraID = 82, displayInfo = 72532, }, -- Black Harvest Acolytes
@@ -977,6 +1057,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[106406] = { cameraID = 82, displayInfo = 72412, }, -- Band of Zealots
 	[106407] = { cameraID = 82, displayInfo = 71426, }, -- Gang of Bandits
 	[106408] = { cameraID = 82, displayInfo = 71445, }, -- Defias Thieves
+	[106409] = { cameraID = 1209, displayInfo = 71461, }, -- Uncrowned Duelists
 	[106412] = { cameraID = 90, displayInfo = 72511, }, -- Circle of Earthcallers
 	[106420] = { cameraID = 576, displayInfo = 69517, }, -- Anarys Lunastre
 	[106552] = { cameraID = 101, displayInfo = 61098, }, -- Nightwatcher Merayl
@@ -995,14 +1076,17 @@ EZBUP_DATA.CreaturexCameraID = {
 	[107632] = { cameraID = 576, displayInfo = 70210, }, -- Ly'leth Lunastre
 	[107831] = { cameraID = 82, displayInfo = 70482, }, -- Melris Malagan
 	[107838] = { cameraID = 296, displayInfo = 70471, }, -- Illidan Stormrage
+	[107968] = { cameraID = 1209, displayInfo = 141313, }, -- Archmage Lan'dalock
 	[108024] = { cameraID = 141, displayInfo = 37328, }, -- Orgrimmar Wind Rider
 	[108139] = { cameraID = 141, displayInfo = 70415, }, -- Blacksail Keelhauler
 	[108240] = { cameraID = 141, displayInfo = 37328, }, -- Orgrimmar Wind Rider
 	[108247] = { cameraID = 1675, displayInfo = 38491, }, -- Archmage Kalec
 	[108311] = { cameraID = 101, displayInfo = 66159, }, -- Kor'vas Bloodthorn
 	[108326] = { cameraID = 101, displayInfo = 64447, }, -- Asha Ravensong
+	[108377] = { cameraID = 1209, displayInfo = 69642, }, -- Ravandwyr
 	[108380] = { cameraID = 120, displayInfo = 69626, }, -- Esara Verrinde
 	[108525] = { cameraID = 82, displayInfo = 37310, }, -- Stormwind Gryphon Rider
+	[108782] = { cameraID = 1209, displayInfo = 60090, }, -- Belath Dawnblade
 	[108869] = { cameraID = 576, displayInfo = 70748, }, -- Vineyard Laborer
 	[108871] = { cameraID = 793, displayInfo = 73499, }, -- Vineyard Warden
 	[108872] = { cameraID = 576, displayInfo = 70745, }, -- Margaux
@@ -1012,6 +1096,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[108943] = { cameraID = 576, displayInfo = 70752, }, -- Vineyard Attendant
 	[108996] = { cameraID = 813, displayInfo = 70809, }, -- Specter of Vengeance
 	[109026] = { cameraID = 82, displayInfo = 29960, }, -- Huntsman Blake
+	[109031] = { cameraID = 1209, displayInfo = 19707, }, -- Halduron Brightwing
 	[109034] = { cameraID = 126, displayInfo = 69918, }, -- Loren Stormhoof
 	[109035] = { cameraID = 82, displayInfo = 29960, }, -- Huntsman Blake
 	[109036] = { cameraID = 90, displayInfo = 63995, }, -- Hemet Nesingwary
@@ -1027,6 +1112,8 @@ EZBUP_DATA.CreaturexCameraID = {
 	[109533] = { cameraID = 126, displayInfo = 69021, }, -- Ox Adept
 	[109589] = { cameraID = 130, displayInfo = 63603, }, -- Royal Dreadguard
 	[109736] = { cameraID = 126, displayInfo = 64488, }, -- Summoner Morn
+	[109756] = { cameraID = 1209, displayInfo = 16831, }, -- Zanien
+	[109757] = { cameraID = 1209, displayInfo = 18157, }, -- Blood Elf Warlock
 	[109784] = { cameraID = 82, displayInfo = 69281, }, -- Twilight Darkcaller
 	[109857] = { cameraID = 120, displayInfo = 71238, }, -- Unseen Marksmen
 	[109858] = { cameraID = 120, displayInfo = 71234, }, -- Archer
@@ -1056,6 +1143,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[110262] = { cameraID = 82, displayInfo = 71472, }, -- Crew of Pirates
 	[110328] = { cameraID = 82, displayInfo = 71426, }, -- Theives
 	[110330] = { cameraID = 82, displayInfo = 71445, }, -- Defias Bandits
+	[110336] = { cameraID = 1209, displayInfo = 71461, }, -- Duelists
 	[110337] = { cameraID = 82, displayInfo = 71472, }, -- Pirates
 	[110438] = { cameraID = 793, displayInfo = 69530, }, -- Siegemaster Aedrin
 	[110489] = { cameraID = 130, displayInfo = 67760, }, -- Meryl Felstorm
@@ -1068,6 +1156,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[110634] = { cameraID = 82, displayInfo = 73090, }, -- Stormwind Knight
 	[110726] = { cameraID = 793, displayInfo = 69435, }, -- Cadraeus
 	[110782] = { cameraID = 126, displayInfo = 41765, }, -- Mission McSmartypants
+	[110980] = { cameraID = 1209, displayInfo = 16624, }, -- Arator
 	[111041] = { cameraID = 130, displayInfo = 71784, }, -- Micah Belford
 	[111269] = { cameraID = 101, displayInfo = 71930, }, -- Delas Moonfang
 	[111339] = { cameraID = 82, displayInfo = 70807, }, -- King Thoras Trollbane
@@ -1083,12 +1172,14 @@ EZBUP_DATA.CreaturexCameraID = {
 	[111669] = { cameraID = 793, displayInfo = 69923, }, -- Imperial Conjurer
 	[111713] = { cameraID = 82, displayInfo = 40765, }, -- Faralis the Fanatic
 	[111715] = { cameraID = 82, displayInfo = 18039, }, -- The Concertmaster
+	[111717] = { cameraID = 1209, displayInfo = 25783, }, -- Dark Rider Ghrave
 	[111734] = { cameraID = 120, displayInfo = 70992, }, -- Conjurer Awlyn
 	[111769] = { cameraID = 795, displayInfo = 73514, }, -- Menagerie Keeper
 	[111772] = { cameraID = 82, displayInfo = 62326, }, -- Terric the Illuminator
 	[111775] = { cameraID = 101, displayInfo = 62529, }, -- Evelune Soulreaver
 	[111778] = { cameraID = 82, displayInfo = 33911, }, -- Thassarian
 	[111779] = { cameraID = 141, displayInfo = 70436, }, -- Nazgrim
+	[111789] = { cameraID = 1209, displayInfo = 61698, }, -- Kayn Sunfury
 	[111797] = { cameraID = 120, displayInfo = 71915, }, -- Blood Knight
 	[111799] = { cameraID = 101, displayInfo = 66672, }, -- Emmarel Shadewarden
 	[111800] = { cameraID = 126, displayInfo = 69918, }, -- Loren Stormhoof
@@ -1112,6 +1203,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[112130] = { cameraID = 82, displayInfo = 65834, }, -- Archmage Khadgar
 	[112138] = { cameraID = 793, displayInfo = 67339, }, -- Captain Ghrail
 	[112158] = { cameraID = 793, displayInfo = 66577, }, -- Papris, Second-In-Command
+	[112254] = { cameraID = 1209, displayInfo = 69911, }, -- Devon the Snubbed
 	[112256] = { cameraID = 82, displayInfo = 24818, }, -- Goons
 	[112261] = { cameraID = 101, displayInfo = 64539, }, -- Dreadsoul Corruptor
 	[112264] = { cameraID = 296, displayInfo = 72011, }, -- Illidan Stormrage
@@ -1129,6 +1221,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[112405] = { cameraID = 130, displayInfo = 72058, }, -- Vhell
 	[112406] = { cameraID = 120, displayInfo = 72059, }, -- Merciless Gladiator Saifu
 	[112431] = { cameraID = 126, displayInfo = 72069, }, -- Airhorn
+	[112445] = { cameraID = 1209, displayInfo = 35624, }, -- <Away> Johnny Awesome
 	[112466] = { cameraID = 82, displayInfo = 72080, }, -- Agent Smith
 	[112467] = { cameraID = 82, displayInfo = 72081, }, -- Agent Jones
 	[112473] = { cameraID = 576, displayInfo = 69995, }, -- Lady Dyana
@@ -1139,6 +1232,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[112702] = { cameraID = 126, displayInfo = 72191, }, -- Silver Hand Templar
 	[112704] = { cameraID = 90, displayInfo = 72202, }, -- Shieldbearer Phalanx
 	[112711] = { cameraID = 126, displayInfo = 72204, }, -- Shieldbearer Phalanx
+	[112721] = { cameraID = 1209, displayInfo = 72219, }, -- Squad of Squires
 	[112722] = { cameraID = 82, displayInfo = 72670, }, -- Squad of Squires
 	[112750] = { cameraID = 101, displayInfo = 72265, }, -- Ebon Knights
 	[112753] = { cameraID = 130, displayInfo = 72270, }, -- Ebon Ravagers
@@ -1148,6 +1242,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[112781] = { cameraID = 126, displayInfo = 72296, }, -- Squad of Archers
 	[112790] = { cameraID = 105, displayInfo = 72321, }, -- Band of Trackers
 	[112852] = { cameraID = 795, displayInfo = 71740, }, -- Magistrix Astroleth
+	[112857] = { cameraID = 1209, displayInfo = 70988, }, -- Kirin Tor Invokers
 	[112872] = { cameraID = 101, displayInfo = 72714, }, -- Group of Acolytes
 	[112873] = { cameraID = 90, displayInfo = 72380, }, -- Group of Acolytes
 	[112886] = { cameraID = 101, displayInfo = 72716, }, -- Band of Zealots
@@ -1166,14 +1261,17 @@ EZBUP_DATA.CreaturexCameraID = {
 	[113003] = { cameraID = 82, displayInfo = 72569, }, -- Ox Initiates
 	[113008] = { cameraID = 141, displayInfo = 69019, }, -- Ox Adepts
 	[113009] = { cameraID = 82, displayInfo = 72581, }, -- Ox Adepts
+	[113016] = { cameraID = 1209, displayInfo = 72592, }, -- Ox Masters
 	[113017] = { cameraID = 82, displayInfo = 72594, }, -- Ox Masters
 	[113024] = { cameraID = 130, displayInfo = 69026, }, -- Tiger Adepts
 	[113027] = { cameraID = 101, displayInfo = 69018, }, -- Tiger Adepts
 	[113029] = { cameraID = 90, displayInfo = 72609, }, -- Tiger Adepts
+	[113030] = { cameraID = 1209, displayInfo = 72614, }, -- Tiger Masters
 	[113071] = { cameraID = 82, displayInfo = 83274, }, -- SI:7 Orders
 	[113139] = { cameraID = 82, displayInfo = 71472, }, -- Pirate
 	[113146] = { cameraID = 82, displayInfo = 71426, }, -- Bandit
 	[113152] = { cameraID = 82, displayInfo = 71445, }, -- Defias Thief
+	[113153] = { cameraID = 1209, displayInfo = 71461, }, -- Duelist
 	[113156] = { cameraID = 82, displayInfo = 72674, }, -- Shieldbearer Phalanx
 	[113169] = { cameraID = 120, displayInfo = 72688, }, -- Illidari Adepts
 	[113170] = { cameraID = 120, displayInfo = 61909, }, -- Illidari Adepts
@@ -1181,6 +1279,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[113215] = { cameraID = 82, displayInfo = 72374, }, -- Acolyte
 	[113218] = { cameraID = 90, displayInfo = 72408, }, -- Zealot
 	[113220] = { cameraID = 82, displayInfo = 72435, }, -- Dark Zealot
+	[113223] = { cameraID = 1209, displayInfo = 72258, }, -- Ebon Knight
 	[113224] = { cameraID = 141, displayInfo = 25999, }, -- Ebon Ravager
 	[113237] = { cameraID = 82, displayInfo = 71242, }, -- Tracker
 	[113249] = { cameraID = 90, displayInfo = 72609, }, -- Tiger Adept
@@ -1207,6 +1306,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[113632] = { cameraID = 82, displayInfo = 71014, }, -- Silver Hand Templar
 	[113708] = { cameraID = 120, displayInfo = 61909, }, -- Illidari Rift Controller
 	[113769] = { cameraID = 90, displayInfo = 72202, }, -- Silver Hand Shieldbearer
+	[113770] = { cameraID = 1209, displayInfo = 72676, }, -- Silver Hand Shieldbearer
 	[113835] = { cameraID = 141, displayInfo = 73361, }, -- Broxigar the Red
 	[113979] = { cameraID = 101, displayInfo = 65229, }, -- Priestess of the Moon
 	[113981] = { cameraID = 101, displayInfo = 29800, }, -- Lorlathil Villager
@@ -1222,7 +1322,9 @@ EZBUP_DATA.CreaturexCameraID = {
 	[114009] = { cameraID = 268, displayInfo = 67884, }, -- Ashtongue Warriors
 	[114010] = { cameraID = 268, displayInfo = 67883, }, -- Ashtongue Warriors
 	[114015] = { cameraID = 120, displayInfo = 61909, }, -- Illidari Adepts
+	[114016] = { cameraID = 1209, displayInfo = 61910, }, -- Illidari Adepts
 	[114035] = { cameraID = 90, displayInfo = 72522, }, -- Earthen Ring Geomancers
+	[114041] = { cameraID = 1209, displayInfo = 70983, }, -- Tirisgarde Apprentices
 	[114042] = { cameraID = 82, displayInfo = 70422, }, -- Kirin Tor Invokers
 	[114043] = { cameraID = 120, displayInfo = 70992, }, -- Kirin Tor Invokers
 	[114045] = { cameraID = 105, displayInfo = 72362, }, -- Kirin Tor Invokers
@@ -1239,17 +1341,23 @@ EZBUP_DATA.CreaturexCameraID = {
 	[114119] = { cameraID = 90, displayInfo = 72609, }, -- Tiger Adepts
 	[114122] = { cameraID = 120, displayInfo = 69007, }, -- Tiger Adepts
 	[114124] = { cameraID = 101, displayInfo = 72599, }, -- Tiger Initates
+	[114128] = { cameraID = 1209, displayInfo = 72592, }, -- Ox Masters
 	[114139] = { cameraID = 82, displayInfo = 72581, }, -- Ox Adepts
+	[114143] = { cameraID = 1209, displayInfo = 72575, }, -- Ox Initiates
 	[114145] = { cameraID = 101, displayInfo = 72577, }, -- Ox Initiates
 	[114150] = { cameraID = 101, displayInfo = 73135, }, -- Druids of the Claw
 	[114155] = { cameraID = 82, displayInfo = 71008, }, -- Squad of Squires
 	[114157] = { cameraID = 120, displayInfo = 72220, }, -- Squad of Squires
+	[114159] = { cameraID = 1209, displayInfo = 72194, }, -- Shieldbearer Phalanx
 	[114163] = { cameraID = 120, displayInfo = 72209, }, -- Silver Hand Knights
+	[114165] = { cameraID = 1209, displayInfo = 72208, }, -- Silver Hand Knights
 	[114167] = { cameraID = 82, displayInfo = 71014, }, -- Silver Hand Templar
+	[114169] = { cameraID = 1209, displayInfo = 72176, }, -- Silver Hand Templar
 	[114177] = { cameraID = 120, displayInfo = 72399, }, -- Netherlight Paragons
 	[114180] = { cameraID = 82, displayInfo = 72412, }, -- Band of Zealots
 	[114184] = { cameraID = 130, displayInfo = 72433, }, -- Dark Zealots
 	[114196] = { cameraID = 82, displayInfo = 63575, }, -- Ebon Knights
+	[114197] = { cameraID = 1209, displayInfo = 72258, }, -- Ebon Knights
 	[114198] = { cameraID = 101, displayInfo = 72265, }, -- Ebon Knights
 	[114203] = { cameraID = 105, displayInfo = 72275, }, -- Ebon Ravagers
 	[114242] = { cameraID = 120, displayInfo = 62670, }, -- Helda the Breaker
@@ -1257,6 +1365,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[114359] = { cameraID = 101, displayInfo = 73234, }, -- Tyrande Whisperwind
 	[114474] = { cameraID = 793, displayInfo = 73503, }, -- Duskwatch Highblade
 	[114480] = { cameraID = 576, displayInfo = 71601, }, -- Duskwatch Observer
+	[114880] = { cameraID = 1209, displayInfo = 47721, }, -- Dawnguard Bloodknight
 	[114889] = { cameraID = 576, displayInfo = 70011, }, -- Shal'dorei Civilian
 	[114897] = { cameraID = 101, displayInfo = 46522, }, -- Darnassus Sentinel
 	[114908] = { cameraID = 795, displayInfo = 67345, }, -- First Arcanist Thalyssra
@@ -1266,6 +1375,8 @@ EZBUP_DATA.CreaturexCameraID = {
 	[114914] = { cameraID = 793, displayInfo = 73542, }, -- Dalion
 	[114955] = { cameraID = 82, displayInfo = 73579, }, -- Dole Dastardly
 	[114963] = { cameraID = 120, displayInfo = 28222, }, -- Vereesa Windrunner
+	[114995] = { cameraID = 1209, displayInfo = 26067, }, -- Silver Covenant Warmage
+	[115058] = { cameraID = 1209, displayInfo = 73752, }, -- Johnny Awesome
 	[115067] = { cameraID = 793, displayInfo = 68890, }, -- Silgryn
 	[115078] = { cameraID = 576, displayInfo = 73864, }, -- Arluelle
 	[115079] = { cameraID = 795, displayInfo = 73514, }, -- Victoire
@@ -1287,6 +1398,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[115441] = { cameraID = 82, displayInfo = 73820, }, -- Lord Crispin Ference
 	[115467] = { cameraID = 1675, displayInfo = 38491, }, -- Archmage Kalec
 	[115468] = { cameraID = 82, displayInfo = 61993, }, -- Archmage Karlain
+	[115517] = { cameraID = 1209, displayInfo = 26071, }, -- Magus Sendath
 	[115521] = { cameraID = 101, displayInfo = 46522, }, -- Sentinel Moonshade
 	[115535] = { cameraID = 795, displayInfo = 73867, }, -- Skulking Assassin
 	[115543] = { cameraID = 82, displayInfo = 73863, }, -- Archmage Xylem
@@ -1322,6 +1434,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[117179] = { cameraID = 82, displayInfo = 74467, }, -- Strange Thing
 	[117479] = { cameraID = 141, displayInfo = 65757, }, -- Eitrigg
 	[117493] = { cameraID = 126, displayInfo = 32457, }, -- Grimtotem Warrior
+	[117497] = { cameraID = 1209, displayInfo = 26770, }, -- Aethas Sunreaver
 	[117500] = { cameraID = 795, displayInfo = 66261, }, -- Nighthuntress Syrenne
 	[117503] = { cameraID = 82, displayInfo = 46573, }, -- Kanrethad Ebonlocke
 	[117508] = { cameraID = 101, displayInfo = 32254, }, -- Thisalee Crow
@@ -1333,6 +1446,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[117867] = { cameraID = 120, displayInfo = 65979, }, -- Shinfel Blightsworn
 	[117873] = { cameraID = 296, displayInfo = 74146, }, -- Illidan Stormrage
 	[117951] = { cameraID = 268, displayInfo = 74635, }, -- Nameless Mystic
+	[117955] = { cameraID = 1209, displayInfo = 73979, }, -- Felfire Supplicant
 	[118010] = { cameraID = 82, displayInfo = 74489, }, -- Maximillian of Northshire
 	[118052] = { cameraID = 106, displayInfo = 74655, }, -- Prophet Velen
 	[118104] = { cameraID = 101, displayInfo = 2035, }, -- Shandris Feathermoon
@@ -1343,6 +1457,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[118433] = { cameraID = 82, displayInfo = 63575, }, -- Injured Ebon Knight
 	[118506] = { cameraID = 120, displayInfo = 47522, }, -- Sunreaver Spellblade
 	[118568] = { cameraID = 101, displayInfo = 71930, }, -- Delas Moonfang
+	[118666] = { cameraID = 1209, displayInfo = 26770, }, -- Aethas Sunreaver
 	[118667] = { cameraID = 795, displayInfo = 66261, }, -- Nighthuntress Syrenne
 	[118669] = { cameraID = 101, displayInfo = 32254, }, -- Thisalee Crow
 	[118772] = { cameraID = 795, displayInfo = 75511, }, -- Asrea Moonblade
@@ -1351,12 +1466,14 @@ EZBUP_DATA.CreaturexCameraID = {
 	[118796] = { cameraID = 126, displayInfo = 65482, }, -- Rivermane Shaman
 	[118938] = { cameraID = 82, displayInfo = 21256, }, -- Stranger
 	[119053] = { cameraID = 82, displayInfo = 75038, }, -- Xorothian Cultist
+	[119059] = { cameraID = 1209, displayInfo = 26770, }, -- Tirisgarde Apprentice
 	[119077] = { cameraID = 101, displayInfo = 73135, }, -- Dreamgrove Protector
 	[119081] = { cameraID = 795, displayInfo = 66261, }, -- Nightborne Huntress
 	[119090] = { cameraID = 82, displayInfo = 68480, }, -- Kirin Tor Guardians
 	[119130] = { cameraID = 296, displayInfo = 76249, }, -- Illidan Stormrage
 	[119209] = { cameraID = 101, displayInfo = 75447, }, -- Erelyn Moonfang
 	[119273] = { cameraID = 141, displayInfo = 76330, }, -- Kor'kron Shock Force
+	[119656] = { cameraID = 1209, displayInfo = 66767, }, -- Death Hunter Moorgoth (IGC)
 	[119728] = { cameraID = 106, displayInfo = 75801, }, -- Prophet Velen
 	[119729] = { cameraID = 296, displayInfo = 75059, }, -- Illidan Stormrage
 	[119731] = { cameraID = 82, displayInfo = 65834, }, -- Khadgar
@@ -1368,6 +1485,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[119787] = { cameraID = 268, displayInfo = 71623, }, -- Farseer Nobundo (IGC)
 	[119789] = { cameraID = 126, displayInfo = 69535, }, -- Muln Earthfury (IGC)
 	[119935] = { cameraID = 101, displayInfo = 66159, }, -- Kor'vas Bloodthorn (IGC)
+	[119936] = { cameraID = 1209, displayInfo = 60090, }, -- Belath Dawnblade (IGC)
 	[119998] = { cameraID = 795, displayInfo = 66261, }, -- Nightborne Hunters
 	[120001] = { cameraID = 141, displayInfo = 69153, }, -- Earthen Ring Protectors
 	[120007] = { cameraID = 120, displayInfo = 62942, }, -- Silver Hand Crusaders
@@ -1387,6 +1505,8 @@ EZBUP_DATA.CreaturexCameraID = {
 	[121362] = { cameraID = 101, displayInfo = 76293, }, -- Ebon Knight Frostreavers
 	[121363] = { cameraID = 82, displayInfo = 76295, }, -- Ebon Knight Frostreavers
 	[121366] = { cameraID = 120, displayInfo = 47997, }, -- Kirin Tor Guardians
+	[121368] = { cameraID = 1209, displayInfo = 48153, }, -- Kirin Tor Guardians
+	[121372] = { cameraID = 1209, displayInfo = 62151, }, -- Silver Hand Crusaders
 	[121374] = { cameraID = 82, displayInfo = 62326, }, -- Silver Hand Crusaders
 	[121376] = { cameraID = 82, displayInfo = 67600, }, -- Hooded Priests
 	[121377] = { cameraID = 130, displayInfo = 67601, }, -- Hooded Priests
@@ -1502,6 +1622,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[132418] = { cameraID = 126, displayInfo = 65705, }, -- Injured Warbrave (IGC)
 	[133080] = { cameraID = 82, displayInfo = 60699, }, -- Highlord Darion Mograine
 	[133081] = { cameraID = 101, displayInfo = 66159, }, -- Kor'vas Bloodthorn
+	[133083] = { cameraID = 1209, displayInfo = 19707, }, -- Halduron Brightwing
 	[133084] = { cameraID = 82, displayInfo = 62303, }, -- Archmage Vargoth
 	[133086] = { cameraID = 120, displayInfo = 61971, }, -- Lady Liadrin
 	[133088] = { cameraID = 84, displayInfo = 67214, }, -- Valeera Sanguinar
@@ -1617,7 +1738,9 @@ EZBUP_DATA.CreaturexCameraID = {
 	[140239] = { cameraID = 90, displayInfo = 31297, }, -- Logan Talonstrike
 	[140240] = { cameraID = 82, displayInfo = 1864, }, -- Cannoneer Whessan
 	[140241] = { cameraID = 1209, displayInfo = 82523, }, -- Instructor Duskwalker
+	[140527] = { cameraID = 1209, displayInfo = 86750, }, -- Blood Marquis
 	[140529] = { cameraID = 120, displayInfo = 86752, }, -- Blood Marquess
+	[140532] = { cameraID = 1209, displayInfo = 86753, }, -- Blood Marquis
 	[140581] = { cameraID = 82, displayInfo = 81351, }, -- Vigil Hill Militia
 	[140880] = { cameraID = 82, displayInfo = 86952, }, -- Michael Skarn
 	[140913] = { cameraID = 82, displayInfo = 86966, }, -- Reed 'The Flirt' Fisc
@@ -1723,6 +1846,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[144163] = { cameraID = 90, displayInfo = 8681, }, -- Hammered Patron
 	[144166] = { cameraID = 82, displayInfo = 78046, }, -- Fallhaven Villager
 	[144185] = { cameraID = 101, displayInfo = 2306, }, -- Darnassus Sentinel
+	[144191] = { cameraID = 1209, displayInfo = 79879, }, -- High Priest of Silvermoon
 	[144201] = { cameraID = 126, displayInfo = 84591, }, -- Thunder Bluff Shaman
 	[144241] = { cameraID = 82, displayInfo = 81729, }, -- Commander Kellam
 	[144247] = { cameraID = 82, displayInfo = 78623, }, -- Outrigger Hunter
@@ -1744,6 +1868,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[145258] = { cameraID = 141, displayInfo = 21620, }, -- Turgore
 	[145367] = { cameraID = 90, displayInfo = 21970, }, -- Harkor
 	[145427] = { cameraID = 141, displayInfo = 89091, }, -- Horde Berserker
+	[145607] = { cameraID = 1209, displayInfo = 88966, }, -- Echo Actor
 	[145747] = { cameraID = 82, displayInfo = 35779, }, -- Menacing Emissary
 	[145748] = { cameraID = 82, displayInfo = 35778, }, -- Menacing Emissary
 	[145876] = { cameraID = 82, displayInfo = 22354, }, -- Harrison Jones
@@ -1825,22 +1950,26 @@ EZBUP_DATA.CreaturexCameraID = {
 	[150930] = { cameraID = 120, displayInfo = 90077, }, -- Dark Ranger Velonara
 	[151105] = { cameraID = 82, displayInfo = 83301, }, -- Tidesage Doomspeaker
 	[151117] = { cameraID = 105, displayInfo = 65532, }, -- Celestine of the Harvest
+	[151192] = { cameraID = 1209, displayInfo = 92248, }, -- Shadowy Figure
 	[151210] = { cameraID = 82, displayInfo = 88262, }, -- Tradewinds Dockworker
 	[151223] = { cameraID = 82, displayInfo = 84385, }, -- Ashvane Prisoner
 	[151260] = { cameraID = 82, displayInfo = 78962, }, -- Concerned Citizen
 	[151264] = { cameraID = 141, displayInfo = 84218, }, -- Seasoned Hunter
 	[151265] = { cameraID = 141, displayInfo = 84222, }, -- Hardened Grunt
 	[151268] = { cameraID = 130, displayInfo = 84396, }, -- Deathguard Shocktrooper
+	[151269] = { cameraID = 1209, displayInfo = 85901, }, -- Sin'dorei Battlemage
 	[152184] = { cameraID = 141, displayInfo = 4259, }, -- Orgrimmar Grunt
 	[152316] = { cameraID = 795, displayInfo = 91408, }, -- Image of Thalyssra
 	[152333] = { cameraID = 120, displayInfo = 70830, }, -- Dark Ranger Lenara
 	[152530] = { cameraID = 141, displayInfo = 81646, }, -- Baine Bloodhoof
 	[152538] = { cameraID = 120, displayInfo = 90077, }, -- Dark Ranger Zanra
+	[152539] = { cameraID = 1209, displayInfo = 90211, }, -- Dark Ranger Thandel
 	[152594] = { cameraID = 1577, displayInfo = 93583, }, -- Broker Ve'ken
 	[152729] = { cameraID = 101, displayInfo = 91569, }, -- Moon Priestess Liara
 	[152908] = { cameraID = 141, displayInfo = 9133, }, -- Grunt Grimful
 	[152909] = { cameraID = 141, displayInfo = 8000, }, -- Grunt Wabang
 	[153035] = { cameraID = 141, displayInfo = 91670, }, -- Orc Berserker
+	[153037] = { cameraID = 1209, displayInfo = 91678, }, -- Blood Elf Mage
 	[153038] = { cameraID = 82, displayInfo = 89554, }, -- Alliance Warrior
 	[153153] = { cameraID = 90, displayInfo = 90555, }, -- Archaeo-Tinkologist
 	[153164] = { cameraID = 90, displayInfo = 78970, }, -- Trap
@@ -1852,14 +1981,18 @@ EZBUP_DATA.CreaturexCameraID = {
 	[153282] = { cameraID = 101, displayInfo = 89877, }, -- Scout Greenfen
 	[153316] = { cameraID = 90, displayInfo = 97415, }, -- Bjorn Stouthands
 	[153328] = { cameraID = 90, displayInfo = 78970, }, -- Trap Trigger
+	[153339] = { cameraID = 1209, displayInfo = 91834, }, -- Mysterious Mage
 	[153562] = { cameraID = 90, displayInfo = 78970, }, -- Chest Trap Trigger
 	[153565] = { cameraID = 82, displayInfo = 92751, }, -- Henry Garrick
 	[153677] = { cameraID = 101, displayInfo = 91239, }, -- Merithra of the Dream
+	[153680] = { cameraID = 1209, displayInfo = 92675, }, -- Farstrider Elite
 	[154021] = { cameraID = 120, displayInfo = 86752, }, -- Lady Zantessa
 	[154149] = { cameraID = 141, displayInfo = 1387, }, -- Karolek
 	[154157] = { cameraID = 141, displayInfo = 4386, }, -- Thund
 	[154255] = { cameraID = 82, displayInfo = 89554, }, -- Alliance Warrior
+	[154259] = { cameraID = 1209, displayInfo = 91678, }, -- Horde Mage
 	[154262] = { cameraID = 141, displayInfo = 91670, }, -- Horde Warrior
+	[154281] = { cameraID = 1209, displayInfo = 91884, }, -- Magister Hathorel
 	[154300] = { cameraID = 90, displayInfo = 91995, }, -- Bjorn Stouthands
 	[154341] = { cameraID = 141, displayInfo = 4259, }, -- Orgrimmar Grunt
 	[154379] = { cameraID = 126, displayInfo = 2141, }, -- Orgrimmar Brave
@@ -1869,12 +2002,14 @@ EZBUP_DATA.CreaturexCameraID = {
 	[154735] = { cameraID = 82, displayInfo = 30277, }, -- Scourgelord Tyrannus
 	[154809] = { cameraID = 82, displayInfo = 34294, }, -- 7th Legion Guardsman
 	[154866] = { cameraID = 90, displayInfo = 32681, }, -- Falstad Wildhammer
+	[154895] = { cameraID = 1209, displayInfo = 90143, }, -- Captain Dawnsail
 	[154995] = { cameraID = 126, displayInfo = 34113, }, -- Rento
 	[154996] = { cameraID = 126, displayInfo = 34111, }, -- Lonto
 	[154999] = { cameraID = 126, displayInfo = 34107, }, -- Owato
 	[155001] = { cameraID = 126, displayInfo = 34045, }, -- Nahu Ragehoof
 	[155002] = { cameraID = 126, displayInfo = 34059, }, -- Nohi Plainswalker
 	[155005] = { cameraID = 141, displayInfo = 1366, }, -- Godan
+	[155006] = { cameraID = 1209, displayInfo = 34932, }, -- Enchanter Farendin
 	[155117] = { cameraID = 130, displayInfo = 81785, }, -- Cutthroat Crew
 	[155123] = { cameraID = 82, displayInfo = 26997, }, -- 7th Legion Marine
 	[155147] = { cameraID = 105, displayInfo = 68561, }, -- Captain Razorclaw
@@ -1914,11 +2049,14 @@ EZBUP_DATA.CreaturexCameraID = {
 	[157723] = { cameraID = 109, displayInfo = 93248, }, -- Varok Saurfang
 	[158176] = { cameraID = 120, displayInfo = 85924, }, -- Lady Liadrin
 	[158313] = { cameraID = 82, displayInfo = 10535, }, -- Deatholme Acolyte
+	[158322] = { cameraID = 1209, displayInfo = 89419, }, -- Silvermoon Soldier
 	[159004] = { cameraID = 141, displayInfo = 4261, }, -- Mor'shan Watchman
 	[159064] = { cameraID = 90, displayInfo = 47399, }, -- Darkmoon Arcade
 	[159422] = { cameraID = 141, displayInfo = 4259, }, -- Dead Civilian
 	[159557] = { cameraID = 141, displayInfo = 4261, }, -- Mor'shan Watchman
+	[160206] = { cameraID = 1209, displayInfo = 94606, }, -- Alran Heartshade
 	[160209] = { cameraID = 126, displayInfo = 94609, }, -- Horu Cloudwatcher
+	[160291] = { cameraID = 1209, displayInfo = 44987, }, -- Ashwalker Assassin
 	[160635] = { cameraID = 90, displayInfo = 47399, }, -- Ice Stalker
 	[160804] = { cameraID = 82, displayInfo = 94395, }, -- Prisoner
 	[160964] = { cameraID = 82, displayInfo = 70300, }, -- Freed Expedition Member
@@ -1934,6 +2072,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[162769] = { cameraID = 82, displayInfo = 63575, }, -- Knight of the Ebon Blade
 	[162770] = { cameraID = 141, displayInfo = 63576, }, -- Knight of the Ebon Blade
 	[162775] = { cameraID = 120, displayInfo = 72259, }, -- Knight of the Ebon Blade
+	[162776] = { cameraID = 1209, displayInfo = 72258, }, -- Knight of the Ebon Blade
 	[162777] = { cameraID = 90, displayInfo = 72257, }, -- Knight of the Ebon Blade
 	[162780] = { cameraID = 101, displayInfo = 72265, }, -- Knight of the Ebon Blade
 	[162784] = { cameraID = 130, displayInfo = 72260, }, -- Knight of the Ebon Blade
@@ -1950,11 +2089,14 @@ EZBUP_DATA.CreaturexCameraID = {
 	[165537] = { cameraID = 101, displayInfo = 11046, }, -- Eli the Brazen
 	[165562] = { cameraID = 101, displayInfo = 11046, }, -- Anjali
 	[165918] = { cameraID = 82, displayInfo = 27153, }, -- Highlord Darion Mograine
+	[166119] = { cameraID = 1209, displayInfo = 100270, }, -- Doomed Soul
 	[166776] = { cameraID = 82, displayInfo = 94718, }, -- Alexandros Mograine
 	[167021] = { cameraID = 109, displayInfo = 115495, }, -- Thrall
 	[167179] = { cameraID = 120, displayInfo = 96418, }, -- Daelya Twilightsbane
+	[167215] = { cameraID = 1209, displayInfo = 96320, }, -- Mithdran Dawntracker
 	[167216] = { cameraID = 141, displayInfo = 91670, }, -- Grunt Throg
 	[167244] = { cameraID = 141, displayInfo = 72784, }, -- Freed Expedition Member
+	[167378] = { cameraID = 1209, displayInfo = 96320, }, -- Mithdran Dawntracker
 	[167523] = { cameraID = 141, displayInfo = 96493, }, -- Stranded Spirit
 	[167592] = { cameraID = 141, displayInfo = 99182, }, -- First Expedition Recruit
 	[167621] = { cameraID = 1079, displayInfo = 94123, }, -- Uther
@@ -1995,6 +2137,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[175680] = { cameraID = 1577, displayInfo = 93578, }, -- Clandestine Operative
 	[180175] = { cameraID = 1079, displayInfo = 101844, }, -- Uther
 	[175909] = { cameraID = 1577, displayInfo = 100013, }, -- Ve'brax
+	[176086] = { cameraID = 1209, displayInfo = 37917, }, -- Doomed Soul
 	[176361] = { cameraID = 1079, displayInfo = 100392, }, -- Uther
 	[176532] = { cameraID = 109, displayInfo = 101963, }, -- Thrall
 	[176533] = { cameraID = 84, displayInfo = 101962, }, -- Lady Jaina Proudmoore
@@ -2126,6 +2269,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[187676] = { cameraID = 1675, displayInfo = 75614, }, -- Kalecgos
 	[187718] = { cameraID = 82, displayInfo = 106239, }, -- Archmage Khadgar
 	[187720] = { cameraID = 82, displayInfo = 107041, }, -- Archmage Khadgar
+	[188195] = { cameraID = 1209, displayInfo = 106320, }, -- Kirin Tor Mage
 	[188201] = { cameraID = 146, displayInfo = 104834, }, -- Healing Wing
 	[188882] = { cameraID = 149, displayInfo = 111371, }, -- Raszageth
 	[189324] = { cameraID = 146, displayInfo = 102032, }, -- Scalecommander Azurathel
@@ -2134,12 +2278,14 @@ EZBUP_DATA.CreaturexCameraID = {
 	[189509] = { cameraID = 126, displayInfo = 108627, }, -- Primalist Ideologue
 	[189518] = { cameraID = 101, displayInfo = 107111, }, -- Koroleth
 	[189599] = { cameraID = 101, displayInfo = 91239, }, -- Merithra
+	[189714] = { cameraID = 1209, displayInfo = 102377, }, -- Blacktalon Assassin
 	[189793] = { cameraID = 1675, displayInfo = 75614, }, -- Kalecgos
 	[190000] = { cameraID = 1675, displayInfo = 75614, }, -- Kalecgos
 	[190494] = { cameraID = 146, displayInfo = 104841, }, -- Dracthyr Talon
 	[190515] = { cameraID = 1675, displayInfo = 107150, }, -- Kalecgos
 	[190529] = { cameraID = 146, displayInfo = 104834, }, -- Tactical Mender
 	[190740] = { cameraID = 82, displayInfo = 104559, }, -- Sabellian
+	[190910] = { cameraID = 1209, displayInfo = 107303, }, -- Evorian
 	[191205] = { cameraID = 90, displayInfo = 107387, }, -- Hemet Nesingwary
 	[191504] = { cameraID = 82, displayInfo = 104559, }, -- Sabellian
 	[192310] = { cameraID = 146, displayInfo = 102175, }, -- Dervishian
@@ -2150,6 +2296,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[192649] = { cameraID = 575, displayInfo = 70004, }, -- Malfurion Stormrage
 	[192653] = { cameraID = 101, displayInfo = 101941, }, -- Tyrande Whisperwind
 	[192656] = { cameraID = 126, displayInfo = 106210, }, -- Somnikus
+	[192661] = { cameraID = 1209, displayInfo = 107947, }, -- Evorian
 	[192974] = { cameraID = 146, displayInfo = 104843, }, -- Obsidian Warder
 	[192975] = { cameraID = 146, displayInfo = 104844, }, -- Obsidian Warder
 	[192976] = { cameraID = 146, displayInfo = 104846, }, -- Obsidian Warder
@@ -2159,6 +2306,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[193056] = { cameraID = 146, displayInfo = 104842, }, -- Dark Talon
 	[193057] = { cameraID = 146, displayInfo = 104839, }, -- Dark Talon
 	[193058] = { cameraID = 146, displayInfo = 104840, }, -- Dark Talon
+	[193331] = { cameraID = 1209, displayInfo = 107303, }, -- Evorian
 	[193332] = { cameraID = 120, displayInfo = 107251, }, -- Vazallia
 	[193878] = { cameraID = 146, displayInfo = 108356, }, -- Iristella
 	[193879] = { cameraID = 146, displayInfo = 108358, }, -- Iristimat
@@ -2167,6 +2315,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[194616] = { cameraID = 90, displayInfo = 108649, }, -- Crannog Wildhammer
 	[194674] = { cameraID = 82, displayInfo = 84092, }, -- Expedition Provisioner
 	[195350] = { cameraID = 146, displayInfo = 108879, }, -- Eager Freshscale
+	[195570] = { cameraID = 1209, displayInfo = 82305, }, -- Dragonrider
 	[195589] = { cameraID = 101, displayInfo = 107111, }, -- Koroleth
 	[195912] = { cameraID = 82, displayInfo = 71246, }, -- Storm Hunter William
 	[196501] = { cameraID = 120, displayInfo = 106321, }, -- Alia Sunsoar
@@ -2203,6 +2352,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[199761] = { cameraID = 130, displayInfo = 114139, }, -- Deathstalker Commander Belmont
 	[199880] = { cameraID = 82, displayInfo = 113287, }, -- Scarlet Footsoldier
 	[199965] = { cameraID = 126, displayInfo = 110926, }, -- Ebyssian
+	[200019] = { cameraID = 1209, displayInfo = 68826, }, -- Azuregos
 	[200020] = { cameraID = 120, displayInfo = 19806, }, -- Haleh
 	[200157] = { cameraID = 141, displayInfo = 11895, }, -- Captain Galvangar
 	[200317] = { cameraID = 82, displayInfo = 110946, }, -- Duncon Ratsbon
@@ -2222,6 +2372,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[200797] = { cameraID = 120, displayInfo = 110573, }, -- Lanigosa
 	[201039] = { cameraID = 146, displayInfo = 108452, }, -- Injured Dracthyr
 	[201065] = { cameraID = 90, displayInfo = 106900, }, -- Sonova Snowden
+	[201107] = { cameraID = 1209, displayInfo = 112024, }, -- Malygos
 	[201173] = { cameraID = 126, displayInfo = 111354, }, -- Ebyssian
 	[201323] = { cameraID = 141, displayInfo = 111866, }, -- Baine Bloodhoof
 	[201522] = { cameraID = 126, displayInfo = 111112, }, -- Summitshaper Lorac
@@ -2256,6 +2407,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[203314] = { cameraID = 141, displayInfo = 111901, }, -- Baine Bloodhoof
 	[203315] = { cameraID = 126, displayInfo = 111902, }, -- Bovan Windtotem
 	[203387] = { cameraID = 126, displayInfo = 111112, }, -- Mudleader Lorac
+	[203431] = { cameraID = 1209, displayInfo = 111947, }, -- Azuregos
 	[203597] = { cameraID = 146, displayInfo = 111986, }, -- Talon Damos
 	[203613] = { cameraID = 146, displayInfo = 111993, }, -- Scalecommander Sarkareth
 	[203637] = { cameraID = 146, displayInfo = 111935, }, -- Sundered Defender
@@ -2264,6 +2416,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[204287] = { cameraID = 126, displayInfo = 110926, }, -- Ebyssian
 	[204438] = { cameraID = 146, displayInfo = 104904, }, -- Vault Observation Executor
 	[204450] = { cameraID = 120, displayInfo = 108314, }, -- Soridormi
+	[204465] = { cameraID = 1209, displayInfo = 35624, }, -- <Away> Johnny Awesome
 	[204468] = { cameraID = 126, displayInfo = 72069, }, -- Airhorn
 	[204475] = { cameraID = 120, displayInfo = 72059, }, -- Merciless Gladiator Saifu
 	[204476] = { cameraID = 130, displayInfo = 72058, }, -- Vhell
@@ -2274,6 +2427,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[204488] = { cameraID = 126, displayInfo = 72565, }, -- Spoogledorf
 	[204489] = { cameraID = 130, displayInfo = 72064, }, -- Guard
 	[204490] = { cameraID = 126, displayInfo = 72046, }, -- Scarab Lord Hamlet
+	[204491] = { cameraID = 1209, displayInfo = 72044, }, -- Nulil
 	[204492] = { cameraID = 130, displayInfo = 72043, }, -- Nisstyr
 	[204493] = { cameraID = 141, displayInfo = 72040, }, -- Scarab Lord Ahzesh
 	[204736] = { cameraID = 120, displayInfo = 112305, }, -- Sindragosa
@@ -2294,9 +2448,11 @@ EZBUP_DATA.CreaturexCameraID = {
 	[205391] = { cameraID = 82, displayInfo = 112569, }, -- Sabellian
 	[205409] = { cameraID = 101, displayInfo = 91239, }, -- Merithra
 	[205769] = { cameraID = 120, displayInfo = 108314, }, -- Soridormi
+	[205946] = { cameraID = 1209, displayInfo = 35624, }, -- Johnny Awesome
 	[206017] = { cameraID = 90, displayInfo = 115505, }, -- Brann Bronzebeard
 	[206107] = { cameraID = 130, displayInfo = 112802, }, -- Eadweard Dalyngrigge
 	[206182] = { cameraID = 126, displayInfo = 112831, }, -- Fel-Touched Shu'halo
+	[206228] = { cameraID = 1209, displayInfo = 113440, }, -- Johnny Awesome
 	[206399] = { cameraID = 101, displayInfo = 108637, }, -- Tyrande Whisperwind
 	[206404] = { cameraID = 1675, displayInfo = 114577, }, -- Kalecgos
 	[206588] = { cameraID = 101, displayInfo = 113045, }, -- Belysra Starbreeze
@@ -2320,6 +2476,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[207587] = { cameraID = 82, displayInfo = 113311, }, -- Prisoner of War
 	[207594] = { cameraID = 120, displayInfo = 113316, }, -- High Interrogator Kilandrelle
 	[207598] = { cameraID = 90, displayInfo = 113296, }, -- Great Glorious Alliance Cannoneer
+	[207686] = { cameraID = 1209, displayInfo = 113318, }, -- Warmage Bernante
 	[207694] = { cameraID = 146, displayInfo = 113591, }, -- Abereth
 	[207700] = { cameraID = 130, displayInfo = 113373, }, -- Forsaken Soldier
 	[207702] = { cameraID = 120, displayInfo = 90536, }, -- Dark Ranger
@@ -2342,14 +2499,20 @@ EZBUP_DATA.CreaturexCameraID = {
 	[208906] = { cameraID = 101, displayInfo = 113048, }, -- Moon Priestess Lasara
 	[208918] = { cameraID = 82, displayInfo = 107041, }, -- Khadgar
 	[209008] = { cameraID = 120, displayInfo = 90536, }, -- Dark Ranger
+	[209483] = { cameraID = 1209, displayInfo = 112850, }, -- Talthis
+	[209519] = { cameraID = 1209, displayInfo = 113672, }, -- Talthis
 	[209593] = { cameraID = 120, displayInfo = 90536, }, -- Dark Ranger
+	[209744] = { cameraID = 1209, displayInfo = 113672, }, -- Tyr's Guard [All]
 	[209970] = { cameraID = 101, displayInfo = 113083, }, -- Norana Morninglight
 	[210122] = { cameraID = 120, displayInfo = 102886, }, -- Primalist Flamewarden
 	[210292] = { cameraID = 120, displayInfo = 102886, }, -- Primalist Flamewarden
 	[210496] = { cameraID = 101, displayInfo = 108146, }, -- Otharia
+	[210547] = { cameraID = 1209, displayInfo = 113943, }, -- Gangshe
 	[210553] = { cameraID = 146, displayInfo = 113392, }, -- Sundered Skirmisher
 	[210554] = { cameraID = 146, displayInfo = 110856, }, -- Winglord Dezran
+	[210665] = { cameraID = 1209, displayInfo = 102888, }, -- Primalist Flamewarden
 	[210666] = { cameraID = 101, displayInfo = 102891, }, -- Primalist Flamewarden
+	[210668] = { cameraID = 1209, displayInfo = 102889, }, -- Primalist Flamewarden
 	[210669] = { cameraID = 120, displayInfo = 102886, }, -- Primalist Flamewarden
 	[210716] = { cameraID = 1209, displayInfo = 114184, }, -- Lethnal
 	[210719] = { cameraID = 130, displayInfo = 114185, }, -- Lethnal
@@ -2361,9 +2524,12 @@ EZBUP_DATA.CreaturexCameraID = {
 	[211493] = { cameraID = 1208, displayInfo = 89310, }, -- Xal'atath
 	[211499] = { cameraID = 1751, displayInfo = 114268, }, -- Executor Nizrek
 	[211519] = { cameraID = 82, displayInfo = 115995, }, -- Anduin Wrynn
+	[211660] = { cameraID = 1209, displayInfo = 116241, }, -- Talthis
 	[211888] = { cameraID = 1751, displayInfo = 114268, }, -- Executor Nizrek
 	[212247] = { cameraID = 82, displayInfo = 116232, }, -- Travard
+	[212326] = { cameraID = 1209, displayInfo = 102888, }, -- Primalist Flamewarden
 	[212343] = { cameraID = 268, displayInfo = 71623, }, -- Farseer Nobundo
+	[212382] = { cameraID = 1209, displayInfo = 27772, }, -- Asric
 	[212741] = { cameraID = 1842, displayInfo = 117238, }, -- Speaker Brinthe
 	[212755] = { cameraID = 1799, displayInfo = 114662, }, -- Queensguard Zirix
 	[212758] = { cameraID = 1809, displayInfo = 117127, }, -- Adelgonn
@@ -2434,7 +2600,9 @@ EZBUP_DATA.CreaturexCameraID = {
 	[217234] = { cameraID = 126, displayInfo = 91041, }, -- Tauren Plainswalker
 	[217236] = { cameraID = 130, displayInfo = 72563, }, -- Forsaken Warlock
 	[217313] = { cameraID = 1799, displayInfo = 115730, }, -- Crypt Lord
+	[217347] = { cameraID = 1209, displayInfo = 87571, }, -- Veteran Blood Knight
 	[217463] = { cameraID = 1799, displayInfo = 115010, }, -- Enraged Colossus
+	[217486] = { cameraID = 1209, displayInfo = 117107, }, -- Auric Sunchaser
 	[217569] = { cameraID = 82, displayInfo = 119046, }, -- Danath Trollbane
 	[218162] = { cameraID = 1809, displayInfo = 118440, }, -- Oathsworn Coreguard
 	[218252] = { cameraID = 1209, displayInfo = 117186, }, -- Magister Umbric
@@ -2452,6 +2620,8 @@ EZBUP_DATA.CreaturexCameraID = {
 	[219613] = { cameraID = 1799, displayInfo = 114773, }, -- Kaheti Warshell
 	[219614] = { cameraID = 1751, displayInfo = 114411, }, -- Web Priest
 	[219665] = { cameraID = 1799, displayInfo = 119303, }, -- Queensguard An'Jak Shabtir
+	[220254] = { cameraID = 1209, displayInfo = 28151, }, -- Rescued Citizen
+	[220556] = { cameraID = 1209, displayInfo = 115288, }, -- Great Kyron
 	[220558] = { cameraID = 120, displayInfo = 117121, }, -- Xal'atath
 	[220802] = { cameraID = 90, displayInfo = 118377, }, -- Kurdran Wildhammer
 	[221228] = { cameraID = 82, displayInfo = 33757, }, -- Friendly Joe
@@ -2478,6 +2648,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[224384] = { cameraID = 1751, displayInfo = 114414, }, -- Nerubian Priest, Dark
 	[224787] = { cameraID = 82, displayInfo = 118182, }, -- Arathi Aeroknight
 	[225293] = { cameraID = 1842, displayInfo = 117238, }, -- Brinthe
+	[225355] = { cameraID = 1209, displayInfo = 123721, }, -- Archmage Aethas Sunreaver
 	[225404] = { cameraID = 90, displayInfo = 47399, }, -- Beledar's Spawn
 	[225585] = { cameraID = 1797, displayInfo = 116208, }, -- Widow Arak'nai
 	[226040] = { cameraID = 1842, displayInfo = 122811, }, -- High Speaker Brinthe
@@ -2512,11 +2683,13 @@ EZBUP_DATA.CreaturexCameraID = {
 	[229951] = { cameraID = 82, displayInfo = 122768, }, -- Captain Roderick Brewston
 	[230095] = { cameraID = 82, displayInfo = 122878, }, -- Aelric Leid
 	[230190] = { cameraID = 1809, displayInfo = 117414, }, -- Oathsworn Earthen
+	[230403] = { cameraID = 1209, displayInfo = 121969, }, -- Silver Covenant Spellcaster
 	[230405] = { cameraID = 120, displayInfo = 121978, }, -- Sunreaver Battlemage
 	[230601] = { cameraID = 1860, displayInfo = 131473, }, -- Locus-Walker
 	[230602] = { cameraID = 120, displayInfo = 131474, }, -- Xal'atath
 	[230603] = { cameraID = 1577, displayInfo = 122330, }, -- Om'resh
 	[230609] = { cameraID = 120, displayInfo = 131464, }, -- Alleria Windrunner
+	[230666] = { cameraID = 1209, displayInfo = 122533, }, -- Demon Hunter Champion
 	[230689] = { cameraID = 82, displayInfo = 122547, }, -- Warrior Champion
 	[230868] = { cameraID = 90, displayInfo = 114755, }, -- High Speaker's Guard
 	[231084] = { cameraID = 82, displayInfo = 35369, }, -- Neighborhood Local
@@ -2530,10 +2703,12 @@ EZBUP_DATA.CreaturexCameraID = {
 	[231820] = { cameraID = 1577, displayInfo = 130488, }, -- Ve'nari
 	[232048] = { cameraID = 82, displayInfo = 123262, }, -- Jeremy Feasel
 	[232295] = { cameraID = 82, displayInfo = 124672, }, -- Almyr Sunhart
+	[232336] = { cameraID = 1209, displayInfo = 123397, }, -- Arlor Morrowmourn
 	[232355] = { cameraID = 1209, displayInfo = 123443, }, -- Sellin Everfold
 	[232356] = { cameraID = 1208, displayInfo = 123435, }, -- Kydrel Paledawn
 	[232364] = { cameraID = 146, displayInfo = 123403, }, -- Tyl
 	[232366] = { cameraID = 105, displayInfo = 123440, }, -- Keita Notleigh
+	[233062] = { cameraID = 126, displayInfo = 131513, }, -- Tocho Cloudhide
 	[233064] = { cameraID = 146, displayInfo = 123613, }, -- Vaeli
 	[233071] = { cameraID = 146, displayInfo = 123616, }, -- Celden
 	[233074] = { cameraID = 126, displayInfo = 123611, }, -- Ginde Dreamshift
@@ -2542,13 +2717,16 @@ EZBUP_DATA.CreaturexCameraID = {
 	[233239] = { cameraID = 82, displayInfo = 123402, }, -- Archmage Khadgar
 	[233241] = { cameraID = 1675, displayInfo = 75614, }, -- Kalecgos
 	[233242] = { cameraID = 114, displayInfo = 75730, }, -- Jastor Gallywix
+	[233354] = { cameraID = 1209, displayInfo = 123775, }, -- Demon Hunter Champion
 	[233355] = { cameraID = 146, displayInfo = 123776, }, -- Hunter Champion
 	[233530] = { cameraID = 84, displayInfo = 88316, }, -- Lady Jaina Proudmoore
 	[234126] = { cameraID = 141, displayInfo = 63441, }, -- Horde Soldier
 	[234127] = { cameraID = 82, displayInfo = 94818, }, -- Hero of Azeroth
 	[234128] = { cameraID = 120, displayInfo = 122903, }, -- Hero of Azeroth
 	[234158] = { cameraID = 120, displayInfo = 121972, }, -- Silver Covenant Spellcaster
+	[234159] = { cameraID = 1209, displayInfo = 121120, }, -- Sunreaver Battlemage
 	[234271] = { cameraID = 120, displayInfo = 36905, }, -- Matron Ossela
+	[234273] = { cameraID = 1209, displayInfo = 36904, }, -- Nelur Lightsown
 	[234274] = { cameraID = 120, displayInfo = 65251, }, -- Saedelin Whitedawn
 	[234355] = { cameraID = 90, displayInfo = 124367, }, -- Brann Bronzebeard
 	[234411] = { cameraID = 1809, displayInfo = 124370, }, -- Angorla
@@ -2557,6 +2735,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[235240] = { cameraID = 141, displayInfo = 124748, }, -- Orgrim Doomhammer
 	[235405] = { cameraID = 1209, displayInfo = 128688, }, -- Magister Umbric
 	[235483] = { cameraID = 1209, displayInfo = 140873, }, -- Grand Magister Rommath
+	[235711] = { cameraID = 1209, displayInfo = 138848, }, -- Silvermoon Evacuee
 	[235994] = { cameraID = 1577, displayInfo = 131942, }, -- Om'rajula
 	[236017] = { cameraID = 1209, displayInfo = 121985, }, -- Kirin Tor Survivor
 	[236048] = { cameraID = 82, displayInfo = 121981, }, -- Kirin Tor Survivor
@@ -2585,6 +2764,9 @@ EZBUP_DATA.CreaturexCameraID = {
 	[239944] = { cameraID = 1209, displayInfo = 128688, }, -- Magister Umbric
 	[240240] = { cameraID = 130, displayInfo = 141282, }, -- Alonsus Faol
 	[240283] = { cameraID = 120, displayInfo = 128683, }, -- Vereesa Windrunner
+	[240285] = { cameraID = 1209, displayInfo = 123748, }, -- Archmage Aethas Sunreaver
+	[240287] = { cameraID = 1209, displayInfo = 141285, }, -- Silver Covenant Ranger
+	[240290] = { cameraID = 1209, displayInfo = 26072, }, -- Sunreaver Guardian Mage
 	[240717] = { cameraID = 101, displayInfo = 127666, }, -- Highborne Arcanist
 	[240720] = { cameraID = 101, displayInfo = 127689, }, -- Night Elf Druid
 	[240813] = { cameraID = 82, displayInfo = 127691, }, -- Uther Lightbringer
@@ -2594,10 +2776,13 @@ EZBUP_DATA.CreaturexCameraID = {
 	[241029] = { cameraID = 120, displayInfo = 39910, }, -- Taryssa Lazuria
 	[241030] = { cameraID = 120, displayInfo = 37088, }, -- Marith Lazuria
 	[241076] = { cameraID = 1208, displayInfo = 117091, }, -- Riftblade Maella
+	[241176] = { cameraID = 1209, displayInfo = 137217, }, -- Halduron Brightwing
 	[241326] = { cameraID = 120, displayInfo = 138454, }, -- Arcane Magister
 	[241444] = { cameraID = 120, displayInfo = 127769, }, -- Runed Spellbreaker
 	[241743] = { cameraID = 82, displayInfo = 64045, }, -- Archmage Khadgar
 	[241759] = { cameraID = 120, displayInfo = 128064, }, -- High Elf Arcanist
+	[241760] = { cameraID = 1209, displayInfo = 128065, }, -- High Elf Arcanist
+	[241907] = { cameraID = 1209, displayInfo = 125907, }, -- Adarus Duskblaze
 	[241981] = { cameraID = 120, displayInfo = 128133, }, -- Quel'Thalas Mage
 	[242095] = { cameraID = 120, displayInfo = 128177, }, -- Lady Liadrin
 	[242277] = { cameraID = 1675, displayInfo = 128258, }, -- Archmage Kalec
@@ -2605,16 +2790,24 @@ EZBUP_DATA.CreaturexCameraID = {
 	[242299] = { cameraID = 82, displayInfo = 106239, }, -- Archmage Khadgar
 	[242398] = { cameraID = 120, displayInfo = 105169, }, -- Naleidea Rivergleam
 	[242413] = { cameraID = 1209, displayInfo = 63775, }, -- Grand Magister Rommath
+	[242414] = { cameraID = 1209, displayInfo = 19707, }, -- Halduron Brightwing
+	[242415] = { cameraID = 1209, displayInfo = 128345, }, -- Halduron Brightwing
 	[242417] = { cameraID = 120, displayInfo = 121121, }, -- Fleeing Citizen
 	[242582] = { cameraID = 141, displayInfo = 141316, }, -- Eitrigg
 	[242583] = { cameraID = 82, displayInfo = 141437, }, -- Danath Trollbane
+	[242806] = { cameraID = 1209, displayInfo = 16811, }, -- Ithelis
 	[242817] = { cameraID = 82, displayInfo = 62976, }, -- Crusader Newbery
 	[243111] = { cameraID = 120, displayInfo = 138919, }, -- Auctioneer Caidori
 	[243115] = { cameraID = 141, displayInfo = 129395, }, -- Eitrigg
 	[243117] = { cameraID = 82, displayInfo = 119046, }, -- Danath Trollbane
 	[243905] = { cameraID = 82, displayInfo = 119046, }, -- Danath Trollbane
+	[243970] = { cameraID = 1209, displayInfo = 19577, }, -- Silvermoon Ranger
+	[244073] = { cameraID = 1209, displayInfo = 89418, }, -- Royal Guard
 	[244081] = { cameraID = 795, displayInfo = 66275, }, -- Nightborne Arcanist
 	[244540] = { cameraID = 120, displayInfo = 141295, }, -- Captain Elleane Wavecrest
+	[244541] = { cameraID = 1209, displayInfo = 141298, }, -- Scout Captain Daelin
+	[244542] = { cameraID = 1209, displayInfo = 141296, }, -- Archmage Velor Cloudlight
+	[244778] = { cameraID = 1209, displayInfo = 19577, }, -- Silvermoon Ranger
 	[245125] = { cameraID = 82, displayInfo = 129533, }, -- Turalyon
 	[245161] = { cameraID = 1865, displayInfo = 124338, }, -- Om'talad
 	[245301] = { cameraID = 1577, displayInfo = 101570, }, -- Market Patron
@@ -2627,6 +2820,8 @@ EZBUP_DATA.CreaturexCameraID = {
 	[245587] = { cameraID = 1209, displayInfo = 129719, }, -- Grand Magister Rommath
 	[245852] = { cameraID = 1865, displayInfo = 122503, }, -- Om'en
 	[245976] = { cameraID = 1208, displayInfo = 139855, }, -- Deminos Darktrance
+	[246077] = { cameraID = 1209, displayInfo = 131527, }, -- Commander Venel Lightblood
+	[246325] = { cameraID = 1209, displayInfo = 136030, }, -- Adarus Duskblaze
 	[246417] = { cameraID = 90, displayInfo = 131524, }, -- Commander Koruth Mountainfist
 	[246433] = { cameraID = 101, displayInfo = 91416, }, -- Kellara the Cunning
 	[246435] = { cameraID = 126, displayInfo = 91447, }, -- Tuwavo Ravenwing
@@ -2634,6 +2829,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[246627] = { cameraID = 90, displayInfo = 91439, }, -- Ulfrik Stoutarm
 	[246628] = { cameraID = 130, displayInfo = 91471, }, -- Marco the Malodorous
 	[246666] = { cameraID = 82, displayInfo = 91957, }, -- Renten Plaguebringer
+	[246667] = { cameraID = 1209, displayInfo = 91959, }, -- Nethos the Blighted
 	[246678] = { cameraID = 120, displayInfo = 91451, }, -- Nimisia Azuresong
 	[246749] = { cameraID = 90, displayInfo = 91428, }, -- Bishop Broxast
 	[246750] = { cameraID = 130, displayInfo = 91460, }, -- Grigori the Unrepentant
@@ -2643,8 +2839,10 @@ EZBUP_DATA.CreaturexCameraID = {
 	[246883] = { cameraID = 105, displayInfo = 91413, }, -- Riley Iceclaw
 	[246904] = { cameraID = 126, displayInfo = 91442, }, -- Loqh'wa the Vengeful
 	[246907] = { cameraID = 1208, displayInfo = 91967, }, -- Faedra the Sniper
+	[246911] = { cameraID = 1209, displayInfo = 91445, }, -- Sylareon Silverblade
 	[246912] = { cameraID = 101, displayInfo = 91414, }, -- Nylaria the Haunted
 	[246913] = { cameraID = 120, displayInfo = 91446, }, -- Celaryn the Frenzied
+	[247025] = { cameraID = 1209, displayInfo = 91456, }, -- Crusader Tanastas
 	[247124] = { cameraID = 82, displayInfo = 91970, }, -- Davin "Ashes" Ashton
 	[247125] = { cameraID = 141, displayInfo = 91972, }, -- Kirok the Charred
 	[247133] = { cameraID = 126, displayInfo = 91982, }, -- Caothun Suntouched
@@ -2670,6 +2868,8 @@ EZBUP_DATA.CreaturexCameraID = {
 	[248496] = { cameraID = 90, displayInfo = 131520, }, -- Brann Bronzebeard
 	[249178] = { cameraID = 82, displayInfo = 122547, }, -- Warrior Champion
 	[249184] = { cameraID = 146, displayInfo = 123776, }, -- Hunter Champion
+	[249621] = { cameraID = 1209, displayInfo = 89418, }, -- Sunwell Guard
+	[249622] = { cameraID = 1209, displayInfo = 26071, }, -- Sunwell Magus
 	[249623] = { cameraID = 120, displayInfo = 30628, }, -- Sunwell Warden
 	[249624] = { cameraID = 795, displayInfo = 66275, }, -- Nightborne Arcanist
 	[249627] = { cameraID = 1209, displayInfo = 136354, }, -- Void Elf Riftmancer
@@ -2680,11 +2880,14 @@ EZBUP_DATA.CreaturexCameraID = {
 	[250398] = { cameraID = 120, displayInfo = 16732, }, -- Harassed Citizen
 	[250400] = { cameraID = 130, displayInfo = 69306, }, -- Tehd Shoemaker
 	[250402] = { cameraID = 90, displayInfo = 141280, }, -- Gidwin Goldbraids
+	[250403] = { cameraID = 1209, displayInfo = 110634, }, -- Tarenar Sunstrike
 	[250404] = { cameraID = 82, displayInfo = 141314, }, -- Archmage Timear
 	[250405] = { cameraID = 101, displayInfo = 141312, }, -- Thisalee Crow
 	[250409] = { cameraID = 126, displayInfo = 141315, }, -- Gamon
+	[250547] = { cameraID = 1209, displayInfo = 136306, }, -- Blood Elf Civilian
 	[250584] = { cameraID = 120, displayInfo = 89420, }, -- Silvermooon Guard
 	[250594] = { cameraID = 144, displayInfo = 40962, }, -- Chen Stormstout
+	[250980] = { cameraID = 1209, displayInfo = 137082, }, -- Silvermoon Resident
 	[251671] = { cameraID = 120, displayInfo = 136761, }, -- Lightbloated Magister
 	[252015] = { cameraID = 1209, displayInfo = 136334, }, -- Injured Ren'dorei Scout
 	[252854] = { cameraID = 1208, displayInfo = 136314, }, -- Vanguard Scout
@@ -2695,11 +2898,13 @@ EZBUP_DATA.CreaturexCameraID = {
 	[253322] = { cameraID = 1209, displayInfo = 137797, }, -- Venzilion the Reality Cracker
 	[253776] = { cameraID = 793, displayInfo = 73501, }, -- Befuddled Engineer
 	[253948] = { cameraID = 1208, displayInfo = 140104, }, -- Leona Darkstrider
+	[254600] = { cameraID = 1209, displayInfo = 130341, }, -- Anuve Liltleaf
 	[254616] = { cameraID = 130, displayInfo = 138285, }, -- Nelthius Shadestone
 	[255011] = { cameraID = 120, displayInfo = 138590, }, -- Tactical Telemancer Seralia
 	[255103] = { cameraID = 82, displayInfo = 122301, }, -- Reno Jackson
 	[255219] = { cameraID = 82, displayInfo = 138025, }, -- Vanguard Scout
 	[256017] = { cameraID = 1208, displayInfo = 140104, }, -- Leona Darkstrider
+	[256038] = { cameraID = 1209, displayInfo = 110634, }, -- Tarenar Sunstrike
 	[256041] = { cameraID = 90, displayInfo = 110635, }, -- Gidwin Goldbraids
 	[256112] = { cameraID = 1209, displayInfo = 139494, }, -- Sothon Doomrender
 	[256144] = { cameraID = 120, displayInfo = 139509, }, -- Deya Gloombringer
@@ -2709,12 +2914,19 @@ EZBUP_DATA.CreaturexCameraID = {
 	[256719] = { cameraID = 82, displayInfo = 115283, }, -- Aelric Leid
 	[256722] = { cameraID = 82, displayInfo = 115523, }, -- Glooming Disciple
 	[256725] = { cameraID = 120, displayInfo = 131474, }, -- Xal'atath
+	[256908] = { cameraID = 1209, displayInfo = 138092, }, -- Eversong Farstrider
+	[256911] = { cameraID = 1209, displayInfo = 136800, }, -- Phoenixfire Magister
 	[257161] = { cameraID = 120, displayInfo = 138460, }, -- Blazing Pyromancer
 	[257174] = { cameraID = 120, displayInfo = 139971, }, -- Dragonscale Researcher
+	[258730] = { cameraID = 1209, displayInfo = 140154, }, -- Lord Antenorian
 	[258844] = { cameraID = 141, displayInfo = 141085, }, -- Mind-Seeker Apprentice
 	[258948] = { cameraID = 82, displayInfo = 141146, }, -- High Exarch Turalyon
 	[259153] = { cameraID = 120, displayInfo = 141432, }, -- Soridormi
 	[259716] = { cameraID = 1209, displayInfo = 141923, }, -- Riftglaive Blackstar
+	[260358] = { cameraID = 1209, displayInfo = 141298, }, -- Scout Captain Daelin
+	[260360] = { cameraID = 1209, displayInfo = 89419, }, -- Silvermoon Guard
+	[260421] = { cameraID = 1209, displayInfo = 138092, }, -- Hurried Courier
+	[260465] = { cameraID = 1209, displayInfo = 137081, }, -- Bloomrotten Corpse
 	[260489] = { cameraID = 120, displayInfo = 137083, }, -- Bloomrotten Corpse
 	[260957] = { cameraID = 146, displayInfo = 123613, }, -- Vaeli
 	[176681] = { cameraID = 90, displayInfo = 32681, }, -- Falstad Wildhammer
@@ -2841,9 +3053,14 @@ EZBUP_DATA.CreaturexCameraID = {
 	[88323] = { cameraID = 82, displayInfo = 19078, }, -- Image of Archmage Vargoth
 	[88339] = { cameraID = 141, displayInfo = 54968, }, -- Gronnstalker Rokash
 	[88353] = { cameraID = 141, displayInfo = 54373, }, -- Mulverick
+	[80390] = { cameraID = 1209, displayInfo = 55069, }, -- Magister Krelas
+	[80396] = { cameraID = 1209, displayInfo = 55069, }, -- Magister Krelas
 	[85903] = { cameraID = 126, displayInfo = 55046, }, -- Olin Umberhide
 	[88354] = { cameraID = 126, displayInfo = 55046, }, -- Olin Umberhide
 	[88351] = { cameraID = 101, displayInfo = 55047, }, -- Qiana Moonshadow
+	[80732] = { cameraID = 1209, displayInfo = 55069, }, -- Magister Krelas
+	[80965] = { cameraID = 1209, displayInfo = 55069, }, -- Magister Krelas
+	[88347] = { cameraID = 1209, displayInfo = 55069, }, -- Magister Krelas
 	[82832] = { cameraID = 142, displayInfo = 60766, }, -- Rexxar
 	[84131] = { cameraID = 142, displayInfo = 60766, }, -- Rexxar
 	[86491] = { cameraID = 142, displayInfo = 60766, }, -- Rexxar
@@ -2948,6 +3165,14 @@ EZBUP_DATA.CreaturexCameraID = {
 	[126078] = { cameraID = 120, displayInfo = 61971, }, -- Lady Liadrin
 	[130133] = { cameraID = 120, displayInfo = 61971, }, -- Lady Liadrin
 	[131478] = { cameraID = 120, displayInfo = 61971, }, -- Lady Liadrin
+	[95240] = { cameraID = 1209, displayInfo = 61698, }, -- Kayn Sunfury
+	[96665] = { cameraID = 1209, displayInfo = 61698, }, -- Kayn Sunfury
+	[97303] = { cameraID = 1209, displayInfo = 61698, }, -- Kayn Sunfury
+	[103106] = { cameraID = 1209, displayInfo = 61698, }, -- Kayn Sunfury
+	[107724] = { cameraID = 1209, displayInfo = 61698, }, -- Kayn Sunfury
+	[108572] = { cameraID = 1209, displayInfo = 61698, }, -- Kayn Sunfury
+	[109233] = { cameraID = 1209, displayInfo = 61698, }, -- Kayn Sunfury
+	[110482] = { cameraID = 1209, displayInfo = 61698, }, -- Kayn Sunfury
 	[97908] = { cameraID = 82, displayInfo = 30869, }, -- Highlord Darion Mograine
 	[112506] = { cameraID = 82, displayInfo = 30869, }, -- Highlord Darion Mograine
 	[111794] = { cameraID = 120, displayInfo = 61971, }, -- Lady Liadrin
@@ -2960,6 +3185,8 @@ EZBUP_DATA.CreaturexCameraID = {
 	[117447] = { cameraID = 126, displayInfo = 65478, }, -- Skyhorn Interceptor
 	[119856] = { cameraID = 126, displayInfo = 65478, }, -- Skyhorn Interceptor
 	[179294] = { cameraID = 90, displayInfo = 64615, }, -- Dagnar Stonebrow
+	[97071] = { cameraID = 1209, displayInfo = 16624, }, -- Arator
+	[97086] = { cameraID = 1209, displayInfo = 16624, }, -- Arator
 	[111728] = { cameraID = 82, displayInfo = 62790, }, -- Silver Hand Protector
 	[200658] = { cameraID = 141, displayInfo = 64784, }, -- Nazgrel
 	[110175] = { cameraID = 84, displayInfo = 26365, }, -- Valeera Sanguinar
@@ -2971,16 +3198,26 @@ EZBUP_DATA.CreaturexCameraID = {
 	[248982] = { cameraID = 84, displayInfo = 26365, }, -- Valeera Sanguinar
 	[250186] = { cameraID = 84, displayInfo = 26365, }, -- Valeera Sanguinar
 	[103007] = { cameraID = 101, displayInfo = 64447, }, -- Asha Ravensong
+	[103012] = { cameraID = 1209, displayInfo = 64444, }, -- Sirius Ebonwing
+	[103008] = { cameraID = 1209, displayInfo = 64446, }, -- Cassiel Nightthorn
 	[98714] = { cameraID = 101, displayInfo = 63986, }, -- Cyana Nightglaive
 	[98713] = { cameraID = 101, displayInfo = 66159, }, -- Kor'vas Bloodthorn
 	[103010] = { cameraID = 101, displayInfo = 66159, }, -- Kor'vas Bloodthorn
 	[105231] = { cameraID = 82, displayInfo = 66099, }, -- Sir Galveston
+	[105230] = { cameraID = 1209, displayInfo = 66109, }, -- Bodhi Sunwayver
 	[103015] = { cameraID = 120, displayInfo = 65392, }, -- Zaria Shadowheart
+	[99920] = { cameraID = 1209, displayInfo = 66396, }, -- Sevis Brightflame
+	[103011] = { cameraID = 1209, displayInfo = 66396, }, -- Sevis Brightflame
+	[103763] = { cameraID = 1209, displayInfo = 66396, }, -- Sevis Brightflame
 	[100222] = { cameraID = 126, displayInfo = 66408, }, -- Wuho Highmountain
 	[100236] = { cameraID = 126, displayInfo = 66408, }, -- Wuho Highmountain
 	[100197] = { cameraID = 90, displayInfo = 34644, }, -- Gidwin Goldbraids
+	[100198] = { cameraID = 1209, displayInfo = 34643, }, -- Tarenar Sunstrike
 	[100201] = { cameraID = 120, displayInfo = 46766, }, -- Aenea
+	[100195] = { cameraID = 1209, displayInfo = 21264, }, -- Master Pyreanor
+	[100200] = { cameraID = 1209, displayInfo = 16811, }, -- Ithelis
 	[100202] = { cameraID = 120, displayInfo = 16685, }, -- Noellene
+	[100203] = { cameraID = 1209, displayInfo = 16815, }, -- Osselan
 	[162020] = { cameraID = 101, displayInfo = 66527, }, -- Priestess of Elune
 	[118736] = { cameraID = 141, displayInfo = 65757, }, -- Eitrigg
 	[133693] = { cameraID = 575, displayInfo = 35095, }, -- Malfurion Stormrage
@@ -2991,10 +3228,12 @@ EZBUP_DATA.CreaturexCameraID = {
 	[110464] = { cameraID = 130, displayInfo = 67043, }, -- Alonsus Faol
 	[110498] = { cameraID = 130, displayInfo = 67043, }, -- Alonsus Faol
 	[103013] = { cameraID = 101, displayInfo = 67049, }, -- Illysanna Ravencrest
+	[103017] = { cameraID = 1209, displayInfo = 67176, }, -- Cailyn Paledoom
 	[114098] = { cameraID = 82, displayInfo = 67195, }, -- Archmage Karlain
 	[115466] = { cameraID = 82, displayInfo = 67193, }, -- Archmage Ansirem Runeweaver
 	[117456] = { cameraID = 82, displayInfo = 67193, }, -- Archmage Ansirem Runeweaver
 	[114101] = { cameraID = 82, displayInfo = 67196, }, -- Archmage Vargoth
+	[103009] = { cameraID = 1209, displayInfo = 67232, }, -- Tirathon Saltheril
 	[133522] = { cameraID = 114, displayInfo = 75730, }, -- Trade Prince Gallywix
 	[110488] = { cameraID = 141, displayInfo = 65975, }, -- Ritssyn Flamescowl
 	[102196] = { cameraID = 90, displayInfo = 34116, }, -- Fargo Flintlocke
@@ -3027,6 +3266,8 @@ EZBUP_DATA.CreaturexCameraID = {
 	[108693] = { cameraID = 90, displayInfo = 24574, }, -- Orik Trueheart
 	[105727] = { cameraID = 126, displayInfo = 29250, }, -- Tahu Sagewind
 	[105776] = { cameraID = 126, displayInfo = 29250, }, -- Tahu Sagewind
+	[105912] = { cameraID = 1209, displayInfo = 69233, }, -- Cato
+	[108924] = { cameraID = 1209, displayInfo = 69439, }, -- Sevis Brightflame
 	[106777] = { cameraID = 82, displayInfo = 69565, }, -- Travard
 	[111561] = { cameraID = 90, displayInfo = 69208, }, -- Gravely Wounded Soldier
 	[109144] = { cameraID = 576, displayInfo = 70210, }, -- Ly'leth Lunastre
@@ -3042,6 +3283,9 @@ EZBUP_DATA.CreaturexCameraID = {
 	[113064] = { cameraID = 82, displayInfo = 67215, }, -- Fleet Admiral Tethys
 	[118137] = { cameraID = 82, displayInfo = 67215, }, -- Fleet Admiral Tethys
 	[110477] = { cameraID = 82, displayInfo = 83274, }, -- Master Mathias Shaw
+	[120845] = { cameraID = 1209, displayInfo = 16624, }, -- Arator
+	[121890] = { cameraID = 1209, displayInfo = 16624, }, -- Arator
+	[129871] = { cameraID = 1209, displayInfo = 16624, }, -- Arator
 	[111839] = { cameraID = 130, displayInfo = 69747, }, -- Felburned Scout
 	[111564] = { cameraID = 141, displayInfo = 69700, }, -- Gravely Wounded Soldier
 	[116714] = { cameraID = 141, displayInfo = 65975, }, -- Ritssyn Flamescowl
@@ -3084,12 +3328,14 @@ EZBUP_DATA.CreaturexCameraID = {
 	[123232] = { cameraID = 106, displayInfo = 17822, }, -- Prophet Velen
 	[125968] = { cameraID = 106, displayInfo = 17822, }, -- Prophet Velen
 	[118882] = { cameraID = 141, displayInfo = 65757, }, -- Eitrigg
+	[121264] = { cameraID = 1209, displayInfo = 26770, }, -- Aethas Sunreaver
 	[118449] = { cameraID = 82, displayInfo = 46573, }, -- Kanrethad Ebonlocke
 	[118618] = { cameraID = 82, displayInfo = 46573, }, -- Kanrethad Ebonlocke
 	[118476] = { cameraID = 101, displayInfo = 32254, }, -- Thisalee Crow
 	[121227] = { cameraID = 296, displayInfo = 27571, }, -- Illidan Stormrage
 	[118871] = { cameraID = 795, displayInfo = 66261, }, -- Nighthuntress Syrenne
 	[119055] = { cameraID = 101, displayInfo = 32254, }, -- Thisalee Crow
+	[119060] = { cameraID = 1209, displayInfo = 26770, }, -- Tirisgarde Apprentice
 	[119065] = { cameraID = 141, displayInfo = 60003, }, -- Warsong Warrior
 	[119078] = { cameraID = 101, displayInfo = 73135, }, -- Dreamgrove Protector
 	[120036] = { cameraID = 101, displayInfo = 73135, }, -- Dreamgrove Protector
@@ -3197,7 +3443,9 @@ EZBUP_DATA.CreaturexCameraID = {
 	[143531] = { cameraID = 130, displayInfo = 86536, }, -- Thomas Zelling
 	[145423] = { cameraID = 130, displayInfo = 86536, }, -- Thomas Zelling
 	[145588] = { cameraID = 130, displayInfo = 86536, }, -- Thomas Zelling
+	[140602] = { cameraID = 1209, displayInfo = 86750, }, -- Blood Marquis
 	[140601] = { cameraID = 120, displayInfo = 86752, }, -- Blood Marquess
+	[140600] = { cameraID = 1209, displayInfo = 86753, }, -- Blood Marquis
 	[151085] = { cameraID = 82, displayInfo = 86639, }, -- Kul Tiran Executioner
 	[224823] = { cameraID = 82, displayInfo = 76222, }, -- Flynn Fairwind
 	[142486] = { cameraID = 84, displayInfo = 80015, }, -- Jaina Proudmoore
@@ -3329,6 +3577,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[181883] = { cameraID = 82, displayInfo = 27153, }, -- Highlord Darion Mograine
 	[182764] = { cameraID = 82, displayInfo = 27153, }, -- Highlord Darion Mograine
 	[184726] = { cameraID = 82, displayInfo = 27153, }, -- Highlord Darion Mograine
+	[175698] = { cameraID = 1209, displayInfo = 100270, }, -- Doomed Soul
 	[167675] = { cameraID = 109, displayInfo = 115495, }, -- Thrall
 	[167926] = { cameraID = 109, displayInfo = 115495, }, -- Thrall
 	[171281] = { cameraID = 101, displayInfo = 97529, }, -- Night Elf Soul
@@ -3344,6 +3593,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[223205] = { cameraID = 82, displayInfo = 100074, }, -- High Exarch Turalyon
 	[226650] = { cameraID = 82, displayInfo = 100074, }, -- High Exarch Turalyon
 	[175649] = { cameraID = 82, displayInfo = 61582, }, -- Croman
+	[176250] = { cameraID = 1209, displayInfo = 37917, }, -- Doomed Soul
 	[179687] = { cameraID = 84, displayInfo = 95032, }, -- Sylvanas Windrunner
 	[180828] = { cameraID = 84, displayInfo = 95032, }, -- Sylvanas Windrunner
 	[177925] = { cameraID = 1577, displayInfo = 95004, }, -- Ve'nari
@@ -3481,6 +3731,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[244389] = { cameraID = 1675, displayInfo = 75614, }, -- Kalecgos
 	[244496] = { cameraID = 1675, displayInfo = 75614, }, -- Kalecgos
 	[204057] = { cameraID = 82, displayInfo = 104559, }, -- Sabellian
+	[196157] = { cameraID = 1209, displayInfo = 107303, }, -- Evorian
 	[203084] = { cameraID = 82, displayInfo = 104559, }, -- Sabellian
 	[204698] = { cameraID = 82, displayInfo = 104559, }, -- Sabellian
 	[196213] = { cameraID = 120, displayInfo = 107704, }, -- Narsysix
@@ -3520,6 +3771,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[199895] = { cameraID = 130, displayInfo = 114139, }, -- Deathstalker Commander Belmont
 	[199925] = { cameraID = 130, displayInfo = 114139, }, -- Deathstalker Commander Belmont
 	[208214] = { cameraID = 130, displayInfo = 114139, }, -- Deathstalker Commander Belmont
+	[201061] = { cameraID = 1209, displayInfo = 68826, }, -- Azuregos
 	[200795] = { cameraID = 120, displayInfo = 19806, }, -- Haleh
 	[201169] = { cameraID = 120, displayInfo = 19806, }, -- Haleh
 	[201240] = { cameraID = 146, displayInfo = 111249, }, -- Volethi
@@ -3534,6 +3786,7 @@ EZBUP_DATA.CreaturexCameraID = {
 	[205647] = { cameraID = 1675, displayInfo = 105430, }, -- Kalecgos
 	[210555] = { cameraID = 146, displayInfo = 111693, }, -- Amythora
 	[210557] = { cameraID = 146, displayInfo = 111694, }, -- Marithos
+	[239610] = { cameraID = 1209, displayInfo = 35624, }, -- Johnny Awesome
 	[255063] = { cameraID = 90, displayInfo = 115505, }, -- Brann Bronzebeard
 	[257541] = { cameraID = 90, displayInfo = 115505, }, -- Brann Bronzebeard
 	[208537] = { cameraID = 101, displayInfo = 108637, }, -- Tyrande Whisperwind
@@ -3650,6 +3903,8 @@ EZBUP_DATA.CreaturexCameraID = {
 	[218281] = { cameraID = 82, displayInfo = 65834, }, -- Archmage Khadgar
 	[216552] = { cameraID = 141, displayInfo = 91670, }, -- Horde Wolfaxe
 	[229328] = { cameraID = 795, displayInfo = 66275, }, -- Suramar Chronomancer
+	[219879] = { cameraID = 1209, displayInfo = 87571, }, -- Veteran Blood Knight
+	[229307] = { cameraID = 1209, displayInfo = 87571, }, -- Veteran Blood Knight
 	[220805] = { cameraID = 82, displayInfo = 119046, }, -- Danath Trollbane
 	[241510] = { cameraID = 82, displayInfo = 119046, }, -- Danath Trollbane
 	[241912] = { cameraID = 82, displayInfo = 119046, }, -- Danath Trollbane
@@ -3665,6 +3920,10 @@ EZBUP_DATA.CreaturexCameraID = {
 	[247433] = { cameraID = 120, displayInfo = 117121, }, -- Xal'atath
 	[258536] = { cameraID = 120, displayInfo = 117121, }, -- Xal'atath
 	[223051] = { cameraID = 82, displayInfo = 119057, }, -- Stromgarde Footman
+	[226895] = { cameraID = 1209, displayInfo = 123721, }, -- Archmage Aethas Sunreaver
+	[227451] = { cameraID = 1209, displayInfo = 123721, }, -- Archmage Aethas Sunreaver
+	[228964] = { cameraID = 1209, displayInfo = 123721, }, -- Archmage Aethas Sunreaver
+	[233244] = { cameraID = 1209, displayInfo = 123721, }, -- Archmage Aethas Sunreaver
 	[226575] = { cameraID = 1842, displayInfo = 117238, }, -- High Speaker Brinthe
 	[242585] = { cameraID = 82, displayInfo = 125322, }, -- Archmage Khadgar
 	[234537] = { cameraID = 1809, displayInfo = 124370, }, -- Angorla
@@ -3732,6 +3991,8 @@ EZBUP_DATA.CreaturexCameraID = {
 	[256002] = { cameraID = 130, displayInfo = 141282, }, -- Alonsus Faol
 	[242077] = { cameraID = 120, displayInfo = 128683, }, -- Vereesa Windrunner
 	[250288] = { cameraID = 120, displayInfo = 128683, }, -- Vereesa Windrunner
+	[251587] = { cameraID = 1209, displayInfo = 137217, }, -- Halduron Brightwing
+	[256910] = { cameraID = 1209, displayInfo = 137217, }, -- Halduron Brightwing
 	[250395] = { cameraID = 1209, displayInfo = 63775, }, -- Grand Magister Rommath
 	[250414] = { cameraID = 141, displayInfo = 141316, }, -- Eitrigg
 	[244920] = { cameraID = 82, displayInfo = 119046, }, -- Danath Trollbane
@@ -3740,7 +4001,12 @@ EZBUP_DATA.CreaturexCameraID = {
 	[252282] = { cameraID = 82, displayInfo = 129720, }, -- High Exarch Turalyon
 	[259041] = { cameraID = 82, displayInfo = 129720, }, -- High Exarch Turalyon
 	[256440] = { cameraID = 90, displayInfo = 129865, }, -- Light's Vanguard
+	[246132] = { cameraID = 1209, displayInfo = 131527, }, -- Commander Venel Lightblood
+	[247272] = { cameraID = 1209, displayInfo = 131527, }, -- Commander Venel Lightblood
+	[247305] = { cameraID = 1209, displayInfo = 131527, }, -- Commander Venel Lightblood
+	[249097] = { cameraID = 1209, displayInfo = 131527, }, -- Commander Venel Lightblood
 	[254316] = { cameraID = 1208, displayInfo = 140104, }, -- Leona Darkstrider
+	[256960] = { cameraID = 1209, displayInfo = 138092, }, -- Eversong Farstrider
 	[260958] = { cameraID = 146, displayInfo = 123613, }, -- Vaeli
 	[22917] = { cameraID = 296 }, -- Illidan Stormrage
 	[30115] = { cameraID = 120 }, -- Vereesa Windrunner
@@ -3760,4 +4026,5 @@ EZBUP_DATA.CreaturexCameraID = {
 	[208649] = { cameraID = 126 }, -- Archdruid Hamuul Runetotem
 	[209704] = { cameraID = 144 }, -- Chen Stormstout
 	[224220] = { cameraID = 84 }, -- Abigail Cyrildotr
+	[256078] = { cameraID = 101 }, -- Lyssabel Dawnpetal
 }
