@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "EZBlizzardUiPopups-2.0", 2
+local MAJOR, MINOR = "EZBlizzardUiPopups-2.0", 3
 local EZBUP = LibStub:NewLibrary(MAJOR, MINOR)
 if not EZBUP then
     -- A newer version is already loaded
@@ -281,6 +281,7 @@ local function SetupAnimations(model, animKit, animIntro, animLoop, lineDuration
 end
 
 local modelAnimationLoopIterration = 0
+local lastPlannedTHFadeOut = 0
 local function EZBlizzUiPop_TalkingHeadFrame_Play(creatureID, name, text, animation)
 	local frame = TalkingHeadFrame
 	local model = frame.MainFrame.Model
@@ -316,8 +317,12 @@ local function EZBlizzUiPop_TalkingHeadFrame_Play(creatureID, name, text, animat
 
 	TalkingHeadFrame:Reset(text, name)
 	TalkingHeadFrame:FadeinFrames()
+	local nowTime = XITK:getTimeUTCinMS()
+	lastPlannedTHFadeOut = nowTime
 	C_Timer.After(math.max(textSpeechDuration, MIN_SPEACH_DURATION), function()
-		TalkingHeadFrame:Close()
+		if lastPlannedTHFadeOut == nowTime then
+			TalkingHeadFrame:Close()
+		end
 	end)
 end
 
