@@ -1,3 +1,5 @@
+- v2.0.2
+	- Secret values management.
 - v2.0.1
 	- LibStub usage
 - v2.0.0

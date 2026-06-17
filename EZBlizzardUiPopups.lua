@@ -1,4 +1,4 @@
-local MAJOR, MINOR = "EZBlizzardUiPopups-2.0", 3
+local MAJOR, MINOR = "EZBlizzardUiPopups-2.0", 4
 local EZBUP = LibStub:NewLibrary(MAJOR, MINOR)
 if not EZBUP then
     -- A newer version is already loaded
@@ -369,7 +369,7 @@ end
 function EZBUP:npcDialog(creatureID, text, overlayFrameTemplate)
 	local frame
 	local npcName = XITK:GetNameFromNpcID(creatureID)
-	if npcName and npcName ~= "" then
+	if npcName and (not issecretvalue or not issecretvalue(npcName)) and npcName ~= "" then
 		frame = EZBlizzUiPop_npcDialogShow(creatureID, text, overlayFrameTemplate)
 	else
 		C_Timer.After(1, function()
